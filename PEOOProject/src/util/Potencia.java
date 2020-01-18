@@ -9,6 +9,13 @@ public class Potencia {
 
 	public int y;
 
+	/**
+	 * 
+	 * Construtor.
+	 * 
+	 * @param x X.
+	 * @param y Y.
+	 */
 	public Potencia(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -28,6 +35,12 @@ public class Potencia {
 
 	}
 
+	/**
+	 * 
+	 * Método para calcular X ^ Y sem usar {@link Math}.
+	 * 
+	 * @return X elevado a Y.
+	 */
 	private int elevar() {
 		int aux = 1;
 		for (int i = 0; i < y; i++) {
