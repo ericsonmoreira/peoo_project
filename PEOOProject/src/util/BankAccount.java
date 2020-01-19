@@ -2,14 +2,14 @@ package util;
 
 /**
  * 
- * Classe para representar uma Conta Bancária.
+ * Classe para representar uma Conta BancÃ¡ria.
  * 
  * @author Ericson Rogerio Moreira
  *
  */
 public class BankAccount {
 
-	// Número da conta.
+	// Nï¿½mero da conta.
 	private int numAccount;
 	
 	// Titular da conta.
@@ -43,17 +43,17 @@ public class BankAccount {
 	}
 	
 	/**
-	 * Método para Depositar.
+	 * MÃ©todo para Depositar.
 	 * 
 	 * @param value valor a ser depositado.
 	 */
 	public void deposit(double value) {
-		// Um depósito não pode ser negativo.
+		// Um depÃ³sito nÃ£o pode ser negativo.
 		if(value < 0) {
-			System.err.println("Depósito não pode ser negativo!!! Valor do Deposito: " + Question.numberFormat.format(value) + ".");
+			System.err.println("DeposÃ­to nÃ£o pode ser negativo!!! Valor do Deposito: " + Question.numberFormat.format(value) + ".");
 		} else {
 			this.balance += value;
-			System.out.println("Depósito realizado. Saldo: " + Question.numberFormat.format(value));
+			System.out.println("DeposÃ­to realizado. Saldo: " + Question.numberFormat.format(value));
 		}
 		// Mostrando a conta.
 		this.showBankAccount();
@@ -61,15 +61,15 @@ public class BankAccount {
 
 	/**
 	 * 
-	 * Método para sacar.
+	 * MÃ©todo para sacar.
 	 * 
 	 * @param value valor a ser sacado.
 	 */
 	public void withdraw(double value) {
-		// Saldo da conta não pode ser negativo.
+		// Saldo da conta nÃ£o pode ser negativo.
 		System.out.println("----------------------------------------------------------------");
 		if (this.balance < value) {
-			System.err.println("Saldo na conta não pode ser negativo!");
+			System.err.println("Saldo na conta nÃ£o pode ser negativo!");
 			System.err.println("Saldo: " + Question.numberFormat.format(this.balance) + ".");
 			System.err.println("Saque: " + Question.numberFormat.format(value));
 		} else {
@@ -84,29 +84,39 @@ public class BankAccount {
 	}
 	
 	/**
-	 * Construtor genérico.
+	 * Construtor genÃ©rico.
 	 */
 	public BankAccount() {
-		this(-1, "");
-		setBalance(0);
+		this(-1, "", 0);
 	}
 
 	/**
-	 * 
-	 * @param numAccount
-	 * @param holder
+	 * @param numAccount nÃºmero da conta.
+	 * @param holder titular da conta.
+	 * @param balance saldo da conta.
 	 */
 	public BankAccount(int numAccount, String holder) {
+		this(numAccount, holder, 0);
+	}
+	
+	/**
+	 * @param numAccount nÃºmero da conta.
+	 * @param holder titular da conta.
+	 * @param balance saldo da conta.
+	 */
+	public BankAccount(int numAccount, String holder, double balance) {
 		setNumAccount(numAccount);
-		setBalance(0);
+		setBalance(balance);
 		setHolder(holder);
 		System.out.println("------------------- Nova Conta ---------------------------------");
 		System.out.println("Nova Conta adicionada com sucesso.");
 		this.showBankAccount();
 		System.out.println("----------------------------------------------------------------");
-		
 	}
-
+	
+	/**
+	 * Imprime um resumo da {@link BankAccount}.
+	 */
 	public void showBankAccount() {
 		System.out.println("--------------------- Sua Conta --------------------------------");
 		System.out.println("[NumConta: " + this.numAccount + "]");

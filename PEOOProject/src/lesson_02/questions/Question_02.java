@@ -7,8 +7,8 @@ import util.Question;
  * 
  * @author Ericson Rogerio Moreira
  * 
- * Exercício 2
- * Faça um programa que receba o nome e a idade de um 5 pessoas e mostre o nome e a idade da pessoa mais 
+ * ExercÃ­cio 2
+ * Faï¿½a um programa que receba o nome e a idade de um 5 pessoas e mostre o nome e a idade da pessoa mais 
  * nova e da pessoa mais velha.
  *
  */
