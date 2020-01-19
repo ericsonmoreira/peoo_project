@@ -6,35 +6,35 @@ import util.Triangle;
 /**
  * 
  * @author ericson
- * 2. Faça o algoritmo que, dadas três dimensões (A, B e C), faça o seguinte:
- * 		a. Verifique se as três dimensões formam um triângulo. Caso não formem, apresentar uma mensagem para o usuário.	
- * 		Obs.: Três dimensões conseguem formar um triângulo, quando cada uma dessas dimensões, individualmente, for 
- * 		menor que a soma das outras duas dimensões.
+ * 2. FaÃ§a o algoritmo que, dadas trÃªs dimensÃµes (A, B e C), faÃ§a o seguinte:
+ * 		a. Verifique se as trÃªs dimensÃµes formam um triÃ¢ngulo. Caso nÃ£o formem, apresentar uma mensagem para o usuÃ¡rio.	
+ * 		Obs.: TrÃªs dimensÃµes conseguem formar um triÃ¢ngulo, quando cada uma dessas dimensÃµes, individualmente, for 
+ * 		menor que a soma das outras duas dimensÃµes.
  * 
- * 		b. Caso as dimensões formem um triângulo, apresentar qual tipo de triângulo elas formam. Sabe-se que:
- * 			-> Triângulo do tipo equilátero – possui os três lados iguais; 
- * 			-> Triângulo do tipo isósceles – possui dois lados iguais;
- * 			-> Triângulo do tipo escaleno – possui os três lados diferentes.
+ * 		b. Caso as dimensÃµes formem um triÃ¢ngulo, apresentar qual tipo de triÃ¢ngulo elas formam. Sabe-se que:
+ * 			-> TriÃ¢ngulo do tipo equilÃ¡tero Â– possui os trÃªs lados iguais; 
+ * 			-> TriÃ¢ngulo do tipo isÃ³sceles Â– possui dois lados iguais;
+ * 			-> TriÃ¢ngulo do tipo escaleno Â– possui os trÃªs lados diferentes.
  */
 public class Question_02 extends Question{
 
 	public static void main(String[] args) {
 
-		// Pegando as dimenções.
-		System.out.println("Digite a Dimenção A:");
+		// Pegando as dimenÃ§Ãµes.
+		System.out.println("Digite a DimenÃ§Ã£o A:");
 		double a = scanner.nextDouble();
-		System.out.println("Digite a Dimenção B:");
+		System.out.println("Digite a DimenÃ§Ã£o B:");
 		double b = scanner.nextDouble();
-		System.out.println("Digite a Dimenção C:");
+		System.out.println("Digite a DimenÃ§Ã£o C:");
 		double c = scanner.nextDouble();
 
-		// Instanciando um Triângulo.
+		// Instanciando um TriÃ¢ngulo.
 		Triangle triangle = new Triangle(a, b, c);
 
 		if (triangle.isTriangle()) {
-			System.out.println("ABC é um Triangulo do tipo: " + triangle.getTipeTriangle() + ".");
+			System.out.println("ABC Ã© um Triangulo do tipo: " + triangle.getTipeTriangle() + ".");
 		} else {
-			System.out.println("ABC não é um Triangulo.");
+			System.out.println("ABC nÃ£o Ã© um Triangulo.");
 		}
 
 	}

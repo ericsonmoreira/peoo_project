@@ -5,12 +5,12 @@ import util.Question;
 /**
  * 
  * @author Ericson Rogerio Moreira
- * Exercício 3 
+ * ExercÃ­cio 3 
  * 
- * 1) Faça um programa que peça ao usuário para entrar com 7 números inteiros e armazene-os em um vetor. Peça também para
- * ele entrar com outro número inteiro X e determine se X está no vetor e em que posição. 
+ * 1) FaÃ§a um programa que peÃ§a ao usuÃ¡rio para entrar com 7 nÃºmeros inteiros e armazene-os em um vetor. PeÃ§a tambÃ©m para
+ * ele entrar com outro nÃºmero inteiro X e determine se X estÃ¡ no vetor e em que posiÃ§Ã£o. 
  * 
- * 2) Considerando o vetor da questão anterior, verifique se os números estão em ordem crescente. Caso contrário, ordene e 
+ * 2) Considerando o vetor da questÃ£o anterior, verifique se os nÃºmeros estÃ£o em ordem crescente. Caso contrÃ¡rio, ordene e 
  * imprima o vetor.
  * 
  */
@@ -18,26 +18,26 @@ public class Question_03 extends Question {
 
 	/**
 	 * 
-	 * @param numbers Lista de números.
-	 * @return Retorna <code>true</code> se a lista está ordenada, caso contrário, retorna <code>false</code>.
+	 * @param numbers Lista de nÃºmeros.
+	 * @return Retorna <code>true</code> se a lista estÃ¡ ordenada, caso contrÃ¡rio, retorna <code>false</code>.
 	 */
 	private static boolean isGrowing(int[] numbers) {
 		// Analisa a lista dois a dois em ordem crescente.
 		for (int i = 0; i < numbers.length - 1; i++) {
-			// Se o i-ésimo número for maior que o seu próximo, então retorna false.
+			// Se o i-Ã©simo nÃºmero for maior que o seu prÃ³ximo, entÃ£o retorna false.
 			if (numbers[i] > numbers[i + 1]) {
 				return false;
 			}
 		}
-		// Se chegou aqui é pq a lista está ordenada.
+		// Se chegou aqui Ã© pq a lista estÃ¡ ordenada.
 		return true;
 	}
 
 	/**
 	 * 
-	 * Método de ordenação bolha (Bubble Sort).
+	 * MÃ©todo de ordenaÃ§Ã£o bolha (Bubble Sort).
 	 * 
-	 * @param numbers Lista números a serem ordenados.
+	 * @param numbers Lista nÃºmeros a serem ordenados.
 	 */
 	private static void bubbleSort(int[] numbers) {
 		for(int i = 0; i < numbers.length; i++){
@@ -54,9 +54,9 @@ public class Question_03 extends Question {
 
 	/**
 	 * 
-	 * @param x Número a se procurado.
+	 * @param x NÃºmero a se procurado.
 	 * @param numbers Lista de busca.
-	 * @return Retorna a posição do número procurado, caso ele esteja presente na lista, caso contrário, retorna -1.
+	 * @return Retorna a posiÃ§Ã£o do nÃºmero procurado, caso ele esteja presente na lista, caso contrÃ¡rio, retorna -1.
 	 */
 	private static int searchInt(int x, int[] numbers) {
 		for (int i = 0; i < numbers.length; i++) if (numbers[i] == x) return i;
@@ -68,7 +68,7 @@ public class Question_03 extends Question {
 		// Criando a lista de 7 interiros.
 		int numbers[] = new int[7];
 
-		// Preenche a Lista com os números digitados.
+		// Preenche a Lista com os nÃºmeros digitados.
 		for (int i = 0; i < numbers.length; i++) {
 			System.out.println("Digire o N[" + i + "]:" );
 			numbers[i] = scanner.nextInt();
@@ -79,15 +79,15 @@ public class Question_03 extends Question {
 
 		int position = searchInt(x, numbers);
 		if (position != -1) {
-			System.out.println("O número " + x + " foi encontrado na posição " + position + ".");
+			System.out.println("O nÃºmero " + x + " foi encontrado na posiÃ§Ã£o " + position + ".");
 		} else {
-			System.out.println("O número " + x + " não foi encontrado na lista.");
+			System.out.println("O nÃºmero " + x + " nÃ£o foi encontrado na lista.");
 		}
 
 		if (isGrowing(numbers)) {
-			System.out.println("A lista é crescent.");
+			System.out.println("A lista Ã© crescent.");
 		} else {
-			System.out.println("A lista não é crescent.");
+			System.out.println("A lista nÃ£o Ã© crescent.");
 			bubbleSort(numbers);
 			System.out.println("Lista ordenada: ");
 			for (int i = 0; i < numbers.length; i++) {

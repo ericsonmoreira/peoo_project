@@ -2,22 +2,22 @@ package util;
 
 /**
  * 
- * Classe criada para abistratir um tri‚ngulo.
+ * Classe criada para abistratir um tri√¢ngulo.
  * 
- * TrÍs dimensıes (A, B, C) conseguem formar um tri‚ngulo, quando cada uma dessas 
- * dimensıes, individualmente, for menor que a soma das outras duas dimensıes.
+ * Tr√™s dimens√µes (A, B, C) conseguem formar um tri√¢ngulo, quando cada uma dessas 
+ * dimens√µes, individualmente, for menor que a soma das outras duas dimens√µes.
  * 
  * @author Ericson Rogerio Moreira
  *
  */
 public class Triangle {
-	// Dimens„o A
+	// Dimens√£o A
 	private double A;
 	
-	// Dimens„o B
+	// Dimens√£o B
 	private double B;
 	
-	// Dimens„o C
+	// Dimens√£o C
 	private double C;
 
 	public double getA() {
@@ -52,10 +52,10 @@ public class Triangle {
 	
 	/**
 	 * 
-	 * @param a Dimens„o A.
-	 * @param b Dimens„o B.
-	 * @param c Dimens„o C.
-	 * @return <code>true</code> se ABC for um tri‚ngulo, caso contr·rio, <code>false</code>.
+	 * @param a Dimens√£o A.
+	 * @param b Dimens√£o B.
+	 * @param c Dimens√£o C.
+	 * @return <code>true</code> se ABC for um tri√¢ngulo, caso contr√°rio, <code>false</code>.
 	 */
 	public boolean isTriangle() {
 		if (A < (B + C) && B < (A + C) && C < (A + B) ) {
@@ -66,21 +66,21 @@ public class Triangle {
 	
 	/**
 	 * 
-	 * MÈtodo para retornar o tipo do tri‚ngulo.
+	 * M√©todo para retornar o tipo do tri√¢ngulo.
 	 * 
-	 * @param a Dimens„o A.
-	 * @param b Dimens„o B.
-	 * @param c Dimens„o C.
-	 * @return tipo do tri‚ngulo.
+	 * @param a Dimens√£o A.
+	 * @param b Dimens√£o B.
+	 * @param c Dimens√£o C.
+	 * @return tipo do tri√¢ngulo.
 	 */
 	public String getTipeTriangle() {
 		String tipeTringle;
 		if (A == B && A == C && B == C) { 
-			tipeTringle = "Equil·tero";
+			tipeTringle = "Equil√°tero";
 		} else if (A != B && A != C && B != C) {
 			tipeTringle = "Escaleno";
 		} else {
-			tipeTringle = "IsÛsceles";
+			tipeTringle = "Is√≥sceles";
 		}
 		return tipeTringle;
 	}

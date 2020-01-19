@@ -5,11 +5,11 @@ import util.Question;
 
 /**
  * 
- * 6. Receber do usu·rio uma matriz quadrada (n˙mero de linhas = n˙mero de colunas) de inteiros e preenchÍ-la 
- * de acordo com os valores informados pelo usu·rio. Ao final exibir 
+ * 6. Receber do usu√°rio uma matriz quadrada (n√∫mero de linhas = n√∫mero de colunas) de inteiros e preench√™-la 
+ * de acordo com os valores informados pelo usu√°rio. Ao final exibir 
  * 		a. a soma dos elementos inseridos na matriz.
  * 		b. A soma dos elementos da diagonal principal 
- * 		c. Se a matriz È diagonal (todos os elementos s„o 0, menos os contidos na diagonal principal)
+ * 		c. Se a matriz √© diagonal (todos os elementos s√£o 0, menos os contidos na diagonal principal)
  * 		d. Qual o maior e o menor elemento da matriz
  * 
  * @author Ericson Rogerio Moreira
@@ -20,7 +20,7 @@ public class Question_06 extends Question {
 	
 	
 	/**
-	 * MÈtodo para imprimir uma matriz n x n.
+	 * M√©todo para imprimir uma matriz n x n.
 	 * 
 	 * @param matriz Matriz quadratica de ordem n.
 	 * 
@@ -41,10 +41,10 @@ public class Question_06 extends Question {
 	
 	/**
 	 * 
-	 * MÈtodo para retornar a soma de todos os elementos da Matriz.
+	 * M√©todo para retornar a soma de todos os elementos da Matriz.
 	 * 
 	 * @param matriz Matriz quadratica de ordem n.
-	 * @return SomatÛrio de todos os elementos da matriz.
+	 * @return Somat√≥rio de todos os elementos da matriz.
 	 */
 	private static int sunAll(int[][] matriz) {
 		int sun = 0;
@@ -57,10 +57,10 @@ public class Question_06 extends Question {
 	}
 	
 	/**
-	 * MÈtodo para retornar a soma dos  elementos da diagonal principal da Matriz.
+	 * M√©todo para retornar a soma dos  elementos da diagonal principal da Matriz.
 	 * 
 	 * @param matriz Matriz quadratica de ordem n.
-	 * @return SomatÛrio da diagonal principal da Matriz.
+	 * @return Somat√≥rio da diagonal principal da Matriz.
 	 */
 	private static int sunDiagonal(int[][] matriz) {
 		int sun = 0;
@@ -72,11 +72,11 @@ public class Question_06 extends Question {
 	}
 
 	/**
-	 * MÈtodo para descobrir se a Matriz È Diagonal. Uma Matriz È Diagonal quando todos os 
-	 * elementos s„o 0, menos os contidos na diagonal principal.
+	 * M√©todo para descobrir se a Matriz √© Diagonal. Uma Matriz √© Diagonal quando todos os 
+	 * elementos s√£o 0, menos os contidos na diagonal principal.
 	 * 
 	 * @param matriz Matriz quadratica de ordem n.
-	 * @return <code>true</code> se for uma matriz diagonal, caso contr·rio, <code>false</code>.
+	 * @return <code>true</code> se for uma matriz diagonal, caso contr√°rio, <code>false</code>.
 	 */
 	private static boolean isDiagonalMatriz(int[][] matriz) {
 		int n = matriz.length;
@@ -93,7 +93,7 @@ public class Question_06 extends Question {
 	}
 	
 	/**
-	 * MÈtodo para calcular o menor elemento.
+	 * M√©todo para calcular o menor elemento.
 	 * 
 	 * @param matriz Matriz quadratica de ordem n.
 	 * @return menor elemento.
@@ -109,7 +109,7 @@ public class Question_06 extends Question {
 	}
 	
 	/**
-	 * MÈtodo para calcular o maior elemento.
+	 * M√©todo para calcular o maior elemento.
 	 * 
 	 * @param matriz Matriz quadratica de ordem n.
 	 * @return maior elemento.
@@ -144,15 +144,15 @@ public class Question_06 extends Question {
 		
 		// a. a soma dos elementos inseridos na matriz.
 		System.out.println("******************************************************************");
-		System.out.println("SomatÛrio dos elementos: " + sunAll(matriz) + ".");
+		System.out.println("Somat√≥rio dos elementos: " + sunAll(matriz) + ".");
 		
 		// b. A soma dos elementos da diagonal principal. 
 		System.out.println("******************************************************************");
-		System.out.println("SomatÛrio dos elementos da Diagonal Principal: " + sunDiagonal(matriz));
+		System.out.println("Somat√≥rio dos elementos da Diagonal Principal: " + sunDiagonal(matriz));
 		
-		// c. Se a matriz È diagonal (todos os elementos s„o 0, menos os contidos na diagonal principal)
+		// c. Se a matriz √© diagonal (todos os elementos s√£o 0, menos os contidos na diagonal principal)
 		System.out.println("******************************************************************");
-		System.out.println("M È uma Matriz Diagonal: " + (isDiagonalMatriz(matriz) ? "Sim.": "N„o."));
+		System.out.println("M √© uma Matriz Diagonal: " + (isDiagonalMatriz(matriz) ? "Sim.": "N√£o."));
 		
 		// d. Qual o maior e o menor elemento da matriz
 		int max = maxElemMatriz(matriz);

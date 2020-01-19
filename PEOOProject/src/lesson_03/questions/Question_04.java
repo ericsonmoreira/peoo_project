@@ -4,11 +4,11 @@ import util.Question;
 
 
 /**
- * 4. FaÁa um algoritmo que leia a quantidade de dinheiro existente no caixa de uma	
- * empresa, a quantidade de produtos a ser comprada e o preÁo de cada unidade. 
+ * 4. Fa√ßa um algoritmo que leia a quantidade de dinheiro existente no caixa de uma	
+ * empresa, a quantidade de produtos a ser comprada e o pre√ßo de cada unidade. 
  * Caso o valor total da compra seja superior a 80% do valor em caixa, a compra 
- * deve ser feita a prazo (3x), com juros de 10% sobre o valor total. Caso contr·rio, 
- * a compra dever· ser realizada a vista, onde a empresa receber· 5% de desconto. 
+ * deve ser feita a prazo (3x), com juros de 10% sobre o valor total. Caso contr√°rio, 
+ * a compra dever√° ser realizada a vista, onde a empresa receber√° 5% de desconto. 
  * Apresentar a forma de pagamento e o valor a ser pago (total a vista ou total a prazo), 
  * dependendo da escolha realizada;
  * 
@@ -25,7 +25,7 @@ public class Question_04 extends Question {
 		System.out.println("Digite a quantidade de produtos a ser comprada:");
 		int quantProducts = scanner.nextInt();
 		
-		System.out.println("Digite o preÁo de cada unidade:");
+		System.out.println("Digite o pre√ßo de cada unidade:");
 		double priceProduct = scanner.nextDouble();
 		
 		// Total do valor da compra.

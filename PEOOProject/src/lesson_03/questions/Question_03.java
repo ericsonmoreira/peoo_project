@@ -6,12 +6,12 @@ import util.Question;
 
 /**
  * 
- * 3. Faça um algoritmo que leia um vetor de inteiros de 10 posições: 
- * 		a. Informe se existe algum número repetido e que número é esse
- * 		b. Informe quantos números menores do que 0 existem no vetor
- * 		c. Informe a soma de todos os números do vetor
+ * 3. FaÃ§a um algoritmo que leia um vetor de inteiros de 10 posiÃ§Ãµes: 
+ * 		a. Informe se existe algum nÃºmero repetido e que nÃºmero Ã© esse
+ * 		b. Informe quantos nÃºmeros menores do que 0 existem no vetor
+ * 		c. Informe a soma de todos os nÃºmeros do vetor
  * 		d. Imprima o vetor em ordem inversa.
- * 		e. Ordene o vetor de menor para o maior número
+ * 		e. Ordene o vetor de menor para o maior nÃºmero
  * 
  * @author Ericson Rogerio Moreira
  *
@@ -19,8 +19,8 @@ import util.Question;
 public class Question_03 extends Question{
 
 	/**
-	 * Método para verificar se há elementos repetidos em um vetor de inteiros.
-	 * [a. Informe se existe algum número repetido e que número é esse]
+	 * MÃ©todo para verificar se hÃ¡ elementos repetidos em um vetor de inteiros.
+	 * [a. Informe se existe algum nÃºmero repetido e que nÃºmero Ã© esse]
 	 * 
 	 * @param D Vetor de inteiros para verificar.
 	 * @return {@link ArrayList} de {@link Integer} contendo os elementos repetidos.
@@ -40,8 +40,8 @@ public class Question_03 extends Question{
 	}
 
 	/**
-	 * Método para retornar a quantidade de elementos menores que zero em um vetor de interiros.
-	 * [b. Informe quantos números menores do que 0 existem no vetor]
+	 * MÃ©todo para retornar a quantidade de elementos menores que zero em um vetor de interiros.
+	 * [b. Informe quantos nÃºmeros menores do que 0 existem no vetor]
 	 * 
 	 * @param D Vetor de interiros.
 	 * @return Quantidade de elementos menores que 0 no vetor.
@@ -56,13 +56,13 @@ public class Question_03 extends Question{
 		return smallest;
 	}
 	/**
-	 * Métoro para pegar somar todos os elementos de um vetor e retornar essa soma.
-	 * [c. Informe a soma de todos os números do vetor]
+	 * MÃ©toro para pegar somar todos os elementos de um vetor e retornar essa soma.
+	 * [c. Informe a soma de todos os nÃºmeros do vetor]
 	 * @param D Vetor de inteiros.
-	 * @return Somatório dos elementos do vetor D.
+	 * @return SomatÃ³rio dos elementos do vetor D.
 	 */
 	public static int sunAll(int D[]) {
-		// Variável para armazenar o somatório.
+		// VariÃ¡vel para armazenar o somatÃ³rio.
 		int sun = 0;
 		for (int i = 0; i < D.length; i++) {
 			sun += D[i];
@@ -71,7 +71,7 @@ public class Question_03 extends Question{
 	}
 
 	/**
-	 * Método que recebe um vetor de inteiros e inverte ele.
+	 * MÃ©todo que recebe um vetor de inteiros e inverte ele.
 	 * 
 	 * @param D vetor de inteitos.
 	 */
@@ -85,8 +85,8 @@ public class Question_03 extends Question{
 	}
 	
 	/**
-	 * Oredenação Bolha para um vetor de inteiros só que ao contrário.
-	 * [e. Ordene o vetor de menor para o maior número]
+	 * OredenaÃ§Ã£o Bolha para um vetor de inteiros sÃ³ que ao contrÃ¡rio.
+	 * [e. Ordene o vetor de menor para o maior nÃºmero]
 	 * 
 	 * @param D Vetor de inteiros.
 	 */
@@ -105,7 +105,7 @@ public class Question_03 extends Question{
 	
 	public static void main(String[] args) {
 
-		// Vetor de inteiros com 10 posições.
+		// Vetor de inteiros com 10 posiÃ§Ãµes.
 		int D[] = new int[10];
 
 		// Preenchendo o vetor.
@@ -119,9 +119,9 @@ public class Question_03 extends Question{
 		System.out.println("Valores recebidos:");
 		printArray(D);
 		System.out.println("*****************************************************");
-		// a. Informe se existe algum número repetido e que número é esse
+		// a. Informe se existe algum nÃºmero repetido e que nÃºmero Ã© esse
 		System.out.println("*****************************************************");
-		System.out.println("Números repetidos: ");
+		System.out.println("NÃºmeros repetidos: ");
 		
 		ArrayList<Integer> rElem = repeatedElements(D);
 		if (rElem.isEmpty()) {
@@ -133,13 +133,13 @@ public class Question_03 extends Question{
 		}
 		System.out.println("*****************************************************");
 		
-		// b. Informe quantos números menores do que 0 existem no vetor
+		// b. Informe quantos nÃºmeros menores do que 0 existem no vetor
 		System.out.println("*****************************************************");
-		System.out.println("Quantidade de números menores que Zero:");
+		System.out.println("Quantidade de nÃºmeros menores que Zero:");
 		System.out.println(countSmallestZero(D));
 		System.out.println("*****************************************************");
 		
-		// c. Informe a soma de todos os números do vetor
+		// c. Informe a soma de todos os nÃºmeros do vetor
 		System.out.println("*****************************************************");
 		System.out.println("Soma de todos os elementos do vetor:");
 		System.out.println(sunAll(D));
@@ -152,7 +152,7 @@ public class Question_03 extends Question{
 		printArray(D);
 		System.out.println("*****************************************************");
 		
-		// e. Ordene o vetor de menor para o maior número
+		// e. Ordene o vetor de menor para o maior nÃºmero
 		System.out.println("*****************************************************");
 		System.out.println("Vetor ordenado em ordem decrescente:");
 		bubbleSortReverse(D);

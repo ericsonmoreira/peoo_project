@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * 
- * Classe so para testes r·pidos.
+ * Classe so para testes r√°pidos.
  * 
  * @author Ericson Rogerio Moreira.
  *

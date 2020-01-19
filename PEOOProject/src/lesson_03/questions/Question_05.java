@@ -4,10 +4,10 @@ import util.Question;
 
 
 /**
- * 5. Faça o algoritmo para calcular e apresentar o valor a ser pago pelo período de estacionamento do automóvel (PAG). 
- * O usuário entra com os seguintes dados: hora (HE) e minuto (ME) de entrada, hora (HS) e minuto (MS) de saída. Sabe-se 
+ * 5. FaÃ§a o algoritmo para calcular e apresentar o valor a ser pago pelo perÃ­odo de estacionamento do automÃ³vel (PAG). 
+ * O usuÃ¡rio entra com os seguintes dados: hora (HE) e minuto (ME) de entrada, hora (HS) e minuto (MS) de saÃ­da. Sabe-se 
  * que esse estacionamento cobra hora cheia, ou seja, se passar um minuto, ele cobra a hora inteira. O valor cobrado 
- * pelo estacionamento é:
+ * pelo estacionamento Ã©:
  *	-> R$ 5,00 para uma hora de estacionamento;
  *	-> R$ 8,00 para duas horas de estacionamento;
  *	-> R$ 2,00 por hora adicional (acima de duas horas).
@@ -26,19 +26,19 @@ public class Question_05 extends Question {
 		System.out.println("Digie o Minuto de Entrada:");
 		int ME = scanner.nextInt();
 		
-		// Hora de saída.
-		System.out.println("Digie a Hora de Saída:");
+		// Hora de saÃ­da.
+		System.out.println("Digie a Hora de SaÃ­da:");
 		int HS = scanner.nextInt();
 		
-		// Minuto de saída.
+		// Minuto de saÃ­da.
 		System.out.println("Digie o Minuto de Entrada:");
 		int MS = scanner.nextInt();
 		
-		// Diferença em horas convertido em minutos.
+		// DiferenÃ§a em horas convertido em minutos.
 		int difH = (HS - HE) * 60;
 		System.out.println("difH: " + difH);
 		
-		// Diferença em minutos. 
+		// DiferenÃ§a em minutos. 
 		int difM = MS - ME;
 		System.out.println("difM: " + difM);
 		

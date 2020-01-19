@@ -4,19 +4,19 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 /**
- * Classe para abistrair funcionalidades das questıes.
+ * Classe para abistrair funcionalidades das quest√µes.
  * 
  * @author Ericson Rogerio Moreira
  *
  */
 public class Question {
 	
-	// Atributos est·ticos que geramente s„o usados nas questıes.
+	// Atributos est√°ticos que geramente s√£o usados nas quest√µes.
 	public static Scanner scanner = new Scanner(System.in);
 	public static NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
 	
 	/**
-	 * MÈtodo auxiliar para poder imprimir um vetor de inteiros.
+	 * M√©todo auxiliar para poder imprimir um vetor de inteiros.
 	 * 
 	 * @param D vetor de inteiros.
 	 */

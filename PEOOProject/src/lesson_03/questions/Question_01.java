@@ -5,8 +5,8 @@ import util.Question;
 /**
  * 
  * @author Ericson Rogerio Moreira
- * 1. As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, e R$ 1,00 cada se 
- * forem compradas pelo menos uma dúzia. Escreva um programa que leia o número de maçãs 
+ * 1. As maÃ§Ã£s custam R$ 1,30 cada se forem compradas menos de uma dÃºzia, e R$ 1,00 cada se 
+ * forem compradas pelo menos uma dÃºzia. Escreva um programa que leia o nÃºmero de maÃ§Ã£s 
  * compradas, calcule e escreva o custo total da compra.
  *
  */
@@ -14,8 +14,8 @@ public class Question_01 extends Question{
 	
 	/**
 	 * 
-	 * @param numApples Número de maçãs.
-	 * @return Preço das maçãs de acordo com a questão.
+	 * @param numApples NÃºmero de maÃ§Ã£s.
+	 * @return PreÃ§o das maÃ§Ã£s de acordo com a questÃ£o.
 	 */
 	private static double priceApples(int numApples) {
 		if (numApples >= 12) 
@@ -27,10 +27,10 @@ public class Question_01 extends Question{
 	
 	public static void main(String[] args) {
 
-		System.out.println("Digite o número de maçãs:");
+		System.out.println("Digite o nÃºmero de maÃ§Ã£s:");
 		int numApples = scanner.nextInt();
 		
-		// Calculando o preço das maçãs.
+		// Calculando o preÃ§o das maÃ§Ã£s.
 		double p = priceApples(numApples);
 		System.out.println("Toral a pagar: R$ " + p + ".");
 		
