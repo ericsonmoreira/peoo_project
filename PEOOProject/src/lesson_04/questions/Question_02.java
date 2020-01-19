@@ -26,8 +26,8 @@ public class Question_02 extends Question {
 		System.out.println("Digite o valor de X:");
 		int x = scanner.nextInt();
 		
-		System.out.println("� Diferente? " + (c.eDiferenteDe(x) ? "Sim": "Não"));
-		System.out.println("� Maior ou Igual? " + (c.eMaiorOuIgual(x) ? "Sim": "Não"));
-		System.out.println("� Menor ou Igual? " + (c.eMenorOuIgual(x) ? "Sim": "Não"));
+		System.out.println("É Diferente? " + (c.eDiferenteDe(x) ? "Sim": "Não"));
+		System.out.println("É Maior ou Igual? " + (c.eMaiorOuIgual(x) ? "Sim": "Não"));
+		System.out.println("É Menor ou Igual? " + (c.eMenorOuIgual(x) ? "Sim": "Não"));
 	}	
 }

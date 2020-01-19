@@ -23,7 +23,7 @@ public class Question_01 extends Question{
 		
 		
 		// Depósitos.
-		System.out.println("\n\n\nTestando Dep�sitos:");
+		System.out.println("\n\n\nTestando Depósitos:");
 		account_01.deposit(100);
 		account_02.deposit(1000);
 		account_02.deposit(-100);
