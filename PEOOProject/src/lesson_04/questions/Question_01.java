@@ -22,7 +22,7 @@ public class Question_01 extends Question{
 		BankAccount account_02 = new BankAccount(20, "PEOO");
 		
 		
-		// Dep�sitos.
+		// Depósitos.
 		System.out.println("\n\n\nTestando Dep�sitos:");
 		account_01.deposit(100);
 		account_02.deposit(1000);
