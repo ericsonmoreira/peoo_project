@@ -109,8 +109,8 @@ public class BankAccount {
 		setBalance(balance);
 		setHolder(holder);
 		System.out.println("------------------- Nova Conta ---------------------------------");
-		System.out.println("Nova Conta adicionada com sucesso.");
 		this.showBankAccount();
+		System.out.println("Nova Conta adicionada com sucesso.");
 		System.out.println("----------------------------------------------------------------");
 	}
 	
@@ -119,10 +119,15 @@ public class BankAccount {
 	 */
 	public void showBankAccount() {
 		System.out.println("--------------------- Sua Conta --------------------------------");
-		System.out.println("[NumConta: " + this.numAccount + "]");
-		System.out.println("[Titular: : " + this.holder + "]");
-		System.out.println("[Saldo: " + this.balance + "]");
+		System.out.println(this);
 		System.out.println("----------------------------------------------------------------");
+	}
+	
+	@Override
+	public String toString() {
+		return "[NumConta: " + this.numAccount + ";"
+				+ " Titular: " + this.holder + ";"
+				+ "Saldo: " + Question.numberFormat.format(this.balance) + "]";
 	}
 		
 }
