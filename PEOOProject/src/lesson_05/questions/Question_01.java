@@ -19,8 +19,12 @@ import util.Question;
  */
 public class Question_01 extends Question {
 
+	// Define um Banco.
 	private static Banck banck = new Banck("BB");
 	
+	/**
+	 * Cria um Loop Infinito para chamar as opções que forem sendo escolhidas.
+	 */
 	private static void menu() {
 		// Loop infinito.
 		while (true) {
@@ -30,10 +34,10 @@ public class Question_01 extends Question {
 				createAccount();
 				break;
 			case 2: // Sacar.
-				withdrawForAccount();
+				withdrawAccount();
 				break;
 			case 3: // Depositar.
-				depositForAccount();
+				depositAccount();
 				break;
 			case 4: // Alterar dados.
 				changeAccount();
@@ -51,7 +55,7 @@ public class Question_01 extends Question {
 	}
 
 	/**
-	 * 
+	 * Muda uma conta selecionada pelo número da conta.
 	 */
 	private static void changeAccount() {
 		System.out.println("Digite o número da Conta:");
@@ -69,9 +73,9 @@ public class Question_01 extends Question {
 	}
 
 	/**
-	 * 
+	 * Faz um depósito na conta escolhida.
 	 */
-	private static void depositForAccount() {
+	private static void depositAccount() {
 		System.out.println("Digite o número da Conta:");
 		int num = scanner.nextInt();
 		BankAccount out = banck.findAccount(num);
@@ -86,9 +90,9 @@ public class Question_01 extends Question {
 	}
 
 	/**
-	 * 
+	 * Sacar fa conta escolhida.
 	 */
-	private static void withdrawForAccount() {
+	private static void withdrawAccount() {
 		System.out.println("Digite o número da Conta:");
 		int num = scanner.nextInt();
 		BankAccount out = banck.findAccount(num);
@@ -102,6 +106,9 @@ public class Question_01 extends Question {
 		}
 	}
 
+	/**
+	 * Listar todas as contras do banco mostrando no Console.
+	 */
 	private static void listAcconts() {
 		if (!banck.getAccounts().isEmpty()) {
 			for (BankAccount bankAccount : banck.getAccounts()) {
@@ -111,6 +118,9 @@ public class Question_01 extends Question {
 		}
 	}
 
+	/**
+	 * Criar uma nova conta.
+	 */
 	private static void createAccount() {
 		System.out.println("Digite o Número da Conta:");
 		int numAccount = scanner.nextInt();
@@ -123,14 +133,17 @@ public class Question_01 extends Question {
 	}
 
 	/**
+	 * Imprime as opições para o Usuário. 
+	 * 
 	 * Imprime as opções.
 	 * 1) Criar conta.
 	 * 2) Sacar
 	 * 3) Depositar
 	 * 4) Alterar dados
 	 * 5) Listar contas.
-	 * 5) Fechar programa.
+	 * 6) Fechar programa.
 	 * 
+	 * @return Valor da opção digitada.
 	 */
 	private static int printMenu() {
 		System.out.println("------------------- Menu ---------------------");
@@ -141,12 +154,12 @@ public class Question_01 extends Question {
 		System.out.println("5 --> Listar contas.");
 		System.out.println("6 --> Fechar programa.");
 		System.out.println("Digite a opção: ");
-		int opition = scanner.nextInt();
-		return opition;
+		return scanner.nextInt(); // Retorna a opção digitada.
 	}
 
 	public static void main(String[] args) {
 		
+		// Iniciação do Menu de opições.
 		menu();
 
 	}
