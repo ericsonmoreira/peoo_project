@@ -127,7 +127,7 @@ public class BankAccount {
 	public String toString() {
 		return "[NumConta: " + this.numAccount + ";"
 				+ " Titular: " + this.holder + ";"
-				+ "Saldo: " + Question.numberFormat.format(this.balance) + "]";
+				+ " Saldo: " + Question.numberFormat.format(this.balance) + "]";
 	}
 		
 }
