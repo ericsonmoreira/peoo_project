@@ -1,7 +1,5 @@
 package lesson_05.questions;
 
-import java.util.Enumeration;
-
 import util.Banck;
 import util.BankAccount;
 import util.Question;
