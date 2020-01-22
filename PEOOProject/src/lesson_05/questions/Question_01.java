@@ -34,10 +34,10 @@ public class Question_01 extends Question {
 				createAccount();
 				break;
 			case 2: // Sacar.
-				withdrawAccount();
+				withdrawInAccount();
 				break;
 			case 3: // Depositar.
-				depositAccount();
+				depositInAccount();
 				break;
 			case 4: // Alterar dados.
 				changeAccount();
@@ -75,7 +75,7 @@ public class Question_01 extends Question {
 	/**
 	 * Faz um depósito na conta escolhida.
 	 */
-	private static void depositAccount() {
+	private static void depositInAccount() {
 		System.out.println("Digite o número da Conta:");
 		int num = scanner.nextInt();
 		BankAccount out = banck.findAccount(num);
@@ -92,7 +92,7 @@ public class Question_01 extends Question {
 	/**
 	 * Sacar fa conta escolhida.
 	 */
-	private static void withdrawAccount() {
+	private static void withdrawInAccount() {
 		System.out.println("Digite o número da Conta:");
 		int num = scanner.nextInt();
 		BankAccount out = banck.findAccount(num);
