@@ -4,10 +4,11 @@ import util.Question;
 
 /**
  * 
- * @author Ericson Rogerio Moreira
  * 1. As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, e R$ 1,00 cada se 
  * forem compradas pelo menos uma dúzia. Escreva um programa que leia o número de maçãs 
  * compradas, calcule e escreva o custo total da compra.
+ * 
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question_01 extends Question{

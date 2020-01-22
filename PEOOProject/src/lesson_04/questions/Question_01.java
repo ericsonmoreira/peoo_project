@@ -10,7 +10,7 @@ import util.Question;
  * 
  * Altere a classe executável para refletir essa mudança
  * 
- * @author ericson
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question_01 extends Question{

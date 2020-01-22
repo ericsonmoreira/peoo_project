@@ -12,7 +12,7 @@ import util.Question;
  * Apresentar a forma de pagamento e o valor a ser pago (total a vista ou total a prazo), 
  * dependendo da escolha realizada;
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question_04 extends Question {

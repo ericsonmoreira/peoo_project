@@ -4,7 +4,7 @@ package util;
  * 
  * Classe para representar uma Conta Bancária.
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class BankAccount {

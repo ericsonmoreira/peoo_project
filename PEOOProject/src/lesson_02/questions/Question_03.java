@@ -4,7 +4,7 @@ import util.Question;
 
 /**
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  * Exercício 3 
  * 
  * 1) Faça um programa que peça ao usuário para entrar com 7 números inteiros e armazene-os em um vetor. Peça também para

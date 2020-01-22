@@ -2,10 +2,18 @@ package util;
 
 import java.util.ArrayList;
 
-public class Banck {
+/**
+ * Classe que Representa um Banco.
+ * 
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
+ *
+ */
+public class Bank {
 
+	// Nome do Banco
 	private String name;
 	
+	// Lista de Contas no banco.
 	private ArrayList<BankAccount> accounts;
 	
 	public String getName() {
@@ -20,15 +28,36 @@ public class Banck {
 		return accounts;
 	}
 
-	public void setAccounts(ArrayList<BankAccount> accounts) {
+	private void setAccounts(ArrayList<BankAccount> accounts) {
 		this.accounts = accounts;
 	}
 
+	/**
+	 * Adiciona uma {@link BankAccount} às contas do Banco.
+	 * 
+	 * @param account {@link BankAccount} a ser adicionada.
+	 */
 	public void addAccount(BankAccount account) {
 		this.accounts.add(account);
 	}
 	
-	public Banck(String name) {
+	/**
+	 * Remover uma {@link BankAccount} das contas do Banco.
+	 * 
+	 * @param numAccount número da conta a ser removida.
+	 * @return <code>true</code> caso a conta exista, <code>false</code> caso contrário.
+	 */
+	public boolean removeAccont(int numAccount) {
+		BankAccount account = findAccount(numAccount);
+		if (account != null) {
+			this.accounts.remove(account);
+		} else {
+			return false;
+		}
+		return true;
+	}
+	
+	public Bank(String name) {
 		setName(name);
 		setAccounts(new ArrayList<BankAccount>());
 	}
@@ -67,6 +96,5 @@ public class Banck {
 		// Transferência não deu certo.
 		return false;
 	}
-	
 	
 }

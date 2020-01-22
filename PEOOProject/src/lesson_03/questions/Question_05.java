@@ -12,7 +12,7 @@ import util.Question;
  *	-> R$ 8,00 para duas horas de estacionamento;
  *	-> R$ 2,00 por hora adicional (acima de duas horas).
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question_05 extends Question {

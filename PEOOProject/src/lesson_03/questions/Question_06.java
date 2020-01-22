@@ -12,7 +12,7 @@ import util.Question;
  * 		c. Se a matriz é diagonal (todos os elementos são 0, menos os contidos na diagonal principal)
  * 		d. Qual o maior e o menor elemento da matriz
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question_06 extends Question {

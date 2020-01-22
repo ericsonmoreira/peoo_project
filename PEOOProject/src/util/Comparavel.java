@@ -1,6 +1,6 @@
 package util;
 /**
- * @author ericson
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Comparavel {

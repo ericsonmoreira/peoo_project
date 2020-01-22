@@ -7,7 +7,7 @@ package util;
  * Três dimensões (A, B, C) conseguem formar um triângulo, quando cada uma dessas 
  * dimensões, individualmente, for menor que a soma das outras duas dimensões.
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Triangle {

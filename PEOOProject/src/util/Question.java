@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Classe para abistrair funcionalidades das questões.
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question {

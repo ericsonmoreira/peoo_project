@@ -12,7 +12,7 @@ import util.Question;
  * 
  * Crie uma classe executável para testar a classe acima.
  * 
- * @autho Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question_02 extends Question {

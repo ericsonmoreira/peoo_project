@@ -10,7 +10,7 @@ import java.util.Random;
  * 
  * Como usar "method reference" e forEach.
  * 
- * @author Ericson Rogerio Moreira.
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Testando {

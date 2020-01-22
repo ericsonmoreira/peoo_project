@@ -10,7 +10,7 @@ import util.Question;
  * 
  * Crie uma classe executável para testar a classe acima.
  * 
- * @author ericson
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question_03 extends Question{

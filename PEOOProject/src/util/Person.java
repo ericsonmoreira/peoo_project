@@ -3,7 +3,7 @@ package util;
  * 
  * Classe que representa uma pessoa com idade (age) e nome (name). 
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Person {

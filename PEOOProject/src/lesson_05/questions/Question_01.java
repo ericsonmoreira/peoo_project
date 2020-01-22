@@ -1,6 +1,6 @@
 package lesson_05.questions;
 
-import util.Banck;
+import util.Bank;
 import util.BankAccount;
 import util.Question;
 
@@ -14,13 +14,13 @@ import util.Question;
  * Crie uma classe Principal que instancie um banco e forneça ao usuário um menu para ele criar contas, 
  * sacar, depositar e alterar dados.
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question_01 extends Question {
 
 	// Define um Banco.
-	private static Banck banck = new Banck("BB");
+	private static Bank bank = new Bank("BB");
 	
 	/**
 	 * Cria um Loop Infinito para chamar as opções que forem sendo escolhidas.
@@ -60,7 +60,7 @@ public class Question_01 extends Question {
 	private static void changeAccount() {
 		System.out.println("Digite o número da Conta:");
 		int num = scanner.nextInt();
-		BankAccount out = banck.findAccount(num);
+		BankAccount out = bank.findAccount(num);
 		if (out != null) {
 			System.out.println("Atualize o titular da conta:");
 			out.setHolder(scanner.next());
@@ -78,7 +78,7 @@ public class Question_01 extends Question {
 	private static void depositInAccount() {
 		System.out.println("Digite o número da Conta:");
 		int num = scanner.nextInt();
-		BankAccount out = banck.findAccount(num);
+		BankAccount out = bank.findAccount(num);
 		if (out != null) {
 			System.out.println("Digite o Valor do deposito:");
 			double value = scanner.nextDouble();
@@ -95,7 +95,7 @@ public class Question_01 extends Question {
 	private static void withdrawInAccount() {
 		System.out.println("Digite o número da Conta:");
 		int num = scanner.nextInt();
-		BankAccount out = banck.findAccount(num);
+		BankAccount out = bank.findAccount(num);
 		if (out != null) {
 			System.out.println("Digite o Valor do saque:");
 			double value = scanner.nextDouble();
@@ -110,8 +110,8 @@ public class Question_01 extends Question {
 	 * Listar todas as contras do banco mostrando no Console.
 	 */
 	private static void listAcconts() {
-		if (!banck.getAccounts().isEmpty()) {
-			for (BankAccount bankAccount : banck.getAccounts()) {
+		if (!bank.getAccounts().isEmpty()) {
+			for (BankAccount bankAccount : bank.getAccounts()) {
 				System.out.println(bankAccount);					}
 		} else {
 			System.out.println("Nenhuma conta cadastrada.");
@@ -129,7 +129,7 @@ public class Question_01 extends Question {
 		System.out.println("Digite o Saldo da Conta:");
 		double balance = scanner.nextDouble();
 		BankAccount account = new BankAccount(numAccount, holder, balance);
-		banck.addAccount(account);
+		bank.addAccount(account);
 	}
 
 	/**

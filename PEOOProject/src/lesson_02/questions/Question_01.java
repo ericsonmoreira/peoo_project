@@ -4,7 +4,7 @@ import util.Question;
 
 /**
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  * 
  * Exercício 1
  * 

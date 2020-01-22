@@ -13,7 +13,7 @@ import util.Question;
  * 		d. Imprima o vetor em ordem inversa.
  * 		e. Ordene o vetor de menor para o maior número
  * 
- * @author Ericson Rogerio Moreira
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
 public class Question_03 extends Question{

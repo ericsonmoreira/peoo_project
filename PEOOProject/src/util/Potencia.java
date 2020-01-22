@@ -1,6 +1,11 @@
 package util;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
+ *
+ */
 public class Potencia {
 
 	public static Scanner scanner = new Scanner(System.in);

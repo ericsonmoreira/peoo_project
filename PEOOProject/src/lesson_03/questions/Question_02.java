@@ -4,8 +4,6 @@ import util.Question;
 import util.Triangle;
 
 /**
- * 
- * @author ericson
  * 2. Faça o algoritmo que, dadas três dimensões (A, B e C), faça o seguinte:
  * 		a. Verifique se as três dimensões formam um triângulo. Caso não formem, apresentar uma mensagem para o usuário.	
  * 		Obs.: Três dimensões conseguem formar um triângulo, quando cada uma dessas dimensões, individualmente, for 
@@ -15,6 +13,9 @@ import util.Triangle;
  * 			-> Triângulo do tipo equilátero  possui os três lados iguais; 
  * 			-> Triângulo do tipo isósceles  possui dois lados iguais;
  * 			-> Triângulo do tipo escaleno  possui os três lados diferentes.
+ * 
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
+ * 
  */
 public class Question_02 extends Question{
 
