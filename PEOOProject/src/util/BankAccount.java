@@ -46,41 +46,44 @@ public class BankAccount {
 	 * Método para Depositar.
 	 * 
 	 * @param value valor a ser depositado.
+	 * @return <code>true</code> sucesso, <code>false</code> erro.
 	 */
-	public void deposit(double value) {
+	public boolean deposit(double value) {
 		// Um depósito não pode ser negativo.
 		if(value < 0) {
 			System.err.println("Deposíto não pode ser negativo!!! Valor do Deposito: " + Question.numberFormat.format(value) + ".");
+			return false;
 		} else {
 			this.balance += value;
 			System.out.println("Deposíto realizado. Saldo: " + Question.numberFormat.format(value));
 		}
 		// Mostrando a conta.
 		this.showBankAccount();
+		return true;
 	}
 
 	/**
-	 * 
 	 * Método para sacar.
 	 * 
 	 * @param value valor a ser sacado.
+	 * @return <code>true</code> sucesso, <code>false</code> erro.
 	 */
-	public void withdraw(double value) {
+	public boolean withdraw(double value) {
 		// Saldo da conta não pode ser negativo.
 		System.out.println("----------------------------------------------------------------");
 		if (this.balance < value) {
 			System.err.println("Saldo na conta não pode ser negativo!");
 			System.err.println("Saldo: " + Question.numberFormat.format(this.balance) + ".");
 			System.err.println("Saque: " + Question.numberFormat.format(value));
+			return false;
 		} else {
-			
 			System.out.println("Saque realizado. Valor: " + Question.numberFormat.format(value));
 			this.balance -= value;
 		}
 		System.out.println("----------------------------------------------------------------");
 		// Mostrando a conta.
 		this.showBankAccount();
-				
+		return true;
 	}
 	
 	/**
