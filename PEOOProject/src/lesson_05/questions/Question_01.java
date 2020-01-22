@@ -67,16 +67,26 @@ public class Question_01 extends Question {
 		// Procura o Devedor. 
 		System.out.println("Digite o número da Conta Devedora:");
 		BankAccount debtor = bank.findAccount(scanner.nextInt());
-		
+		if (debtor == null) {
+			System.out.println("Essa contra não existe!");
+			return;
+		}
 		// Procura o Credor.
 		System.out.println("Digite o número da Conta Credota:");
 		BankAccount creditor = bank.findAccount(scanner.nextInt());
-		
+		if (creditor == null) {
+			System.out.println("Essa contra não existe!");
+			return;
+		}
 		// Valor a ser Transferido.
 		System.out.println("Digite o Valor a ser Transferido:");
 		double value = scanner.nextDouble();
 		
-		bank.transfer(debtor, creditor, value);
+		if (bank.transfer(debtor, creditor, value)) {
+			System.out.println("Transferência realizada com sucesso!");
+		} else {
+			System.out.println("Transferência não realizada.");
+		}
 	}
 
 	/**
