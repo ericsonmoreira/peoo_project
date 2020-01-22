@@ -42,15 +42,55 @@ public class Question_01 extends Question {
 			case 4: // Alterar dados.
 				changeAccount();
 				break;
-			case 5: // Listar contas.
-				listAcconts();
+			case 5: // Transferência entre contas.
+				transferBetweenAccount();
 				break;
-			case 6: // Sair do Sistema.
+			case 6: // Listar contas.
+				listAccounts();
+				break;
+			case 7: // Encerrar conta.
+				removeAccount();
+				break;
+			case 8: // Fechar programa
 				System.out.println("Saindo do Sistema. Obrigado pela preferência!");
 				System.exit(0);
 			default:
 				System.err.println("Opção Invalida!");
 			}
+		}
+	}
+
+	/**
+	 * 
+	 */
+	private static void transferBetweenAccount() {
+		// Procura o Devedor. 
+		System.out.println("Digite o número da Conta Devedora:");
+		BankAccount debtor = bank.findAccount(scanner.nextInt());
+		
+		// Procura o Credor.
+		System.out.println("Digite o número da Conta Credota:");
+		BankAccount creditor = bank.findAccount(scanner.nextInt());
+		
+		// Valor a ser Transferido.
+		System.out.println("Digite o Valor a ser Transferido:");
+		double value = scanner.nextDouble();
+		
+		bank.transfer(debtor, creditor, value);
+	}
+
+	/**
+	 * 
+	 */
+	private static void removeAccount() {
+		System.out.println("Digite o número da Conta:");
+		int num = scanner.nextInt();
+		BankAccount out = bank.findAccount(num);
+		if (out != null) {
+			System.out.println("Encerrando Conta.");
+			bank.removeAccont(num);
+		} else {
+			System.out.println("Não existe conta com num " + num + " cadastrada.");
 		}
 	}
 
@@ -109,7 +149,7 @@ public class Question_01 extends Question {
 	/**
 	 * Listar todas as contras do banco mostrando no Console.
 	 */
-	private static void listAcconts() {
+	private static void listAccounts() {
 		if (!bank.getAccounts().isEmpty()) {
 			for (BankAccount bankAccount : bank.getAccounts()) {
 				System.out.println(bankAccount);					}
@@ -140,8 +180,10 @@ public class Question_01 extends Question {
 	 * 2) Sacar
 	 * 3) Depositar
 	 * 4) Alterar dados
-	 * 5) Listar contas.
-	 * 6) Fechar programa.
+	 * 5) Transferência entre contas.
+	 * 6) Listar contas.
+	 * 7) Encerrar conta.
+	 * 8) Fechar programa.
 	 * 
 	 * @return Valor da opção digitada.
 	 */
@@ -151,8 +193,10 @@ public class Question_01 extends Question {
 		System.out.println("2 --> Sacar.");
 		System.out.println("3 --> Depositar.");
 		System.out.println("4 --> Alterar dados.");
-		System.out.println("5 --> Listar contas.");
-		System.out.println("6 --> Fechar programa.");
+		System.out.println("5 --> Transferência entre contas.");
+		System.out.println("6 --> Listar contas.");
+		System.out.println("7 --> Encerrar conta.");
+		System.out.println("8 --> Fechar Programa.");
 		System.out.println("Digite a opção: ");
 		return scanner.nextInt(); // Retorna a opção digitada.
 	}
