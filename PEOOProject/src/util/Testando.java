@@ -3,6 +3,7 @@ package util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * 
@@ -17,8 +18,21 @@ public class Testando {
 
 	// seed = 20
 	public static Random random = new Random(20);
+	private static Scanner scanner;
+	
+	
+	public static void testeScanner() {
+		scanner = new Scanner(System.in);
+		String string = scanner.nextLine();
+		System.out.println(string);
+		
+		
+	}
 	
 	public static void main(String[] args) {
+		
+//		testeScanner();
+		
 		
 		List<Integer> vetor = new ArrayList<Integer>();
 		

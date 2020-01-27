@@ -1,5 +1,7 @@
 package lesson_05.questions;
 
+import java.util.Scanner;
+
 import util.Bank;
 import util.BankAccount;
 import util.Question;
@@ -175,7 +177,9 @@ public class Question_01 extends Question {
 		System.out.println("Digite o Número da Conta:");
 		int numAccount = scanner.nextInt();
 		System.out.println("Digite o Nome do Titular da Conta:");
-		String holder = scanner.next();
+		// Não entendo pq o scanner normal estava dando problema aqui como nextLine().
+		@SuppressWarnings("resource")
+		String holder = new Scanner(System.in).nextLine();
 		System.out.println("Digite o Saldo da Conta:");
 		double balance = scanner.nextDouble();
 		BankAccount account = new BankAccount(numAccount, holder, balance);
