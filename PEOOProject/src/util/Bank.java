@@ -63,7 +63,7 @@ public class Bank {
 	}
 
 	/**
-	 * Verifica se existe uma {@link BankAccount} é uma conta do Banco.
+	 * Verifica se existe uma {@link BankAccount} no Banco.
 	 * 
 	 * @param numAccount Número da conta.
 	 * @return uma instância de {@link BankAccount} caso ela faça parte das contas do Banco. Caso contrário, <code>null</code>. 
