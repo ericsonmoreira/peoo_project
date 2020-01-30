@@ -2,7 +2,6 @@ package lesson_06.questions;
 
 import java.util.Scanner;
 
-import util.Message;
 import util.Question;
 import util.Schedule;
 
@@ -67,8 +66,6 @@ public class Question_02 extends Question{
 		String contactName = input.nextLine();
 		schedule.getMessages().forEach(message -> System.out.print(
 				message.getContact().getName().equals(contactName) ? message + "\n": ""));
-
-
 	}
 
 	/**
@@ -101,9 +98,6 @@ public class Question_02 extends Question{
 	}
 
 	private static void init() {
-		
-		scanner = new Scanner(System.in);
-		
 		schedule = new Schedule();
 		schedule.addPessoa("Ericson Rogerio Moreira", "(85) 99792-6510");
 		schedule.addPessoa("Christina J. Pelkey", "(11) 2418-6344");
@@ -122,7 +116,6 @@ public class Question_02 extends Question{
 		schedule.sendMessage("(11) 2418-6344", "Consegui a venda!");
 		schedule.sendMessage("(11) 2418-6344", "Meta batida.");
 		schedule.sendMessage("(11) 2418-6344", "Agora posso entrar de férias.");
-		
 		
 	}
 
