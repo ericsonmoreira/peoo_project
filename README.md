@@ -12,5 +12,5 @@ ToDo:
 - [x] Método para mostrar os dados de uma pessoa.
 - [x] Classe Agenda que possui uma lista de pessoas.
 - [x] Métodos para <b>adicionar</b> (se já existir, sugerir substituir), <b>procurar</b> (pelo nome ou pelo telefone), <b>alterar telefone</b> e <b>remover</b> pessoas.
-- [ ] Método para mostrar todas as pessoas da lista.
+- [x] Método para mostrar todas as pessoas da lista.
 - [ ] Classe Principal para exercitar sua Agenda.
