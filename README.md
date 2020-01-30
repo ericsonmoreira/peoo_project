@@ -11,5 +11,5 @@ ToDo:
 - [x] Construtor e métodos de acesso aos atributos. 
 - [x] Método para mostrar os dados de uma pessoa.
 - [x] Classe Agenda que possui uma lista de pessoas.
-- [ ] Métodos para <b>adicionar</b> (se já existir, sugerir substituir), <b>procurar</b> (pelo nome ou pelo telefone), <b>alterar</b> telefone e remover pessoas.
+- [ ] Métodos para <b>adicionar</b> (se já existir, sugerir substituir), <b>procurar</b> (pelo nome ou pelo telefone), <b>alterar telefone</b> e <b>remover</b> pessoas.
 - [ ] Crie também um método para mostrar todas as pessoas da lista.
