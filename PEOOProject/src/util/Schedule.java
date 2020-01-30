@@ -10,7 +10,11 @@ import java.util.ArrayList;
  */
 public class Schedule {
 
+	// Lista de pessoas (Contatos)
 	private ArrayList<Pessoa> pessoas;
+	 
+	// Lista de mensagens.
+	private ArrayList<Message> messages; 
 
 	// Não acho interessante esse método ser público.
 	protected ArrayList<Pessoa> getPessoas() {
@@ -21,12 +25,22 @@ public class Schedule {
 	protected void setPessoas(ArrayList<Pessoa> pessoas) {
 		this.pessoas = pessoas;
 	}
+
+	public ArrayList<Message> getMessages() {
+		return messages;
+	}
+	
+	// Não acho interessante esse método ser público.
+	private void setMessages(ArrayList<Message> messages) {
+		this.messages = messages;
+	}
 	
 	/**
 	 * Construtor padão.
 	 */
 	public Schedule() {
 		setPessoas(new ArrayList<Pessoa>());
+		setMessages(new ArrayList<Message>());
 	}
 	
 	/**
@@ -114,5 +128,24 @@ public class Schedule {
 			System.out.println(pessoa);
 		}
 	}
+	
+	/**
+	 * Enviar uma Mensagem recebendo o número do contato e a mensagem a ser enviada, e realiza o envio.
+	 * Realizar o envio aqui será adicionar a mensagem na lista de mensagens.
+	 * 
+	 * @param foneContact Telefone do Contato.
+	 * @param textMessage Texto da Mensagem.
+	 * @return <code>true</code> caso consiga mandar a mensagem, <code>false</code> caso contrário.
+	 */
+	public boolean sendMessage(String foneContact, String textMessage) {
+		Pessoa contact = this.findPessoaForFone(foneContact);
+		if (contact != null) {
+			Message message = new Message(contact, textMessage);
+			this.messages.add(message);
+			return true;
+		} 
+		return false;
+	}
+
 	
 }
