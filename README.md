@@ -21,4 +21,4 @@ ToDO:
 - [x] Criar a Classe Mensagem, , que possui como atributos o contato para o qual a mensagem foi enviada, o texto da mensagem, e a data de envio. Passe os dois primeiros parâmetros no construtor da mensagem, enquanto a data é criada automaticamente.
 - [x] Metodo para mostrar o nome do destinatário da mensagem, a mensagem e a hora de envio.
 - [x] Na classe Agenda, crie uma lista de mensagens e um método enviarMensagem, que recebe o número do contato e a mensagem a ser enviada, e realiza o envio.
-- [ ] Disponibilize no seu menu principal opções para visualizar todas as mensagens enviadas ou apenas as enviadas para um determinado contato, mostrando também a quantidade de mensagens enviadas.
+- [x] Disponibilize no seu menu principal opções para visualizar todas as mensagens enviadas ou apenas as enviadas para um determinado contato, mostrando também a quantidade de mensagens enviadas.
