@@ -1,5 +1,8 @@
 package util;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 /**
  * Obs.: O nome dessa classe está em português porque já existe uma classe com o nome Person nesse pacote.
  * 
@@ -49,6 +52,28 @@ public class Pessoa {
 	@Override
 	public String toString() {
 		return "[Nome: " + this.name + ", telefone: " + this.fone + "]";
+	}
+	
+	/**
+	 * Usando JSON.
+	 * 
+	 * @return Um {@link JSONObject} - uma representação do objeto em JSON.
+	 */
+	@SuppressWarnings("unchecked")
+	public JSONObject toJSONObject() {
+		JSONObject object = new JSONObject();
+		object.put("fone", this.fone);
+		object.put("name", this.name);
+		return object;
+	}
+
+	/**
+	 * 
+	 * @return {@link String} no padrão JSON.
+	 */
+	public String toStringJSON() {
+		JSONObject object = this.toJSONObject();
+		return object.toJSONString();
 	}
 	
 }

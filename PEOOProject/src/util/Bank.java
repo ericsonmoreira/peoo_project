@@ -2,6 +2,9 @@ package util;
 
 import java.util.ArrayList;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 /**
  * Classe que Representa um Banco.
  * 
@@ -95,6 +98,29 @@ public class Bank {
 		}
 		// Transferência não deu certo.
 		return false;
+	}
+	/**
+	 * Usando JSON.
+	 * 
+	 * @return Um {@link JSONObject} - uma representação do objeto em JSON.
+	 */
+	@SuppressWarnings("unchecked")
+	public JSONObject toJSONObject() {
+		JSONObject object = new JSONObject();
+		JSONArray accounts = new JSONArray();
+		this.accounts.forEach(a -> accounts.add(a));
+		object.put("name", this.name);
+		object.put("accounts", accounts);
+		return object;
+	}
+
+	/**
+	 * 
+	 * @return {@link String} no padrão JSON.
+	 */
+	public String toStringJSON() {
+		JSONObject object = this.toJSONObject();
+		return object.toJSONString();
 	}
 	
 }

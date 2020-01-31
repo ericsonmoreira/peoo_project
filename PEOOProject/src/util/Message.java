@@ -2,6 +2,9 @@ package util;
 
 import java.util.Calendar;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 /**
  * Classe que representa uma Mensagem.
  * 
@@ -58,6 +61,29 @@ public class Message {
 		return "[Contato: " + this.contact + ", texto: " + this.textMessage + 
 				", data: " + this.date.get(Calendar.DAY_OF_MONTH) + "/"+ this.date.get(Calendar.MONTH) +
 				"/" + this.date.get(Calendar.YEAR)+ "]";
+	}
+	
+	/**
+	 * Usando JSON.
+	 * 
+	 * @return Um {@link JSONObject} - uma representação do objeto em JSON.
+	 */
+	@SuppressWarnings("unchecked")
+	public JSONObject toJSONObject() {
+		JSONObject object = new JSONObject();
+		object.put("contact", this.contact);
+		object.put("accounts", this.textMessage);
+		object.put("date", this.date);
+		return object;
+	}
+
+	/**
+	 * 
+	 * @return {@link String} no padrão JSON.
+	 */
+	public String toStringJSON() {
+		JSONObject object = this.toJSONObject();
+		return object.toJSONString();
 	}
 	
 }

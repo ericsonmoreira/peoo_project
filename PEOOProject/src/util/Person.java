@@ -42,11 +42,20 @@ public class Person {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public JSONObject toJSON() {
+	public JSONObject toJSONObject() {
 		JSONObject object = new JSONObject();
 		object.put("name", this.name);
 		object.put("idade", this.age);
 		return object;
+	}
+	
+	/**
+	 * 
+	 * @return {@link String} no padrão JSON.
+	 */
+	public String toStringJSON() {
+		JSONObject object = this.toJSONObject();
+		return object.toJSONString();
 	}
 	
 }
