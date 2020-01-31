@@ -5,6 +5,9 @@ A essa disciplina faz parte da grade do curso de Ciência da Computação na UEC
 
 - [x] Adicionar as classes para trabahar com <b>JSON</b>.
 
+## Dependência do projeto
+
+[JSON.simple](https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple) - Lib para manipular JSON.
 ---
 
 ## Exercícios (os 1.x não existem)
