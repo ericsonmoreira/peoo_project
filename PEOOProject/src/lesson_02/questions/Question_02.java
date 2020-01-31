@@ -4,13 +4,12 @@ import util.Person;
 import util.Question;
 
 /**
- * 
- * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
- * 
  * Exercício 2
- * Fa�a um programa que receba o nome e a idade de um 5 pessoas e mostre o nome e a idade da pessoa mais 
+ * Faça um programa que receba o nome e a idade de um 5 pessoas e mostre o nome e a idade da pessoa mais 
  * nova e da pessoa mais velha.
  *
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
+ * 
  */
 public class Question_02 extends Question {
 
