@@ -1,4 +1,7 @@
 package util;
+
+import org.json.simple.JSONObject;
+
 /**
  * 
  * Classe que representa uma pessoa com idade (age) e nome (name). 
@@ -36,6 +39,14 @@ public class Person {
 	@Override
 	public String toString() {
 		return "[Nome: " + this.name + "; Idade: " + this.age + "]";
+	}
+	
+	@SuppressWarnings("unchecked")
+	public JSONObject toJSON() {
+		JSONObject object = new JSONObject();
+		object.put("name", this.name);
+		object.put("idade", this.age);
+		return object;
 	}
 	
 }

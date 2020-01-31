@@ -1,5 +1,10 @@
 package util;
 
+import java.lang.reflect.Field;
+
+import org.json.simple.JSONObject;
+
+
 /**
  * 
  * Classe para representar uma Conta Bancária.
@@ -9,7 +14,7 @@ package util;
  */
 public class BankAccount {
 
-	// N�mero da conta.
+	// Número da conta.
 	private int numAccount;
 	
 	// Titular da conta.
@@ -132,5 +137,34 @@ public class BankAccount {
 				+ " Titular: " + this.holder + ";"
 				+ " Saldo: " + Question.numberFormat.format(this.balance) + "]";
 	}
-		
+	
+	/**
+	 * Usando JSON.
+	 * 
+	 * @return Um {@link JSONObject} - uma representação do objeto em JSON.
+	 */
+	@SuppressWarnings("unchecked")
+	public JSONObject toJSONObject() {
+		JSONObject object = new JSONObject();
+		object.put("numAccount", this.numAccount);
+		object.put("holder", this.holder);
+		object.put("balance", this.balance);
+		return object;
+	}
+
+	/**
+	 * 
+	 * @return {@link String} no padrão JSON.
+	 */
+	public String toStringJSON() {
+		JSONObject object = this.toJSONObject();
+		return object.toJSONString();
+	}
+	
+//	public static void main(String[] args) {
+//		BankAccount account = new BankAccount(1, "Ericson Rogerio Moreira", 1000);
+//		
+//		System.out.println(account.toStringJSON());
+//	}
+	
 }
