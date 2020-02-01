@@ -3,8 +3,11 @@ Projeto em Java feito no Eclipse para conter as questões da cadeira de PEOO.
 
 A essa disciplina faz parte da grade do curso de Ciência da Computação na UECE - Universidade Estadual do Ceará, semestre 2019.2.
 
-- [ ] Adicionar as classes para trabahar com <b>JSON</b>.
+- [x] Adicionar as classes para trabahar com <b>JSON</b>.
 
+## Dependência do projeto
+
+[JSON.simple](https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple) - Lib para manipular JSON.
 ---
 
 ## Exercícios (os 1.x não existem)
