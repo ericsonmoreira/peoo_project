@@ -1,6 +1,6 @@
 package lesson_02.questions;
 
-import util.Person;
+import model.Person;
 import util.Question;
 
 /**

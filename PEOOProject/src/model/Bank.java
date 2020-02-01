@@ -1,9 +1,11 @@
-package util;
+package model;
 
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import util.JSONable;
 
 /**
  * Classe que Representa um Banco.
@@ -11,7 +13,7 @@ import org.json.simple.JSONObject;
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
-public class Bank {
+public class Bank extends JSONable {
 
 	// Nome do Banco
 	private String name;
@@ -112,15 +114,6 @@ public class Bank {
 		object.put("name", this.name);
 		object.put("accounts", accounts);
 		return object;
-	}
-
-	/**
-	 * 
-	 * @return {@link String} no padrão JSON.
-	 */
-	public String toStringJSON() {
-		JSONObject object = this.toJSONObject();
-		return object.toJSONString();
 	}
 	
 }

@@ -1,7 +1,8 @@
-package util;
+package model;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import util.JSONable;
 
 /**
  * Obs.: O nome dessa classe está em português porque já existe uma classe com o nome Person nesse pacote.
@@ -9,7 +10,7 @@ import org.json.simple.JSONObject;
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
-public class Pessoa {
+public class Pessoa extends JSONable{
 
 	private String name;
 	
@@ -53,27 +54,14 @@ public class Pessoa {
 	public String toString() {
 		return "[Nome: " + this.name + ", telefone: " + this.fone + "]";
 	}
-	
-	/**
-	 * Usando JSON.
-	 * 
-	 * @return Um {@link JSONObject} - uma representação do objeto em JSON.
-	 */
+
+	@Override
 	@SuppressWarnings("unchecked")
 	public JSONObject toJSONObject() {
 		JSONObject object = new JSONObject();
 		object.put("fone", this.fone);
 		object.put("name", this.name);
 		return object;
-	}
-
-	/**
-	 * 
-	 * @return {@link String} no padrão JSON.
-	 */
-	public String toStringJSON() {
-		JSONObject object = this.toJSONObject();
-		return object.toJSONString();
 	}
 	
 }

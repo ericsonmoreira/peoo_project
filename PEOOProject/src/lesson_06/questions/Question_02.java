@@ -2,8 +2,8 @@ package lesson_06.questions;
 
 import java.util.Scanner;
 
+import model.Schedule;
 import util.Question;
-import util.Schedule;
 
 /**
  * Incremente sua Agenda para permitir que você possa enviar uma mensagem de texto a um contato. 

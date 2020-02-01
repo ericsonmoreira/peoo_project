@@ -1,6 +1,6 @@
 package lesson_04.questions;
 
-import util.BankAccount;
+import model.BankAccount;
 import util.Question;
 
 /**

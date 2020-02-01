@@ -1,7 +1,7 @@
 package lesson_06.questions;
 
+import model.Schedule;
 import util.Question;
-import util.Schedule;
 
 /**
  * Crie uma classe Pessoa contendo nome e telefone. Crie um construtor e métodos de acesso aos atributos. 

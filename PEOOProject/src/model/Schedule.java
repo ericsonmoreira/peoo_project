@@ -1,9 +1,11 @@
-package util;
+package model;
 
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import util.JSONable;
 
 /**
  * Classe para representar uma Agenda.
@@ -11,7 +13,7 @@ import org.json.simple.JSONObject;
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
-public class Schedule {
+public class Schedule extends JSONable {
 
 	// Lista de pessoas (Contatos)
 	private ArrayList<Pessoa> pessoas;
@@ -150,17 +152,13 @@ public class Schedule {
 		return false;
 	}
 
-	/**
-	 * Usando JSON.
-	 * 
-	 * @return Um {@link JSONObject} - uma representação do objeto em JSON.
-	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public JSONObject toJSONObject() {
 		JSONObject object = new JSONObject();
 		JSONArray pessoas = new JSONArray();
 		JSONArray messages = new JSONArray();
-
+		
 		this.pessoas.forEach(p -> pessoas.add(p));
 		this.messages.forEach(m -> messages.add(m));
 		
@@ -169,13 +167,4 @@ public class Schedule {
 		return object;
 	}
 
-	/**
-	 * 
-	 * @return {@link String} no padrão JSON.
-	 */
-	public String toStringJSON() {
-		JSONObject object = this.toJSONObject();
-		return object.toJSONString();
-	}
-	
 }

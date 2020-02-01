@@ -1,6 +1,8 @@
-package util;
+package model;
 
 import org.json.simple.JSONObject;
+
+import util.JSONable;
 
 /**
  * 
@@ -9,7 +11,7 @@ import org.json.simple.JSONObject;
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
-public class Person {
+public class Person extends JSONable{
 	
 	private int age;
 
@@ -18,6 +20,25 @@ public class Person {
 	public Person(String name, int age) {
 		this.setName(name);
 		this.setAge(age);
+	}
+	
+	/**
+	 * Construtor por String JSON.
+	 * 
+	 * @param jsonString uma {@link String} no formato JSON.
+	 */
+	public Person(String jsonString) {
+		
+		
+	}
+	
+	/**
+	 * Construtor por objeto JSON.
+	 * 
+	 * @param jsonObject Um {@link JSONObject} já no padrão de um objeto {@link Person}.
+	 */
+	public Person(JSONObject jsonObject) {
+		
 	}
 
 	public int getAge() {
@@ -40,22 +61,14 @@ public class Person {
 	public String toString() {
 		return "[Nome: " + this.name + "; Idade: " + this.age + "]";
 	}
-	
+
+	@Override
 	@SuppressWarnings("unchecked")
 	public JSONObject toJSONObject() {
 		JSONObject object = new JSONObject();
 		object.put("name", this.name);
 		object.put("idade", this.age);
 		return object;
-	}
-	
-	/**
-	 * 
-	 * @return {@link String} no padrão JSON.
-	 */
-	public String toStringJSON() {
-		JSONObject object = this.toJSONObject();
-		return object.toJSONString();
 	}
 	
 }

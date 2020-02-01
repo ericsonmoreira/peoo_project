@@ -1,6 +1,9 @@
-package util;
+package model;
 
 import org.json.simple.JSONObject;
+
+import util.JSONable;
+import util.Question;
 
 
 /**
@@ -10,7 +13,7 @@ import org.json.simple.JSONObject;
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
-public class BankAccount {
+public class BankAccount extends JSONable {
 
 	// Número da conta.
 	private int numAccount;
@@ -135,12 +138,8 @@ public class BankAccount {
 				+ " Titular: " + this.holder + ";"
 				+ " Saldo: " + Question.numberFormat.format(this.balance) + "]";
 	}
-	
-	/**
-	 * Usando JSON.
-	 * 
-	 * @return Um {@link JSONObject} - uma representação do objeto em JSON.
-	 */
+
+	@Override
 	@SuppressWarnings("unchecked")
 	public JSONObject toJSONObject() {
 		JSONObject object = new JSONObject();
@@ -150,19 +149,4 @@ public class BankAccount {
 		return object;
 	}
 
-	/**
-	 * 
-	 * @return {@link String} no padrão JSON.
-	 */
-	public String toStringJSON() {
-		JSONObject object = this.toJSONObject();
-		return object.toJSONString();
-	}
-	
-//	public static void main(String[] args) {
-//		BankAccount account = new BankAccount(1, "Ericson Rogerio Moreira", 1000);
-//		
-//		System.out.println(account.toStringJSON());
-//	}
-	
 }

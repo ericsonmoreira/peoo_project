@@ -2,8 +2,8 @@ package lesson_05.questions;
 
 import java.util.Scanner;
 
-import util.Bank;
-import util.BankAccount;
+import model.Bank;
+import model.BankAccount;
 import util.Question;
 
 /**

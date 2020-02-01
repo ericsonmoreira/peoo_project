@@ -1,9 +1,10 @@
-package util;
+package model;
 
 import java.util.Calendar;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import util.JSONable;
 
 /**
  * Classe que representa uma Mensagem.
@@ -11,12 +12,19 @@ import org.json.simple.JSONObject;
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
-public class Message {
+public class Message extends JSONable {
 	
+	// Contato
 	private Pessoa contact;
 	
+	// Texto da Mensagem
 	private String textMessage;
 	
+	/*
+	 *  Data de envio. 
+	 *  ToDO: Talvez mudar aqui para a classe Timestamp
+	 *  Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
+	 */
 	private Calendar date;
 	
 	public Pessoa getContact() {
@@ -63,11 +71,7 @@ public class Message {
 				"/" + this.date.get(Calendar.YEAR)+ "]";
 	}
 	
-	/**
-	 * Usando JSON.
-	 * 
-	 * @return Um {@link JSONObject} - uma representação do objeto em JSON.
-	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public JSONObject toJSONObject() {
 		JSONObject object = new JSONObject();
@@ -75,15 +79,6 @@ public class Message {
 		object.put("accounts", this.textMessage);
 		object.put("date", this.date);
 		return object;
-	}
-
-	/**
-	 * 
-	 * @return {@link String} no padrão JSON.
-	 */
-	public String toStringJSON() {
-		JSONObject object = this.toJSONObject();
-		return object.toJSONString();
 	}
 	
 }
