@@ -20,14 +20,11 @@ public abstract class JSONable {
 		return object.toJSONString();
 	}
 
-	
 	/**
 	 * Método abistrato para gerar um objeto JSON.
 	 * 
 	 * @return {@link String} no padrão JSON.
 	 */
 	protected abstract JSONObject toJSONObject();
-
-
 		
 }

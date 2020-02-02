@@ -1,6 +1,8 @@
 package model;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import util.JSONable;
 
@@ -40,6 +42,31 @@ public class Pessoa extends JSONable{
 	}
 
 	/**
+	 * Construtor que recebeum {@link JSONObject}
+	 * 
+	 * @param jsonObject 
+	 */
+	public Pessoa(JSONObject jsonObject) {
+		this((String) jsonObject.get("name"), (String) jsonObject.get("fone"));
+	}
+	
+	/**
+	 * Construtor que recebe uma {@link String} no padão JSON.
+	 * 
+	 * @param jsonString
+	 */
+	public Pessoa(String jsonString) {
+		JSONParser parser = new JSONParser();
+		try {
+			JSONObject object = (JSONObject) parser.parse(jsonString);
+			this.setName((String) object.get("name"));
+			this.setFone((String) object.get("fone"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
 	 * Construtor com atributos.
 	 * 
 	 * @param name Nome da pessoa.
@@ -49,6 +76,7 @@ public class Pessoa extends JSONable{
 		setName(name);
 		setFone(fone);
 	}
+	
 	
 	@Override
 	public String toString() {

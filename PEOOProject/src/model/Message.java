@@ -3,6 +3,8 @@ package model;
 import java.util.Calendar;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import util.JSONable;
 
@@ -63,6 +65,37 @@ public class Message extends JSONable {
 		this.setTextMessage(textMessage);
 		this.setDate(Calendar.getInstance()); // passa a data atual.
 	}
+	
+	/**
+	 * Construtor que recebeum {@link JSONObject}
+	 * 
+	 * @param jsonObject 
+	 */
+	public Message(JSONObject jsonObject) {
+		this(
+				(Pessoa) jsonObject.get("contact"), 
+				(String) jsonObject.get("textMessage"));
+		this.setDate((Calendar) jsonObject.get("date"));
+	}
+	
+	/**
+	 * Construtor que recebe uma {@link String} no padão JSON.
+	 * 
+	 * @param jsonString
+	 */
+	public Message(String jsonString) {
+		JSONParser parser = new JSONParser();
+		try {
+			JSONObject object = (JSONObject) parser.parse(jsonString);
+			this.setContact((Pessoa) object.get("contact"));
+			this.setTextMessage((String) object.get("textMessage"));
+			this.setDate((Calendar) object.get("date"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 	@Override
 	public String toString() {

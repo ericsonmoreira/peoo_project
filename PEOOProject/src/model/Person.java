@@ -1,6 +1,8 @@
 package model;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import util.JSONable;
 
@@ -23,22 +25,28 @@ public class Person extends JSONable{
 	}
 	
 	/**
-	 * Construtor por String JSON.
-	 * 
-	 * @param jsonString uma {@link String} no formato JSON.
-	 */
-	public Person(String jsonString) {
-		
-		
-	}
-	
-	/**
 	 * Construtor por objeto JSON.
 	 * 
 	 * @param jsonObject Um {@link JSONObject} já no padrão de um objeto {@link Person}.
 	 */
 	public Person(JSONObject jsonObject) {
-		
+		this((String) jsonObject.get("name"), (int) jsonObject.get("age"));
+	}
+	
+	/**
+	 * Construtor por String JSON.
+	 * 
+	 * @param jsonString uma {@link String} no formato JSON.
+	 */
+	public Person(String jsonString) {
+		JSONParser parser = new JSONParser();
+		try {
+			JSONObject object = (JSONObject) parser.parse(jsonString);
+			this.setName((String) object.get("name"));
+			this.setAge((int) object.get("age"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public int getAge() {

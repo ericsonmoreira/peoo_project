@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import util.JSONable;
 
@@ -65,6 +67,18 @@ public class Bank extends JSONable {
 	public Bank(String name) {
 		setName(name);
 		setAccounts(new ArrayList<BankAccount>());
+	}
+	
+	
+	/**
+	 * Construtor que recebeum {@link JSONObject}
+	 * 
+	 * @param jsonObject 
+	 */
+	@SuppressWarnings("unchecked")
+	public Bank(JSONObject jsonObject) {
+		this((String) jsonObject.get("name"));
+		this.setAccounts((ArrayList<BankAccount>) jsonObject.get("accounts"));
 	}
 
 	/**
