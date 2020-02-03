@@ -159,8 +159,8 @@ public class Schedule extends JSONable {
 		JSONArray pessoas = new JSONArray();
 		JSONArray messages = new JSONArray();
 		
-		this.pessoas.forEach(p -> pessoas.add(p));
-		this.messages.forEach(m -> messages.add(m));
+		this.pessoas.forEach(p -> pessoas.add(p.toJSONObject()));
+		this.messages.forEach(m -> messages.add(m.toJSONObject()));
 		
 		object.put("pessoas", pessoas);
 		object.put("pessoas", messages);

@@ -124,7 +124,7 @@ public class Bank extends JSONable {
 	public JSONObject toJSONObject() {
 		JSONObject object = new JSONObject();
 		JSONArray accounts = new JSONArray();
-		this.accounts.forEach(a -> accounts.add(a));
+		this.accounts.forEach(a -> accounts.add(a.toJSONObject()));
 		object.put("name", this.name);
 		object.put("accounts", accounts);
 		return object;

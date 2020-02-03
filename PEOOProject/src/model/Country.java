@@ -1,12 +1,23 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Country {
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-	// Nome do país. 
+import lesson_07.questions.Question_01;
+import util.JSONable;
+
+/**
+ * Classe usada na questão {@link Question_01}
+ * 
+ * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
+ *
+ */
+public class Country extends JSONable{
+
+	// Come do país. 
 	private String name;
 	
 	// Capital do país
@@ -16,7 +27,7 @@ public class Country {
 	private double dimension;
 	
 	// Conjunto de paises vizinhos
-	private HashSet<Country> borderCountries;
+	private HashSet<Country> borderCountries = new HashSet<Country>();
 
 	public String getName() {
 		return name;
@@ -26,7 +37,6 @@ public class Country {
 		this.name = name;
 	}
 
-	
 	public String getCapital() {
 		return capital;
 	}
@@ -67,7 +77,8 @@ public class Country {
 	public Country(String name, String capital, double dimension) {
 		setName(name);
 		setCapital(capital);
-		setDimension(dimension);		
+		setDimension(dimension);
+		setBorderCountries(new HashSet<Country>());
 	}
 	
 	public boolean equals(Country outro) {
@@ -86,6 +97,25 @@ public class Country {
 		this.borderCountries.forEach(country -> map.put(country.name, country.capital));
 		return map;
 	}
-	
+
+
+	@Override
+	@SuppressWarnings("unchecked")
+	protected JSONObject toJSONObject() {
+		JSONObject object = new JSONObject();
+		JSONArray borderCountriesJsonArray = new JSONArray();
+		/*
+		 * Obs.: Só funciona assim.
+		 * Precisa passar como argumento o JSONObject. 
+		 */
+		this.borderCountries.forEach(bc -> borderCountriesJsonArray.add(bc.toJSONObject()));
+		
+		object.put("name", this.name);
+		object.put("capital", this.capital);
+		object.put("dimension", this.dimension);
+		object.put("borderCountries", borderCountriesJsonArray);
+		
+		return object;
+	}
 	
 }
