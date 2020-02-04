@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import util.Question;
+
 public class Compra {
 	
 	// Itens da compra
@@ -64,10 +66,51 @@ public class Compra {
 	}
 	
 	/**
-	 * Mostra o cupom fiscal da compra com informação de todos os itens comprado, desconto, tipo de pagamento e valor final e prestações.
+	 * Exercício:
+	 * Mostrar o cupom fiscal da compra com informação de todos os itens comprado, desconto, tipo de pagamento e valor final e prestações.
+	 * Caso a forma de pagamento seja à vista, dar desconto de 10%. 
+	 * Caso seja no crédito, dar desconto de 5%.
+	 * Pode-se parcelar o valor final em até 3 vezes. 
+	 * 
+	 * @param desconto Desconto dado
+	 * @param tipoPagamento Tipo do Pagamento 0 -> A vista e 1 -> a prazo.
+	 * @param prestacoes Número de prestações.
 	 */
-	public void gerarRelatorio() {
+	public void gerarRelatorio(double desconto, int tipoPagamento, int numPrestacoes) {
 		
+		double valorFinal = 0;
+		double valorBruto = this.calcularTotalCompra();
+		double prestacao;
+		String tipoPagamentoString = (tipoPagamento == 0)? "A vista": "A prazo";
+		
+		// Cabeçalio
+		System.out.println("+------------ Relátorio da Compra ------------+");
+
+		// Imprimindo o conteudo interno
+		for (ItemDeCompra item : this.compraItens) {
+			double valorUnit = item.getQuant() * item.getPreco();
+			System.out.println("--> " + item.getQuant() + " X " + item.getNome() + " = " + Question.numberFormat.format(valorUnit));
+		}
+		
+		// Gerando o valor com desconto
+		valorFinal = calcularTotalFinal(desconto); // Desconto de 10%.
+		prestacao = valorFinal/numPrestacoes;
+		System.out.println("--> Valor Bruto: " + Question.numberFormat.format(valorBruto));
+		System.out.println("--> Valor Final: " + Question.numberFormat.format(valorFinal));
+		System.out.println("--> Tipo Pag: " + tipoPagamentoString);
+		System.out.println("--> Prestações: " + numPrestacoes + " X " + Question.numberFormat.format(prestacao));
+		// Roda-pé
+		System.out.println("+-------------------- Fim --------------------+");
+	}
+	
+	public static void main(String[] args) {
+		Compra compra = new Compra();
+		
+		compra.inserirItem(new ItemDeCompra(1, "Cadeira", 100, 2));
+		compra.inserirItem(new ItemDeCompra(2, "Mesa", 300, 1));
+		compra.inserirItem(new ItemDeCompra(3, "Cama", 500, 1));
+		
+		compra.gerarRelatorio(0.1, 0, 1);
 	}
 	
 }

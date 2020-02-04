@@ -22,9 +22,14 @@ package lesson_07.questions;
  */
 public class Question_02 {
 
+	// Não sabia que podia fazer isso!!!
+	public static void print(String ... palavras) {
+		for (String palavra : palavras) System.out.println(palavra);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		print("Ola", "mundo", "!");
 	}
 
 }
