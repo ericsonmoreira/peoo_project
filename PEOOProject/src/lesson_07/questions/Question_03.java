@@ -4,6 +4,7 @@ import java.util.Random;
 
 import model.Aluno;
 import model.Disciplina;
+import util.Question;
 
 /**
  * 3.	Crie uma classe Aluno que represente um aluno matriculado em uma disciplina. Todo aluno contém um nome e uma matrícula. 
@@ -64,6 +65,7 @@ public class Question_03 {
 			aluno.setNp2(gerarNotaRandomica());
 			System.out.println("Matriculando: " + aluno.getNome() + ", resultado: " + (PEOO.matricularAluno(aluno)? "OK": "ERRO"));
 		}
+		
 		System.out.println("Ordenando por média");
 		PEOO.listAlunosPorMedia();
 
@@ -72,6 +74,7 @@ public class Question_03 {
 		
 		// So por curiosidade. =P
 		System.out.println(PEOO.toStringJSON());
+		Question.createFileJSON("disciplina_peoo.json", PEOO.toStringJSON());
 		
 	}
 }
