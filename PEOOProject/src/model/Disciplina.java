@@ -93,6 +93,30 @@ public class Disciplina extends JSONable{
 		}
 		return false;
 	}
+	
+	/**
+	 * Gerar estatísticas: mostra as seguintes informações: o aluno que tirou maior média, quantos alunos passaram 
+	 * por média (>=7) e quantos não passaram, a média geral da turma
+	 */
+	public void gerarEstatisticas() {
+		Aluno alunoMaiorMedia = new Aluno();  
+		int quantPassaram = 0;
+		double mediaGeral = 0;
+		for (Aluno aluno : alunos) {
+			if (aluno.getMedia() >= alunoMaiorMedia.getMedia()) {
+				alunoMaiorMedia = aluno;
+			}
+			if (aluno.getMedia() >= 7) {
+				quantPassaram++;
+			}
+			mediaGeral += aluno.getMedia();
+		}
+		mediaGeral = mediaGeral/getAlunos().size();
+		System.out.println("Maior Média: " + alunoMaiorMedia.getMedia()+ ", Nome: " + alunoMaiorMedia.getNome());
+		System.out.println("Quantidade de alunos que passaram por média: " + quantPassaram);
+		System.out.println("Quantidade de alunos que não passaram: " + (getAlunos().size() - quantPassaram));
+		System.out.println("Média Geral dos alunos:" + mediaGeral);
+	}
 
 	
 	/**

@@ -66,11 +66,14 @@ public class Question_03 {
 			System.out.println("Matriculando: " + aluno.getNome() + ", resultado: " + (PEOO.matricularAluno(aluno)? "OK": "ERRO"));
 		}
 		
-		System.out.println("Ordenando por média");
+		System.out.println("Ordenando por média:");
 		PEOO.listAlunosPorMedia();
 
-		System.out.println("Ordenado por nome");
+		System.out.println("Ordenado por nome:");
 		PEOO.listAlunosPorNome();
+		
+		System.out.println("Estatísticas:");
+		PEOO.gerarEstatisticas();
 		
 		// So por curiosidade. =P
 		System.out.println(PEOO.toStringJSON());
