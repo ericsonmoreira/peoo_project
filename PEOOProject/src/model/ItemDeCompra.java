@@ -1,79 +1,78 @@
 package model;
 
 import org.json.simple.JSONObject;
-
 import util.JSONable;
 
-public class ItemDeCompra extends JSONable{
-	// Código do produto 
-	private int cod;
-	
-	// Nome do produto
-	private String nome;
-	
-	// preço do produto
-	private double preco;
-	
-	// Quantidade comprada
-	private int quant;
+public class ItemDeCompra extends JSONable {
+    // Código do produto
+    private int cod;
 
-	public int getCod() {
-		return cod;
-	}
+    // Nome do produto
+    private String nome;
 
-	public void setCod(int cod) {
-		this.cod = cod;
-	}
+    // preço do produto
+    private double preco;
 
-	public String getNome() {
-		return nome;
-	}
+    // Quantidade comprada
+    private int quant;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public int getCod() {
+        return cod;
+    }
 
-	public double getPreco() {
-		return preco;
-	}
+    public void setCod(int cod) {
+        this.cod = cod;
+    }
 
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public int getQuant() {
-		return quant;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setQuant(int quant) {
-		this.quant = quant;
-	}
-	
-	public ItemDeCompra(int cod, String nome, double preco, int quant) {
-		setCod(cod);
-		setNome(nome);
-		setPreco(preco);
-		setQuant(quant);
-	}
-	
-	/**
-	 * Devolve o valor total pago pelo item (preço unitátio * quantidade).
-	 * 
-	 * @return (preço unitátio * quantidade)
-	 */
-	public double calcularTotal() {
-		return preco * quant;
-	}
+    public double getPreco() {
+        return preco;
+    }
 
-	@Override
-	@SuppressWarnings("unchecked")
-	public JSONObject toJSONObject() {
-		JSONObject object = new JSONObject();
-		object.put("cod", this.getCod());
-		object.put("nome", this.getNome());
-		object.put("preco", this.getPreco());
-		object.put("quant", this.getQuant());
-		return object;
-	}
-	
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public int getQuant() {
+        return quant;
+    }
+
+    public void setQuant(int quant) {
+        this.quant = quant;
+    }
+
+    public ItemDeCompra(int cod, String nome, double preco, int quant) {
+        setCod(cod);
+        setNome(nome);
+        setPreco(preco);
+        setQuant(quant);
+    }
+
+    /**
+     * Devolve o valor total pago pelo item (preço unitátio * quantidade).
+     *
+     * @return (preço unitátio * quantidade)
+     */
+    public double calcularTotal() {
+        return preco * quant;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public JSONObject toJSONObject() {
+        JSONObject object = new JSONObject();
+        object.put("cod", this.getCod());
+        object.put("nome", this.getNome());
+        object.put("preco", this.getPreco());
+        object.put("quant", this.getQuant());
+        return object;
+    }
+
 }
