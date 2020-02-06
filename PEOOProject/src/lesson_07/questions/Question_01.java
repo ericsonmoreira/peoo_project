@@ -37,7 +37,6 @@ public class Question_01 {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        // Imprimindo o JSON todo.
         System.out.println(BRASIL.toStringJSON());
 
         BRASIL.getCountryNameForCapital().keySet().forEach(

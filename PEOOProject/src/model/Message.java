@@ -22,11 +22,6 @@ public class Message extends JSONable {
 	// Texto da Mensagem
 	private String textMessage;
 
-	/*
-	 *  Data de envio.
-	 *  ToDO: Talvez mudar aqui para a classe Timestamp
-	 *  Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
-	 */
 	private Calendar date;
 
 	public Contato getContato() {

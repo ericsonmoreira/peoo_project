@@ -7,7 +7,7 @@ import util.Question;
 import java.util.Random;
 
 /**
- * 3.	Crie uma classe Aluno que represente um aluno matriculado em uma disciplina. Todo aluno contém um nome e uma matrícula.
+ * 3.	Crie uma classe Aluno que represente um aluno matriculado em uma disciplina. Aluno contém um nome e uma matrícula.
  * Crie um construtor que inicialize esses valores.  Além disso, ele possui a nota das 2 provas que ele faz durante o semestre.
  * Crie métodos de get e set para todos os atributos. Crie também um método que calcula a média aritmética obtida na disciplina.
  * Crie uma classe Disciplina que representa a disciplina de Programação Estruturada e Orientada a Objetos.

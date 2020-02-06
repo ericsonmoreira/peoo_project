@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 import util.JSONable;
 
 /**
- * Todo aluno contém um nome e uma matrícula.
+ * Aluno contém um nome e uma matrícula.
  * 
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
