@@ -3,9 +3,17 @@ package model;
 import org.json.simple.JSONObject;
 
 /**
- *
+ * Contato de trabalho é um {@link Contato} com setor.
  */
 public class ContatoTrabalho extends Contato {
+
+    public String getSetor() {
+        return setor;
+    }
+
+    public void setSetor(String setor) {
+        this.setor = setor;
+    }
 
     // Setor onde trabalha (informática, rh, finanças...).
     private String setor;
@@ -17,7 +25,7 @@ public class ContatoTrabalho extends Contato {
 
     @Override
     public String toString() {
-        return "[Nome: " + this.name + ", telefone: " + this.fone + ", setor: " + this.setor +"]";
+        return "[Nome: " + this.name + ", telefone: " + this.telefone + ", setor: " + this.setor +"]";
     }
 
     @Override

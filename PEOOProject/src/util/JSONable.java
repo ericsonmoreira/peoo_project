@@ -26,5 +26,5 @@ public abstract class JSONable {
 	 * @return {@link String} no padrão JSON.
 	 */
 	protected abstract JSONObject toJSONObject();
-		
+	
 }

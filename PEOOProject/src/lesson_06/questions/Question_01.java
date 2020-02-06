@@ -33,16 +33,16 @@ public class Question_01 extends Question{
 
 		System.out.println("Procurando pessoas pelo Fone");
 
-		System.out.println(schedule.findContatoPorFone("(85) 99792-6510"));
-		System.out.println(schedule.findContatoPorFone("(16) 6094-6352"));
-		System.out.println(schedule.findContatoPorFone("(88) 99792-6510"));
+		System.out.println(schedule.procuraContatoPorTelefone("(85) 99792-6510"));
+		System.out.println(schedule.procuraContatoPorTelefone("(16) 6094-6352"));
+		System.out.println(schedule.procuraContatoPorTelefone("(88) 99792-6510"));
 
 		System.out.println("Auterar as o telefone das pessoas");	
 
-		schedule.changeFonePessoa("Donna J. Tapia", "(75) 2000-0000");
-		schedule.changeFonePessoa("Edna J. Jones", "(16) 6094-0000");
-		schedule.changeFonePessoa("James C. Childress", "(11) 6208-0000");
-		schedule.changeFonePessoa("Amber C. Bosch", "(11) 6888-2177"); // O nome dessa pessoa está errado.
+		schedule.mudaTelefoneDoContato("Donna J. Tapia", "(75) 2000-0000");
+		schedule.mudaTelefoneDoContato("Edna J. Jones", "(16) 6094-0000");
+		schedule.mudaTelefoneDoContato("James C. Childress", "(11) 6208-0000");
+		schedule.mudaTelefoneDoContato("Amber C. Bosch", "(11) 6888-2177"); // O nome dessa pessoa está errado.
 
 		schedule.showContatosPorTipo(TipoContato.TODOS);
 		

@@ -28,6 +28,6 @@ public class ContatoInfancia extends Contato {
 
     @Override
     public String toString() {
-        return "[Nome: " + this.name + ", telefone: " + this.fone + ", idade: " + this.idade +"]";
+        return "[Nome: " + this.name + ", telefone: " + this.telefone + ", idade: " + this.idade +"]";
     }
 }

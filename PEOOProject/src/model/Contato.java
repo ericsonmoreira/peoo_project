@@ -14,7 +14,7 @@ public class Contato extends JSONable {
 
     protected String name;
 
-    protected String fone;
+    protected String telefone;
 
     public String getName() {
         return name;
@@ -24,12 +24,12 @@ public class Contato extends JSONable {
         this.name = name;
     }
 
-    public String getFone() {
-        return fone;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setFone(String fone) {
-        this.fone = fone;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     /**
@@ -58,7 +58,7 @@ public class Contato extends JSONable {
         try {
             JSONObject object = (JSONObject) parser.parse(jsonString);
             this.setName((String) object.get("name"));
-            this.setFone((String) object.get("fone"));
+            this.setTelefone((String) object.get("fone"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -68,11 +68,11 @@ public class Contato extends JSONable {
      * Construtor com atributos.
      *
      * @param name Nome da pessoa.
-     * @param fone Telefone da pessoa.
+     * @param telefone Telefone da pessoa.
      */
-    public Contato(String name, String fone) {
+    public Contato(String name, String telefone) {
         setName(name);
-        setFone(fone);
+        setTelefone(telefone);
     }
 
     /**
@@ -84,14 +84,14 @@ public class Contato extends JSONable {
 
     @Override
     public String toString() {
-        return "[Nome: " + this.name + ", telefone: " + this.fone + "]";
+        return "[Nome: " + this.name + ", telefone: " + this.telefone + "]";
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public JSONObject toJSONObject() {
         var object = new JSONObject();
-        object.put("fone", this.fone);
+        object.put("fone", this.telefone);
         object.put("name", this.name);
         return object;
     }

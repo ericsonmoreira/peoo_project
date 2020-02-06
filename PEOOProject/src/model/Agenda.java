@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import util.JSONable;
 import util.TipoContato;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -106,7 +107,7 @@ public class Agenda extends JSONable {
      * @param setor Setor do contato.
      */
     public void addContatoTrabalho(String name, String fone, String setor) {
-        this.addContato(new ContatoTrabalho(name, fone, setor));
+        this.addContatoTrabalho(new ContatoTrabalho(name, fone, setor));
     }
 
     /**
@@ -141,9 +142,9 @@ public class Agenda extends JSONable {
      * @param name Nome da pessoa.
      * @return {@link Contato} ou <code>null</code>.
      */
-    public Contato findContatoPorFone(String fone) {
+    public Contato procuraContatoPorTelefone(String fone) {
         for (Contato contato : contatos) {
-            if (contato.getFone() == fone) {
+            if (contato.getTelefone() == fone) {
                 return contato;
             }
         }
@@ -157,10 +158,10 @@ public class Agenda extends JSONable {
      * @param newFone Novo telefone da pessoa.
      * @return <code>true</code> caso consiga, <code>false</code> caso contrário.
      */
-    public boolean changeFonePessoa(String name, String newFone) {
+    public boolean mudaTelefoneDoContato(String name, String newFone) {
         Contato contato = this.procuraContatoPeloNome(name);
         if (contato != null) {
-            contato.setFone(newFone);
+            contato.setTelefone(newFone);
             return true;
         }
         return false;
@@ -208,6 +209,10 @@ public class Agenda extends JSONable {
         }
     }
 
+    /**
+     *
+     * @param tipoContato
+     */
     public void showContatosPorTipo(TipoContato tipoContato) {
         switch (tipoContato){
             case GERAL:
@@ -229,6 +234,15 @@ public class Agenda extends JSONable {
         }
     }
 
+    /**
+     * Selec
+     * @param setor Setor de Trabalho.
+     */
+    public void showContatosPorSetorDeTrabalho(String setor){
+        for (ContatoTrabalho contatoSetor: this.contatosTrabalho) {
+            if (contatoSetor.getSetor().equals(setor)) System.out.println(contatoSetor);
+        }
+    }
 
     /**
      * Enviar uma Mensagem recebendo o número do contato e a mensagem a ser enviada, e realiza o envio.
@@ -239,7 +253,7 @@ public class Agenda extends JSONable {
      * @return <code>true</code> caso consiga mandar a mensagem, <code>false</code> caso contrário.
      */
     public boolean sendMessage(String foneContact, String textMessage) {
-        Contato contact = this.findContatoPorFone(foneContact);
+        Contato contact = this.procuraContatoPorTelefone(foneContact);
         if (contact != null) {
             Message message = new Message(contact, textMessage);
             this.messages.add(message);
