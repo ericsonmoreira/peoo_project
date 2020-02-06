@@ -22,8 +22,7 @@ import java.util.Scanner;
  */
 public class Question_02 extends Question{
 
-
-	public static Agenda schedule;
+	public static Agenda agenda;
 	/**
 	 * Cria um Loop Infinito para chamar as opções que forem sendo escolhidas.
 	 */
@@ -48,15 +47,14 @@ public class Question_02 extends Question{
 				System.err.println("Opção Invalida!");
 			}
 		}
-
 	}
 
 	private static void showAllMessages() {
-		schedule.getMessages().forEach(message -> System.out.println(message));
+		agenda.getMessages().forEach(message -> System.out.println(message));
 	}
 
 	private static void showCountMessages() {
-		System.out.println("Total de mensagnes enviadas: " + schedule.getMessages().size() + ".");
+		System.out.println("Total de mensagnes enviadas: " + agenda.getMessages().size() + ".");
 	}
 
 	private static void showAllMessagesForContact() {
@@ -65,7 +63,7 @@ public class Question_02 extends Question{
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner (System.in);
 		String contactName = input.nextLine();
-		schedule.getMessages().forEach(message -> System.out.print(
+		agenda.getMessages().forEach(message -> System.out.print(
 				message.getContato().getName().equals(contactName) ? message + "\n": ""));
 	}
 
@@ -99,24 +97,24 @@ public class Question_02 extends Question{
 	}
 
 	private static void init() {
-		schedule = new Agenda();
-		schedule.addContato("Ericson Rogerio Moreira", "(85) 99792-6510");
-		schedule.addContato("Christina J. Pelkey", "(11) 2418-6344");
-		schedule.addContato("Donna J. Tapia", "(75) 2000-2662");
-		schedule.addContato("Edna J. Jones", "(16) 6094-6352");
-		schedule.addContato("James C. Childress", "(11) 6208-9848");
-		schedule.addContato("Amber D. Bosch", "(11) 6888-2177");
+		agenda = new Agenda();
+		agenda.addContato("Ericson Rogerio Moreira", "(85) 99792-6510");
+		agenda.addContato("Christina J. Pelkey", "(11) 2418-6344");
+		agenda.addContato("Donna J. Tapia", "(75) 2000-2662");
+		agenda.addContato("Edna J. Jones", "(16) 6094-6352");
+		agenda.addContato("James C. Childress", "(11) 6208-9848");
+		agenda.addContato("Amber D. Bosch", "(11) 6888-2177");
 		
-		schedule.showContatosPorTipo(TipoContato.TODOS);
+		agenda.showContatosPorTipo(TipoContato.TODOS);
 		
-		schedule.sendMessage("(85) 99792-6510", "Olá, tudo bem?");
-		schedule.sendMessage("(85) 99792-6510", "Comigo também.");
-		schedule.sendMessage("(85) 99792-6510", "Como vai a família?");
-		schedule.sendMessage("(11) 2418-6344", "Ainda não consegi aquele cliente.");
-		schedule.sendMessage("(11) 2418-6344", "Ele está muito receioso para contratar o seguro. Mas eu não vou desistir.");
-		schedule.sendMessage("(11) 2418-6344", "Consegui a venda!");
-		schedule.sendMessage("(11) 2418-6344", "Meta batida.");
-		schedule.sendMessage("(11) 2418-6344", "Agora posso entrar de férias.");
+		agenda.sendMessage("(85) 99792-6510", "Olá, tudo bem?");
+		agenda.sendMessage("(85) 99792-6510", "Comigo também.");
+		agenda.sendMessage("(85) 99792-6510", "Como vai a família?");
+		agenda.sendMessage("(11) 2418-6344", "Ainda não consegi aquele cliente.");
+		agenda.sendMessage("(11) 2418-6344", "Ele está muito receioso para contratar o seguro. Mas eu não vou desistir.");
+		agenda.sendMessage("(11) 2418-6344", "Consegui a venda!");
+		agenda.sendMessage("(11) 2418-6344", "Meta batida.");
+		agenda.sendMessage("(11) 2418-6344", "Agora posso entrar de férias.");
 		
 	}
 

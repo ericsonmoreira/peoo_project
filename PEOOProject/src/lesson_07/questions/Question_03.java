@@ -43,7 +43,7 @@ public class Question_03 {
     public static void main(String[] args) {
 
         // array de alunos
-        Aluno alunos[] = {
+        Aluno[] alunos = {
                 new Aluno("Antônio Ferreira Rodrigues", 1),
                 new Aluno("Vinicius Ferreira Correia", 2),
                 new Aluno("Tânia Lima Castro", 3),

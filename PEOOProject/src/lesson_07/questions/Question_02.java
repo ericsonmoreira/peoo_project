@@ -1,5 +1,11 @@
 package lesson_07.questions;
 
+import model.Compra;
+import model.ItemDeCompra;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  * 2. Crie uma classe ItemDeCompra que representa um item de uma compra numa loja de suprimentos de informática.
  * Cada item de compra tem um código, o nome do produto, o preço unitário e a quantidade comprada. Crie um construtor
@@ -17,17 +23,10 @@ package lesson_07.questions;
  * da loja. Caso a forma de pagamento seja à vista, dar desconto de 10%. Caso seja no crédito, dar desconto de 5% e  pode-se
  * parcelar o valor final em até 3 vezes, Ao final da compra, imprima o cupom fiscal para o usuário.
  *
+ * Já implementado na classe {@link Compra}
+ *
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  */
 public class Question_02 {
-
-    // Não sabia que podia fazer isso!!!
-    public static void print(String... palavras) {
-        for (String palavra : palavras) System.out.println(palavra);
-    }
-
-    public static void main(String[] args) {
-        print("Ola", "mundo", "!");
-    }
 
 }
