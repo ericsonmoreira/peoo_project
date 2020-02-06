@@ -9,106 +9,109 @@ import java.util.Calendar;
 
 /**
  * Classe que representa uma Mensagem.
- *
+ * 
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
+ *
  */
 public class Message extends JSONable {
 
-    // Contato
-    private Contato contact;
 
-    // Texto da Mensagem
-    private String textMessage;
+	// Contato
+	private Contato contato;
 
-    /*
-     *  Data de envio.
-     *  ToDO: Talvez mudar aqui para a classe Timestamp
-     *  Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
-     */
-    private Calendar date;
+	// Texto da Mensagem
+	private String textMessage;
 
-    public Contato getContact() {
-        return contact;
-    }
+	/*
+	 *  Data de envio.
+	 *  ToDO: Talvez mudar aqui para a classe Timestamp
+	 *  Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
+	 */
+	private Calendar date;
 
-    public void setContact(Contato contact) {
-        this.contact = contact;
-    }
+	public Contato getContato() {
+		return contato;
+	}
 
-    public String getTextMessage() {
-        return textMessage;
-    }
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
 
-    public void setTextMessage(String textMessage) {
-        this.textMessage = textMessage;
-    }
+	public String getTextMessage() {
+		return textMessage;
+	}
 
-    public Calendar getDate() {
-        return date;
-    }
+	public void setTextMessage(String textMessage) {
+		this.textMessage = textMessage;
+	}
 
-    public void setDate(Calendar date) {
-        this.date = date;
-    }
+	public Calendar getDate() {
+		return date;
+	}
 
-    /**
-     * Construtor da class Mensagem. Uma mesangem tem um contato, texto da mensagem e a data em que
-     * a mensagem foi enviada (gerada na data de criação).
-     *
-     * @param contact     Contato.
-     * @param textMessage Texto da Mensagem.
-     */
-    public Message(Contato contact, String textMessage) {
-        this.setContact(contact);
-        this.setTextMessage(textMessage);
-        this.setDate(Calendar.getInstance()); // passa a data atual.
-    }
+	public void setDate(Calendar date) {
+		this.date = date;
+	}
 
-    /**
-     * Construtor que recebeum {@link JSONObject}
-     *
-     * @param jsonObject
-     */
-    public Message(JSONObject jsonObject) {
-        this(
-                (Contato) jsonObject.get("contact"),
-                (String) jsonObject.get("textMessage"));
-        this.setDate((Calendar) jsonObject.get("date"));
-    }
-
-    /**
-     * Construtor que recebe uma {@link String} no padão JSON.
-     *
-     * @param jsonString
-     */
-    public Message(String jsonString) {
-        JSONParser parser = new JSONParser();
-        try {
-            JSONObject object = (JSONObject) parser.parse(jsonString);
-            this.setContact((Contato) object.get("contact"));
-            this.setTextMessage((String) object.get("textMessage"));
-            this.setDate((Calendar) object.get("date"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @Override
-    public String toString() {
-        return "[Contato: " + this.contact + ", texto: " + this.textMessage +
-                ", data: " + this.date.get(Calendar.DAY_OF_MONTH) + "/" + this.date.get(Calendar.MONTH) +
-                "/" + this.date.get(Calendar.YEAR) + "]";
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public JSONObject toJSONObject() {
-        JSONObject object = new JSONObject();
-        object.put("contact", this.contact);
-        object.put("accounts", this.textMessage);
-        object.put("date", this.date);
-        return object;
-    }
-
+	/**
+	 * Construtor da class Mensagem. Uma mesangem tem um contato, texto da mensagem e a data em que
+	 * a mensagem foi enviada (gerada na data de criação).
+	 * 
+	 * @param contact Contato.
+	 * @param textMessage Texto da Mensagem.
+	 */
+	public Message(Contato contato, String textMessage) {
+		this.setContato(contato);
+		this.setTextMessage(textMessage);
+		this.setDate(Calendar.getInstance()); // passa a data atual.
+	}
+	
+	/**
+	 * Construtor que recebeum {@link JSONObject}
+	 * 
+	 * @param jsonObject 
+	 */
+	public Message(JSONObject jsonObject) {
+		this(
+				(Contato) jsonObject.get("contato"),
+				(String) jsonObject.get("textMessage"));
+		this.setDate((Calendar) jsonObject.get("date"));
+	}
+	
+	/**
+	 * Construtor que recebe uma {@link String} no padão JSON.
+	 * 
+	 * @param jsonString
+	 */
+	public Message(String jsonString) {
+		JSONParser parser = new JSONParser();
+		try {
+			JSONObject object = (JSONObject) parser.parse(jsonString);
+			this.setContato((Contato) object.get("contato"));
+			this.setTextMessage((String) object.get("textMessage"));
+			this.setDate((Calendar) object.get("date"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "[Contato: " + this.contato + ", texto: " + this.textMessage +
+				", data: " + this.date.get(Calendar.DAY_OF_MONTH) + "/"+ this.date.get(Calendar.MONTH) +
+				"/" + this.date.get(Calendar.YEAR)+ "]";
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public JSONObject toJSONObject() {
+		JSONObject object = new JSONObject();
+		object.put("contact", this.contato);
+		object.put("accounts", this.textMessage);
+		object.put("date", this.date);
+		return object;
+	}
+	
 }

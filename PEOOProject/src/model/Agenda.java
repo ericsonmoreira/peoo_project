@@ -225,7 +225,7 @@ public class Agenda extends JSONable {
                 showTodosContatosInfancia();
                 break;
             default:
-                System.out.println("TIPO CONTATO INVALIDO");
+                System.out.println("ERRO");
         }
     }
 

@@ -5,7 +5,6 @@ package model;
  */
 public class ContaPoupanca extends BankAccount {
 
-    //Porcentagem do rendomento.
     private double taxaRendimento;
 
     public double getTaxaRendimento() {
