@@ -13,7 +13,7 @@ import java.util.HashSet;
  *
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  */
-public class Country extends JSONable {
+public class Pais extends JSONable {
 
     // Come do país.
     private String name;
@@ -25,7 +25,7 @@ public class Country extends JSONable {
     private double dimension;
 
     // Conjunto de paises vizinhos
-    private HashSet<Country> borderCountries = new HashSet<Country>();
+    private HashSet<Pais> borderCountries = new HashSet<Pais>();
 
     public String getName() {
         return name;
@@ -51,33 +51,33 @@ public class Country extends JSONable {
         this.dimension = dimension;
     }
 
-    public HashSet<Country> getBorderCountries() {
+    public HashSet<Pais> getBorderCountries() {
         return borderCountries;
     }
 
-    public void addBorderCountrie(Country country) throws IllegalArgumentException {
-        if (this.name.equals(country.name)) {
+    public void addBorderCountrie(Pais pais) throws IllegalArgumentException {
+        if (this.name.equals(pais.name)) {
             throw new IllegalArgumentException("IllegalArgumentException: Conflito entre paises.");
         }
-        this.borderCountries.add(country);
+        this.borderCountries.add(pais);
     }
 
     /**
      * @param borderCountries
      */
-    public void setBorderCountries(HashSet<Country> borderCountries) {
+    public void setBorderCountries(HashSet<Pais> borderCountries) {
         borderCountries.forEach(bc -> this.addBorderCountrie(bc));
     }
 
 
-    public Country(String name, String capital, double dimension) {
+    public Pais(String name, String capital, double dimension) {
         setName(name);
         setCapital(capital);
         setDimension(dimension);
-        setBorderCountries(new HashSet<Country>());
+        setBorderCountries(new HashSet<Pais>());
     }
 
-    public boolean equals(Country outro) {
+    public boolean equals(Pais outro) {
         if (this.name != outro.name || this.capital != outro.capital || this.dimension != outro.dimension)
             return false;
         if (!(this.borderCountries.containsAll(outro.borderCountries) && outro.borderCountries.containsAll(this.borderCountries)))
@@ -90,7 +90,7 @@ public class Country extends JSONable {
      */
     public HashMap<String, String> getCountryNameForCapital() {
         HashMap<String, String> map = new HashMap<String, String>();
-        this.borderCountries.forEach(country -> map.put(country.name, country.capital));
+        this.borderCountries.forEach(pais -> map.put(pais.name, pais.capital));
         return map;
     }
 
