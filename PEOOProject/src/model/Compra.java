@@ -101,14 +101,4 @@ public class Compra {
         System.out.println("+-------------------- Fim --------------------+");
     }
 
-    public static void main(String[] args) {
-        Compra compra = new Compra();
-
-        compra.inserirItem(new ItemDeCompra(1, "Cadeira", 100, 2));
-        compra.inserirItem(new ItemDeCompra(2, "Mesa", 300, 1));
-        compra.inserirItem(new ItemDeCompra(3, "Cama", 500, 1));
-
-        compra.gerarRelatorio(0.1, 0, 1);
-    }
-
 }

@@ -27,9 +27,4 @@ public class ContatoTrabalho extends Contato {
         return object;
     }
 
-    public static void main(String[] args) {
-        ContatoTrabalho contatoTrabalho = new ContatoTrabalho("Ericson", "85997926510", "TI");
-        contatoTrabalho.mostrarDados();
-    }
-
 }

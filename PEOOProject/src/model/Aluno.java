@@ -88,12 +88,6 @@ public class Aluno extends JSONable{
 		setNp1(np1);
 		setNp2(np2);
 	}
-	
-	public static void main(String[] args) {
-		System.out.println("Ericson".compareTo("Eriko"));
-		System.out.println("Eriko".compareTo("Ericson"));
-		System.out.println("Ericson".compareTo("Ericson"));
-	}
 
 	/**
 	 * Usando JSON.
