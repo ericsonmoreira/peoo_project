@@ -14,6 +14,7 @@ public class Contato extends JSONable {
 
     protected String nome;
 
+
     protected String telefone;
 
     public String getNome() {
