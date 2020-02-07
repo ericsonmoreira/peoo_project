@@ -121,9 +121,8 @@ public class Disciplina extends JSONable {
      * Imprime lista dos alunos com suas notas e média por ordem alfabética CESCENTE.
      */
     public void listarAlunosPorNome() {
-        ArrayList<Aluno> alunosCopy = new ArrayList<Aluno>();
-        // Pega os nomes de todos alunos.
-        this.alunos.forEach(aluno -> alunosCopy.add(aluno));
+        var alunosCopy = new ArrayList<Aluno>();
+        this.alunos.forEach(aluno -> alunosCopy.add(aluno));// Pega os nomes de todos alunos.
         alunosCopy.sort(Comparator.comparing(aluno -> aluno.getNome())); // Ordena pelo nome.
         alunosCopy.forEach(aluno -> System.out.println("Aluno: " + aluno.getNome() + ", Média: " + aluno.getMedia()));
     }
@@ -132,10 +131,10 @@ public class Disciplina extends JSONable {
      * Imprime lista dos alunos com suas notas e média por ordem DECRESCENTE de média.
      */
     public void listarAlunosPorMedia() {
-        ArrayList<Aluno> alunosCopy = new ArrayList<Aluno>();
+        var alunosCopy = new ArrayList<Aluno>();
         this.alunos.forEach(aluno -> alunosCopy.add(aluno)); // Pega os nomes de todos alunos.
         alunosCopy.sort(Comparator.comparing(aluno -> aluno.getMedia())); // Ordena mela média.
-        Collections.reverse(alunosCopy); // Inverte a Ordem
+        Collections.reverse(alunosCopy); // Inverte a ordem.
         alunosCopy.forEach(aluno -> System.out.println("Aluno: " + aluno.getNome() + ", Média: " + aluno.getMedia()));
     }
 
