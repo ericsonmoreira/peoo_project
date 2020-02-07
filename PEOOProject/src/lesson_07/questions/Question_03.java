@@ -57,23 +57,37 @@ public class Question_03 {
                 new Aluno("José Rodrigues Cardoso Segundo", 11) // Nesse aqui vai dar erro.
         };
 
+        // Criando a Disciplina.
         Disciplina PEOO = new Disciplina("CT874", "PEOO", 10);
 
+        // Imprime as informações da Disciplina.
+        System.out.println(PEOO);
+
+        System.out.println("------------------------------------------------------------");
+        System.out.println("Matriculando Alunos");
         for (Aluno aluno : alunos) {
             aluno.setNp1(gerarNotaRandomica());
             aluno.setNp2(gerarNotaRandomica());
             System.out.println("Matriculando: " + aluno.getNome() + ", resultado: " + (PEOO.matricularAluno(aluno) ? "OK" : "ERRO"));
         }
 
-        System.out.println("Ordenando por média:");
-        PEOO.listAlunosPorMedia();
+        // Imprime as informações da Disciplina depois das Matrículas dos Alunos.
+        System.out.println("------------------------------------------------------------");
+        System.out.println(PEOO);
 
-        System.out.println("Ordenado por nome:");
-        PEOO.listAlunosPorNome();
+        System.out.println("------------------------------------------------------------");
+        System.out.println("Ordenando por média (DECRESCENTE):");
+        PEOO.listarAlunosPorMedia();
 
+        System.out.println("------------------------------------------------------------");
+        System.out.println("Ordenado por nome (CESCENTE):");
+        PEOO.listarAlunosPorNome();
+
+        System.out.println("------------------------------------------------------------");
         System.out.println("Estatísticas:");
         PEOO.gerarEstatisticas();
 
+        System.out.println("------------------------------------------------------------");
         // So por curiosidade. =P
         System.out.println(PEOO.toStringJSON());
         Question.createFileJSON("disciplina_peoo.json", PEOO.toStringJSON());

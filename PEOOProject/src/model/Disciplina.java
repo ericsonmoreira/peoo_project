@@ -118,57 +118,35 @@ public class Disciplina extends JSONable {
 
 
     /**
-     * Imprime lista dos alunos com suas notas e média por ordem alfabética crescentre.
+     * Imprime lista dos alunos com suas notas e média por ordem alfabética CESCENTE.
      */
-    public void listAlunosPorNome() {
+    public void listarAlunosPorNome() {
         ArrayList<Aluno> alunosCopy = new ArrayList<Aluno>();
-        // Peda o nome de todos alunos
+        // Pega os nomes de todos alunos.
         this.alunos.forEach(aluno -> alunosCopy.add(aluno));
-        Collections.sort(alunosCopy, new ComparadorAlunosNome());
+        alunosCopy.sort(Comparator.comparing(aluno -> aluno.getNome())); // Ordena pelo nome.
         alunosCopy.forEach(aluno -> System.out.println("Aluno: " + aluno.getNome() + ", Média: " + aluno.getMedia()));
     }
 
     /**
-     * Imprime lista dos alunos com suas notas e média por ordem decrescente de média.
+     * Imprime lista dos alunos com suas notas e média por ordem DECRESCENTE de média.
      */
-    public void listAlunosPorMedia() {
+    public void listarAlunosPorMedia() {
         ArrayList<Aluno> alunosCopy = new ArrayList<Aluno>();
-        // Peda o nome de todos alunos
-        this.alunos.forEach(aluno -> alunosCopy.add(aluno));
-        Collections.sort(alunosCopy, new ComparadorAlunosMedia());
+        this.alunos.forEach(aluno -> alunosCopy.add(aluno)); // Pega os nomes de todos alunos.
+        alunosCopy.sort(Comparator.comparing(aluno -> aluno.getMedia())); // Ordena mela média.
+        Collections.reverse(alunosCopy); // Inverte a Ordem
         alunosCopy.forEach(aluno -> System.out.println("Aluno: " + aluno.getNome() + ", Média: " + aluno.getMedia()));
     }
 
-    // Aqui vai classes internas para comparar alunos.
-
-    /**
-     * Classe para comprar alunos pelo nome em ordem crescente.
-     *
-     * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
-     */
-    private class ComparadorAlunosNome implements Comparator<Aluno> {
-
-        @Override
-        public int compare(Aluno o1, Aluno o2) {
-            if (o1.getNome().compareTo(o2.getNome()) < 0) return -1;
-            else if (o1.getNome().compareTo(o2.getNome()) > 0) return 1;
-            else return 0;
-        }
-    }
-
-    /**
-     * Classe para comprar alunos pela Média das notas em ordem decrescente.
-     *
-     * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
-     */
-    private class ComparadorAlunosMedia implements Comparator<Aluno> {
-
-        @Override
-        public int compare(Aluno o1, Aluno o2) {
-            if (o1.getMedia() > o2.getMedia()) return -1;
-            else if (o1.getMedia() < o2.getMedia()) return 1;
-            else return 0;
-        }
+    @Override
+    public String toString() {
+        return "Disciplina{" +
+                "cod='" + cod + '\'' +
+                ", nome='" + nome + '\'' +
+                ", quantMaxAlunos=" + quantMaxAlunos +
+                ", alunos=" + alunos +
+                "}" ;
     }
 
     /**

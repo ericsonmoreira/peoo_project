@@ -16,23 +16,23 @@ import java.util.HashSet;
 public class Pais extends JSONable {
 
     // Come do país.
-    private String name;
+    private String nome;
 
     // Capital do país
     private String capital;
 
     // Dimensão do país em km quadrados
-    private double dimension;
+    private double dimencao;
 
     // Conjunto de paises vizinhos
-    private HashSet<Pais> borderCountries = new HashSet<Pais>();
+    private HashSet<Pais> paisesVizinhos = new HashSet<Pais>();
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCapital() {
@@ -43,44 +43,43 @@ public class Pais extends JSONable {
         this.capital = capital;
     }
 
-    public double getDimension() {
-        return dimension;
+    public double getDimencao() {
+        return dimencao;
     }
 
-    public void setDimension(double dimension) {
-        this.dimension = dimension;
+    public void setDimencao(double dimencao) {
+        this.dimencao = dimencao;
     }
 
-    public HashSet<Pais> getBorderCountries() {
-        return borderCountries;
+    public HashSet<Pais> getPaisesVizinhos() {
+        return paisesVizinhos;
     }
 
     public void addBorderCountrie(Pais pais) throws IllegalArgumentException {
-        if (this.name.equals(pais.name)) {
+        if (this.nome.equals(pais.nome)) {
             throw new IllegalArgumentException("IllegalArgumentException: Conflito entre paises.");
         }
-        this.borderCountries.add(pais);
+        this.paisesVizinhos.add(pais);
     }
 
     /**
-     * @param borderCountries
+     * @param paisesVizinhos
      */
-    public void setBorderCountries(HashSet<Pais> borderCountries) {
-        borderCountries.forEach(bc -> this.addBorderCountrie(bc));
+    public void setPaisesVizinhos(HashSet<Pais> paisesVizinhos) {
+        paisesVizinhos.forEach(bc -> this.addBorderCountrie(bc));
     }
 
-
-    public Pais(String name, String capital, double dimension) {
-        setName(name);
+    public Pais(String nome, String capital, double dimencao) {
+        setNome(nome);
         setCapital(capital);
-        setDimension(dimension);
-        setBorderCountries(new HashSet<Pais>());
+        setDimencao(dimencao);
+        setPaisesVizinhos(new HashSet<Pais>());
     }
 
     public boolean equals(Pais outro) {
-        if (this.name != outro.name || this.capital != outro.capital || this.dimension != outro.dimension)
+        if (this.nome != outro.nome || this.capital != outro.capital || this.dimencao != outro.dimencao)
             return false;
-        if (!(this.borderCountries.containsAll(outro.borderCountries) && outro.borderCountries.containsAll(this.borderCountries)))
+        if (!(this.paisesVizinhos.containsAll(outro.paisesVizinhos) && outro.paisesVizinhos.containsAll(this.paisesVizinhos)))
             return false;
         return true;
     }
@@ -90,26 +89,22 @@ public class Pais extends JSONable {
      */
     public HashMap<String, String> getCountryNameForCapital() {
         HashMap<String, String> map = new HashMap<String, String>();
-        this.borderCountries.forEach(pais -> map.put(pais.name, pais.capital));
+        this.paisesVizinhos.forEach(pais -> map.put(pais.nome, pais.capital));
         return map;
     }
-
 
     @Override
     @SuppressWarnings("unchecked")
     protected JSONObject toJSONObject() {
         JSONObject object = new JSONObject();
-        JSONArray borderCountriesJsonArray = new JSONArray();
-        /*
-         * Obs.: Só funciona assim.
-         * Precisa passar como argumento o JSONObject.
-         */
-        this.borderCountries.forEach(bc -> borderCountriesJsonArray.add(bc.toJSONObject()));
+        JSONArray paisesVizinhosJsonArray = new JSONArray();
 
-        object.put("name", this.name);
+        this.paisesVizinhos.forEach(bc -> paisesVizinhosJsonArray.add(bc.toJSONObject()));
+
+        object.put("nome", this.nome);
         object.put("capital", this.capital);
-        object.put("dimension", this.dimension);
-        object.put("borderCountries", borderCountriesJsonArray);
+        object.put("dimencao", this.dimencao);
+        object.put("paizesVizinhos", paisesVizinhosJsonArray);
 
         return object;
     }

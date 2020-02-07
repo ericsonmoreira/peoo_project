@@ -1,24 +1,27 @@
 package model;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import util.JSONable;
 import util.Question;
 
 import java.util.ArrayList;
 
-public class Compra {
+public class Compra extends JSONable {
 
     // Itens da compra
-    private ArrayList<ItemDeCompra> compraItens;
+    private ArrayList<ItemDeCompra> itensDeCompra;
 
-    public ArrayList<ItemDeCompra> getCompraItens() {
-        return compraItens;
+    public ArrayList<ItemDeCompra> getItensDeCompra() {
+        return itensDeCompra;
     }
 
-    public void setCompraItens(ArrayList<ItemDeCompra> compraItens) {
-        this.compraItens = compraItens;
+    public void setItensDeCompra(ArrayList<ItemDeCompra> itensDeCompra) {
+        this.itensDeCompra = itensDeCompra;
     }
 
     public Compra() {
-        setCompraItens(new ArrayList<ItemDeCompra>());
+        setItensDeCompra(new ArrayList<ItemDeCompra>());
     }
 
     /**
@@ -27,7 +30,7 @@ public class Compra {
      * @param itemDeCompra
      */
     public void inserirItem(ItemDeCompra itemDeCompra) {
-        this.compraItens.add(itemDeCompra);
+        this.itensDeCompra.add(itemDeCompra);
     }
 
     /**
@@ -37,7 +40,7 @@ public class Compra {
      */
     public double calcularTotalCompra() {
         double total = 0;
-        for (ItemDeCompra item : compraItens) {
+        for (ItemDeCompra item : itensDeCompra) {
             total += item.calcularTotal();
         }
         return total;
@@ -85,7 +88,7 @@ public class Compra {
         System.out.println("+------------ Relátorio da Compra ------------+");
 
         // Imprimindo o conteudo interno
-        for (ItemDeCompra item : this.compraItens) {
+        for (ItemDeCompra item : this.itensDeCompra) {
             double valorUnit = item.getQuant() * item.getPreco();
             System.out.println("--> " + item.getQuant() + " X " + item.getNome() + " = " + Question.numberFormat.format(valorUnit));
         }
@@ -101,4 +104,12 @@ public class Compra {
         System.out.println("+-------------------- Fim --------------------+");
     }
 
+    @Override
+    protected JSONObject toJSONObject() {
+        JSONObject object = new JSONObject();
+        JSONArray itens = new JSONArray();
+        this.itensDeCompra.forEach(a -> itens.add(a.toJSONObject()));
+        object.put("itensDeCompra", this.itensDeCompra);
+        return object;
+    }
 }

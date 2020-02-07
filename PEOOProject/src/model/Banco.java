@@ -120,10 +120,10 @@ public class Banco extends JSONable {
     @SuppressWarnings("unchecked")
     public JSONObject toJSONObject() {
         JSONObject object = new JSONObject();
-        JSONArray accounts = new JSONArray();
-        this.contas.forEach(a -> accounts.add(a.toJSONObject()));
+        JSONArray contas = new JSONArray();
+        this.contas.forEach(a -> contas.add(a.toJSONObject()));
         object.put("name", this.nome);
-        object.put("accounts", accounts);
+        object.put("contas", contas);
         return object;
     }
 

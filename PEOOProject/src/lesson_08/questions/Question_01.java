@@ -1,6 +1,5 @@
 package lesson_08.questions;
 
-import model.Conta;
 import model.ContaCorrente;
 import model.ContaPoupanca;
 
@@ -50,6 +49,12 @@ public class Question_01 {
             System.out.println("Conta Corrente:" + contaCorrente.toStringJSON());
             System.out.println("Conta Poupança:" + contaPoupanca.toStringJSON());
         }
+
+        meses.forEach(mes -> {
+            System.out.println(mes);
+            System.out.println(mes
+            );
+        });
 
     }
 

@@ -262,16 +262,24 @@ public class Agenda extends JSONable {
     }
 
     @Override
+    public String toString() {
+        return toStringJSON();
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     public JSONObject toJSONObject() {
         JSONObject object = new JSONObject();
         JSONArray contatos = new JSONArray();
+        JSONArray contatosTrabalho = new JSONArray();
+        JSONArray contatosInfancia = new JSONArray();
         JSONArray messages = new JSONArray();
-
         this.contatos.forEach(p -> contatos.add(p.toJSONObject()));
         this.mensagens.forEach(m -> messages.add(m.toJSONObject()));
 
         object.put("contatos", contatos);
+        object.put("contatosTrabalho", contatosTrabalho);
+        object.put("contatosInfancia", contatosInfancia);
         object.put("messages", messages);
         return object;
     }

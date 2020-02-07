@@ -89,6 +89,16 @@ public class Aluno extends JSONable{
 		setNp2(np2);
 	}
 
+	@Override
+	public String toString() {
+		return "Aluno{" +
+				"nome='" + nome + '\'' +
+				", matricula=" + matricula +
+				", np1=" + np1 +
+				", np2=" + np2 +
+				"}";
+	}
+
 	/**
 	 * Usando JSON.
 	 * 

@@ -1,5 +1,6 @@
 package model;
 
+import org.json.simple.JSONObject;
 import util.Question;
 
 /**
@@ -36,6 +37,13 @@ public class ContaCorrente extends Conta {
                 + " Titular: " + this.titular + ";"
                 + " Saldo: " + Question.numberFormat.format(this.saldo) + ";"
                 + " Limite: " + Question.numberFormat.format(this.limite) +"]";
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+        var aux = super.toJSONObject();
+        aux.put("limite", this.limite);
+        return aux;
     }
 
 }

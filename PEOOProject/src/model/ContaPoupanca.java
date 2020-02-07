@@ -1,5 +1,6 @@
 package model;
 
+import org.json.simple.JSONObject;
 import util.Question;
 
 /**
@@ -35,6 +36,13 @@ public class ContaPoupanca extends Conta {
         return "[NumConta: " + this.numConta + ";"
                 + " Titular: " + this.titular + ";"
                 + " Saldo: " + Question.numberFormat.format(this.saldo) + ";"
-                + " Taxa de Rendimento: " + Question.numberFormat.format(this.taxaRendimento) +"]";
+                + " Taxa de Rendimento: " + taxaRendimento +"]";
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+        var aux = super.toJSONObject();
+        aux.put("taxaRendimento", this.taxaRendimento);
+        return aux;
     }
 }
