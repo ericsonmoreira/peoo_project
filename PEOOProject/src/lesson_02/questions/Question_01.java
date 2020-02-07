@@ -7,7 +7,7 @@ import util.Question;
  * <p>
  * Exercício 1
  * <p>
- * 1) Faça um programa que receba dois números reais (double), calcule e mostre a mÃ©dia entre eles.
+ * 1) Faça um programa que receba dois números reais (double), calcule e mostre a média entre eles.
  * <p>
  * 2) Caso a média seja maior que 7, mostrar a mensagem Aprovado, se não mostrar Reprovado.
  */
