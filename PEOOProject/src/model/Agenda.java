@@ -124,7 +124,7 @@ public class Agenda extends JSONable {
      * Método para procurar pessoa pelo nome.
      *
      * @param name Nome do contato.
-     * @return {@link Contato} ou <code>null</code>.
+     * @return {@link Contato} ou <code>null</code>, caso não encontre.
      */
     public Contato procuraContatoPeloNome(String name) {
         for (Contato contato : contatos) {
@@ -185,31 +185,24 @@ public class Agenda extends JSONable {
      * Método para mostrar todas {@link Contato}.
      */
     public void showTodosContatosGeral() {
-        for (var contato : contatos) {
-            System.out.println(contato);
-        }
+        contatos.forEach(System.out::println);
     }
 
     /**
      * Método para mostrar todas {@link ContatoTrabalho}.
      */
     public void showTodosContatosTrabalho() {
-        for (var contato : contatosTrabalho) {
-            System.out.println(contato);
-        }
+        contatosTrabalho.forEach(System.out::println);
     }
 
     /**
      * Método para mostrar todas {@link ContatoInfancia}.
      */
     public void showTodosContatosInfancia() {
-        for (var contato : contatosInfancia) {
-            System.out.println(contato);
-        }
+        contatosInfancia.forEach(System.out::println);
     }
 
     /**
-     *
      * @param tipoContato
      */
     public void showContatosPorTipo(TipoContato tipoContato) {
@@ -234,13 +227,12 @@ public class Agenda extends JSONable {
     }
 
     /**
-     * Selec
+     * Imprime todos os {@link ContatoTrabalho} pelo setor.
+     *
      * @param setor Setor de Trabalho.
      */
     public void showContatosPorSetorDeTrabalho(String setor){
-        for (ContatoTrabalho contatoSetor: this.contatosTrabalho) {
-            if (contatoSetor.getSetor().equals(setor)) System.out.println(contatoSetor);
-        }
+        contatosTrabalho.stream().filter(contatoTrabalho -> contatoTrabalho.getSetor().equals(setor)).forEach(System.out::println);
     }
 
     /**
@@ -251,7 +243,7 @@ public class Agenda extends JSONable {
      * @param textMessage Texto da Mensagem.
      * @return <code>true</code> caso consiga mandar a mensagem, <code>false</code> caso contrário.
      */
-    public boolean sendMessage(String foneContact, String textMessage) {
+    public boolean enviaMessage(String foneContact, String textMessage) {
         Contato contact = this.procuraContatoPorTelefone(foneContact);
         if (contact != null) {
             Mensagem mensagem = new Mensagem(contact, textMessage);
