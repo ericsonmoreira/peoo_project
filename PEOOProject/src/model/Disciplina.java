@@ -139,23 +139,6 @@ public class Disciplina extends JSONable {
         alunosCopy.forEach(aluno -> System.out.println("Aluno: " + aluno.getNome() + ", Média: " + aluno.getMedia()));
     }
 
-    /**
-     * Usando JSON.
-     *
-     * @return Um {@link JSONObject} - uma representação do objeto em JSON.
-     */
-    @SuppressWarnings("unchecked")
-    public JSONObject toJSONObject() {
-        JSONObject object = new JSONObject();
-        JSONArray alunosJsonArray = new JSONArray();
-        this.alunos.forEach(aluno -> alunosJsonArray.add(aluno.toJSONObject()));
-        object.put("nome", this.getNome());
-        object.put("cod", this.getCod());
-        object.put("quantMaxAlunos", this.getQuantMaxAlunos());
-        object.put("alunos", alunosJsonArray);
-        return object;
-    }
-
     // Aqui vai classes internas para comparar alunos.
 
     /**
@@ -186,6 +169,23 @@ public class Disciplina extends JSONable {
             else if (o1.getMedia() < o2.getMedia()) return 1;
             else return 0;
         }
+    }
+
+    /**
+     * Usando JSON.
+     *
+     * @return Um {@link JSONObject} - uma representação do objeto em JSON.
+     */
+    @SuppressWarnings("unchecked")
+    public JSONObject toJSONObject() {
+        JSONObject object = new JSONObject();
+        JSONArray alunosJsonArray = new JSONArray();
+        this.alunos.forEach(aluno -> alunosJsonArray.add(aluno.toJSONObject()));
+        object.put("nome", this.getNome());
+        object.put("cod", this.getCod());
+        object.put("quantMaxAlunos", this.getQuantMaxAlunos());
+        object.put("alunos", alunosJsonArray);
+        return object;
     }
 
 }

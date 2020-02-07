@@ -1,5 +1,7 @@
 package model;
 
+import util.Question;
+
 /**
  * Classe para Conta Poupanca.
  */
@@ -23,9 +25,17 @@ public class ContaCorrente extends Conta {
     /**
      * Debita 50 reais do saldo
      */
-
     public void debitarAnuidade() {
         this.saldo -= 50;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public String toString() {
+        return "[NumConta: " + this.numConta + ";"
+                + " Titular: " + this.titular + ";"
+                + " Saldo: " + Question.numberFormat.format(this.saldo) + ";"
+                + " Limite: " + Question.numberFormat.format(this.limite) +"]";
     }
 
 }

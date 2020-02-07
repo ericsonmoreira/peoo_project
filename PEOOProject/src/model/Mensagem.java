@@ -83,8 +83,8 @@ public class Mensagem extends JSONable {
 		try {
 			JSONObject object = (JSONObject) parser.parse(jsonString);
 			this.setContato((Contato) object.get("contato"));
-			this.setTextoMensagem((String) object.get("textMessage"));
-			this.setData((Calendar) object.get("date"));
+			this.setTextoMensagem((String) object.get("textoMensagem"));
+			this.setData((Calendar) object.get("data"));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -102,7 +102,7 @@ public class Mensagem extends JSONable {
 	public JSONObject toJSONObject() {
 		JSONObject object = new JSONObject();
 		object.put("contato", this.contato);
-		object.put("textMessage", this.textoMensagem);
+		object.put("textoMensagem", this.textoMensagem);
 		object.put("data", this.data);
 		return object;
 	}

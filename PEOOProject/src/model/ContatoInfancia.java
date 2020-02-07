@@ -2,6 +2,9 @@ package model;
 
 import org.json.simple.JSONObject;
 
+/**
+ * Contato de Infância.
+ */
 public class ContatoInfancia extends Contato {
 
     private int idade;
@@ -19,6 +22,17 @@ public class ContatoInfancia extends Contato {
         setIdade(idade);
     }
 
+    /**
+     * @return Uma {@link String} representando um Contato de Infância.
+     */
+    @Override
+    public String toString() {
+        return "[Nome: " + this.nome + ", telefone: " + this.telefone + ", idade: " + this.idade +"]";
+    }
+
+    /**
+     * @return
+     */
     @Override
     public JSONObject toJSONObject() {
         var object = super.toJSONObject();
@@ -26,8 +40,4 @@ public class ContatoInfancia extends Contato {
         return object;
     }
 
-    @Override
-    public String toString() {
-        return "[Nome: " + this.nome + ", telefone: " + this.telefone + ", idade: " + this.idade +"]";
-    }
 }

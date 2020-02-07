@@ -48,13 +48,6 @@ public class ItemDeCompra extends JSONable {
         this.quant = quant;
     }
 
-    public ItemDeCompra(int cod, String nome, double preco, int quant) {
-        setCod(cod);
-        setNome(nome);
-        setPreco(preco);
-        setQuant(quant);
-    }
-
     /**
      * Devolve o valor total pago pelo item (preço unitátio * quantidade).
      *
@@ -62,6 +55,13 @@ public class ItemDeCompra extends JSONable {
      */
     public double calcularTotal() {
         return preco * quant;
+    }
+
+    public ItemDeCompra(int cod, String nome, double preco, int quant) {
+        setCod(cod);
+        setNome(nome);
+        setPreco(preco);
+        setQuant(quant);
     }
 
     @Override

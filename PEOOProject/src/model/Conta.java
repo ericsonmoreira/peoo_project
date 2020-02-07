@@ -142,7 +142,7 @@ public class Conta extends JSONable {
         JSONObject object = new JSONObject();
         object.put("numConta", this.numConta);
         object.put("titular", this.titular);
-        object.put("saldo", this.saldo);
+        object.put("saldo", Question.numberFormat.format(this.saldo));
         return object;
     }
 
