@@ -6,6 +6,7 @@ import util.JSONable;
 import util.TipoContato;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Classe para representar uma Agenda.
@@ -203,6 +204,15 @@ public class Agenda extends JSONable {
     }
 
     /**
+     * Imprime todos os {@link ContatoTrabalho} pelo setor.
+     *
+     * @param setor Setor de Trabalho.
+     */
+    public void showContatosPorSetorDeTrabalho(String setor){
+        contatosTrabalho.stream().filter(contatoTrabalho -> contatoTrabalho.getSetor().equals(setor)).forEach(System.out::println);
+    }
+
+    /**
      * @param tipoContato
      */
     public void showContatosPorTipo(TipoContato tipoContato) {
@@ -224,15 +234,6 @@ public class Agenda extends JSONable {
             default:
                 System.out.println("ERRO");
         }
-    }
-
-    /**
-     * Imprime todos os {@link ContatoTrabalho} pelo setor.
-     *
-     * @param setor Setor de Trabalho.
-     */
-    public void showContatosPorSetorDeTrabalho(String setor){
-        contatosTrabalho.stream().filter(contatoTrabalho -> contatoTrabalho.getSetor().equals(setor)).forEach(System.out::println);
     }
 
     /**
