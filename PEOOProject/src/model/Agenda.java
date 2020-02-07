@@ -263,7 +263,12 @@ public class Agenda extends JSONable {
 
     @Override
     public String toString() {
-        return toStringJSON();
+        return "Agenda{" +
+                "contatos=" + contatos +
+                ", contatosTrabalho=" + contatosTrabalho +
+                ", contatosInfancia=" + contatosInfancia +
+                ", mensagens=" + mensagens +
+                "}";
     }
 
     @Override

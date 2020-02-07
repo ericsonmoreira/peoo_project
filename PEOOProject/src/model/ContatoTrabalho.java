@@ -7,6 +7,8 @@ import org.json.simple.JSONObject;
  */
 public class ContatoTrabalho extends Contato {
 
+    private String setor; // Setor onde o ContatoTrabalho Trabalha.
+
     public String getSetor() {
         return setor;
     }
@@ -16,7 +18,6 @@ public class ContatoTrabalho extends Contato {
     }
 
     // Setor onde trabalha (informática, rh, finanças...).
-    private String setor;
 
     public ContatoTrabalho(String name, String fone, String setor) {
         super(name, fone);
@@ -25,7 +26,11 @@ public class ContatoTrabalho extends Contato {
 
     @Override
     public String toString() {
-        return "[Nome: " + this.nome + ", telefone: " + this.telefone + ", setor: " + this.setor +"]";
+        return "Contato{" +
+                "nome='" + nome + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", setor='" + setor + '\'' +
+                "}";
     }
 
     @Override

@@ -5,6 +5,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import util.JSONable;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -92,9 +93,12 @@ public class Mensagem extends JSONable {
 
 	@Override
 	public String toString() {
-		return "[Contato: " + this.contato + ", texto: " + this.textoMensagem +
-				", data: " + this.data.get(Calendar.DAY_OF_MONTH) + "/"+ this.data.get(Calendar.MONTH) +
-				"/" + this.data.get(Calendar.YEAR)+ "]";
+		var dateFormat = new SimpleDateFormat("dd/MM/yy");
+		return "Mensagem{" +
+				"contato=" + contato +
+				", textoMensagem='" + textoMensagem + '\'' +
+				", data=" + dateFormat.format(this.data) +
+				"}";
 	}
 	
 	@Override

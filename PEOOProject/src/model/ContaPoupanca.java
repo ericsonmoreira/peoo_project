@@ -33,10 +33,12 @@ public class ContaPoupanca extends Conta {
     @Override
     @SuppressWarnings("unchecked")
     public String toString() {
-        return "[NumConta: " + this.numConta + ";"
-                + " Titular: " + this.titular + ";"
-                + " Saldo: " + Question.numberFormat.format(this.saldo) + ";"
-                + " Taxa de Rendimento: " + taxaRendimento +"]";
+        return "Conta{" +
+                "numConta=" + numConta +
+                ", titular='" + titular + '\'' +
+                ", saldo=" + Question.numberFormat.format(this.saldo) +
+                ", taxaRendimento='" + taxaRendimento + '\'' +
+                "}";
     }
 
     @Override

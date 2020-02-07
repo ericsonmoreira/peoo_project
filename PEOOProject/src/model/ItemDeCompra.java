@@ -65,6 +65,16 @@ public class ItemDeCompra extends JSONable {
     }
 
     @Override
+    public String toString() {
+        return "ItemDeCompra{" +
+                "cod=" + cod +
+                ", nome='" + nome + '\'' +
+                ", preco=" + preco +
+                ", quant=" + quant +
+                "}";
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     public JSONObject toJSONObject() {
         JSONObject object = new JSONObject();

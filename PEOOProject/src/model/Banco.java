@@ -112,6 +112,14 @@ public class Banco extends JSONable {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "Banco{" +
+                "nome='" + nome + '\'' +
+                ", contas=" + contas +
+                "}";
+    }
+
     /**
      * Usando JSON.
      *

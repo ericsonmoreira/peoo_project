@@ -105,6 +105,13 @@ public class Compra extends JSONable {
     }
 
     @Override
+    public String toString() {
+        return "Compra{" +
+                "itensDeCompra=" + itensDeCompra +
+                "}";
+    }
+
+    @Override
     protected JSONObject toJSONObject() {
         JSONObject object = new JSONObject();
         JSONArray itens = new JSONArray();

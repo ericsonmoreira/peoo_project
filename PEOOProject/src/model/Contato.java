@@ -84,7 +84,10 @@ public class Contato extends JSONable {
 
     @Override
     public String toString() {
-        return "[Nome: " + this.nome + ", telefone: " + this.telefone + "]";
+        return "Contato{" +
+                "nome='" + nome + '\'' +
+                ", telefone='" + telefone + '\'' +
+                "}";
     }
 
     @Override

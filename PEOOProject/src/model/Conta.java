@@ -131,9 +131,11 @@ public class Conta extends JSONable {
 
     @Override
     public String toString() {
-        return "[NumConta: " + this.numConta + ";"
-                + " Titular: " + this.titular + ";"
-                + " Saldo: " + Question.numberFormat.format(this.saldo) + "]";
+        return "Conta{" +
+                "numConta=" + numConta +
+                ", titular='" + titular + '\'' +
+                ", saldo=" + Question.numberFormat.format(this.saldo) +
+                "}";
     }
 
     @Override

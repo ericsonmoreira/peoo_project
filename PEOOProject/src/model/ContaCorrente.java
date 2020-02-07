@@ -33,10 +33,12 @@ public class ContaCorrente extends Conta {
     @Override
     @SuppressWarnings("unchecked")
     public String toString() {
-        return "[NumConta: " + this.numConta + ";"
-                + " Titular: " + this.titular + ";"
-                + " Saldo: " + Question.numberFormat.format(this.saldo) + ";"
-                + " Limite: " + Question.numberFormat.format(this.limite) +"]";
+        return "Conta{" +
+                "numConta=" + numConta +
+                ", titular='" + titular + '\'' +
+                ", saldo=" + Question.numberFormat.format(this.saldo) +
+                ", limite='" + limite + '\'' +
+                "}";
     }
 
     @Override

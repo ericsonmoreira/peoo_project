@@ -27,7 +27,11 @@ public class ContatoInfancia extends Contato {
      */
     @Override
     public String toString() {
-        return "[Nome: " + this.nome + ", telefone: " + this.telefone + ", idade: " + this.idade +"]";
+        return "Contato{" +
+                "nome='" + nome + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", idade='" + idade + '\'' +
+                "}";
     }
 
     /**

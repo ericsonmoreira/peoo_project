@@ -94,6 +94,16 @@ public class Pais extends JSONable {
     }
 
     @Override
+    public String toString() {
+        return "Pais{" +
+                "nome='" + nome + '\'' +
+                ", capital='" + capital + '\'' +
+                ", dimencao=" + dimencao +
+                ", paisesVizinhos=" + paisesVizinhos +
+                "}";
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     protected JSONObject toJSONObject() {
         JSONObject object = new JSONObject();

@@ -64,7 +64,10 @@ public class Person extends JSONable {
 
     @Override
     public String toString() {
-        return "[Nome: " + this.name + "; Idade: " + this.age + "]";
+        return "Person{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                "}";
     }
 
     @Override
