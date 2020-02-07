@@ -68,9 +68,9 @@ public class Question_02 {
 
         System.out.println("Remover pessoas");
 
-        agenda.removeContato("Ericson Rogerio Moreira");
-        agenda.removeContato("Amber D. Bosch");
-        agenda.removeContato("Amber C. Bosch"); // O nome dessa pessoa está errado.
+        agenda.removerContato("Ericson Rogerio Moreira");
+        agenda.removerContato("Amber D. Bosch");
+        agenda.removerContato("Amber C. Bosch"); // O nome dessa pessoa está errado.
 
         agenda.showTodosContatosGeral();
 

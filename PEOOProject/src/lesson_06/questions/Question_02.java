@@ -50,11 +50,11 @@ public class Question_02 extends Question{
 	}
 
 	private static void showAllMessages() {
-		agenda.getMessages().forEach(message -> System.out.println(message));
+		agenda.getMensagens().forEach(message -> System.out.println(message));
 	}
 
 	private static void showCountMessages() {
-		System.out.println("Total de mensagnes enviadas: " + agenda.getMessages().size() + ".");
+		System.out.println("Total de mensagnes enviadas: " + agenda.getMensagens().size() + ".");
 	}
 
 	private static void showAllMessagesForContact() {
@@ -63,8 +63,8 @@ public class Question_02 extends Question{
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner (System.in);
 		String contactName = input.nextLine();
-		agenda.getMessages().forEach(message -> System.out.print(
-				message.getContato().getName().equals(contactName) ? message + "\n": ""));
+		agenda.getMensagens().forEach(message -> System.out.print(
+				message.getContato().getNome().equals(contactName) ? message + "\n": ""));
 	}
 
 	/**

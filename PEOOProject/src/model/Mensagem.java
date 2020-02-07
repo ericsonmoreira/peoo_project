@@ -13,16 +13,16 @@ import java.util.Calendar;
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  *
  */
-public class Message extends JSONable {
+public class Mensagem extends JSONable {
 
 
 	// Contato
 	private Contato contato;
 
 	// Texto da Mensagem
-	private String textMessage;
+	private String textoMensagem;
 
-	private Calendar date;
+	private Calendar data;
 
 	public Contato getContato() {
 		return contato;
@@ -32,20 +32,20 @@ public class Message extends JSONable {
 		this.contato = contato;
 	}
 
-	public String getTextMessage() {
-		return textMessage;
+	public String getTextoMensagem() {
+		return textoMensagem;
 	}
 
-	public void setTextMessage(String textMessage) {
-		this.textMessage = textMessage;
+	public void setTextoMensagem(String textoMensagem) {
+		this.textoMensagem = textoMensagem;
 	}
 
-	public Calendar getDate() {
-		return date;
+	public Calendar getData() {
+		return data;
 	}
 
-	public void setDate(Calendar date) {
-		this.date = date;
+	public void setData(Calendar data) {
+		this.data = data;
 	}
 
 	/**
@@ -53,12 +53,12 @@ public class Message extends JSONable {
 	 * a mensagem foi enviada (gerada na data de criação).
 	 * 
 	 * @param contact Contato.
-	 * @param textMessage Texto da Mensagem.
+	 * @param textoMensagem Texto da Mensagem.
 	 */
-	public Message(Contato contato, String textMessage) {
+	public Mensagem(Contato contato, String textoMensagem) {
 		this.setContato(contato);
-		this.setTextMessage(textMessage);
-		this.setDate(Calendar.getInstance()); // passa a data atual.
+		this.setTextoMensagem(textoMensagem);
+		this.setData(Calendar.getInstance()); // passa a data atual.
 	}
 	
 	/**
@@ -66,11 +66,11 @@ public class Message extends JSONable {
 	 * 
 	 * @param jsonObject 
 	 */
-	public Message(JSONObject jsonObject) {
+	public Mensagem(JSONObject jsonObject) {
 		this(
 				(Contato) jsonObject.get("contato"),
 				(String) jsonObject.get("textMessage"));
-		this.setDate((Calendar) jsonObject.get("date"));
+		this.setData((Calendar) jsonObject.get("date"));
 	}
 	
 	/**
@@ -78,34 +78,32 @@ public class Message extends JSONable {
 	 * 
 	 * @param jsonString
 	 */
-	public Message(String jsonString) {
+	public Mensagem(String jsonString) {
 		JSONParser parser = new JSONParser();
 		try {
 			JSONObject object = (JSONObject) parser.parse(jsonString);
 			this.setContato((Contato) object.get("contato"));
-			this.setTextMessage((String) object.get("textMessage"));
-			this.setDate((Calendar) object.get("date"));
+			this.setTextoMensagem((String) object.get("textMessage"));
+			this.setData((Calendar) object.get("date"));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
 	@Override
 	public String toString() {
-		return "[Contato: " + this.contato + ", texto: " + this.textMessage +
-				", data: " + this.date.get(Calendar.DAY_OF_MONTH) + "/"+ this.date.get(Calendar.MONTH) +
-				"/" + this.date.get(Calendar.YEAR)+ "]";
+		return "[Contato: " + this.contato + ", texto: " + this.textoMensagem +
+				", data: " + this.data.get(Calendar.DAY_OF_MONTH) + "/"+ this.data.get(Calendar.MONTH) +
+				"/" + this.data.get(Calendar.YEAR)+ "]";
 	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
 	public JSONObject toJSONObject() {
 		JSONObject object = new JSONObject();
-		object.put("contact", this.contato);
-		object.put("accounts", this.textMessage);
-		object.put("date", this.date);
+		object.put("contato", this.contato);
+		object.put("textMessage", this.textoMensagem);
+		object.put("data", this.data);
 		return object;
 	}
 	

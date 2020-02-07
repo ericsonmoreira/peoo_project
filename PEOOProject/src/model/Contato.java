@@ -12,16 +12,16 @@ import util.JSONable;
  */
 public class Contato extends JSONable {
 
-    protected String name;
+    protected String nome;
 
     protected String telefone;
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getTelefone() {
@@ -40,12 +40,12 @@ public class Contato extends JSONable {
     }
 
     /**
-     * Construtor que recebeum {@link JSONObject}
+     * Construtor que recebe um {@link JSONObject}
      *
      * @param jsonObject
      */
     public Contato(JSONObject jsonObject) {
-        this((String) jsonObject.get("name"), (String) jsonObject.get("fone"));
+        this((String) jsonObject.get("nome"), (String) jsonObject.get("telefone"));
     }
 
     /**
@@ -57,8 +57,8 @@ public class Contato extends JSONable {
         JSONParser parser = new JSONParser();
         try {
             JSONObject object = (JSONObject) parser.parse(jsonString);
-            this.setName((String) object.get("name"));
-            this.setTelefone((String) object.get("fone"));
+            this.setNome((String) object.get("nome"));
+            this.setTelefone((String) object.get("telefone"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -67,11 +67,11 @@ public class Contato extends JSONable {
     /**
      * Construtor com atributos.
      *
-     * @param name Nome da pessoa.
+     * @param nome Nome da pessoa.
      * @param telefone Telefone da pessoa.
      */
-    public Contato(String name, String telefone) {
-        setName(name);
+    public Contato(String nome, String telefone) {
+        setNome(nome);
         setTelefone(telefone);
     }
 
@@ -84,15 +84,15 @@ public class Contato extends JSONable {
 
     @Override
     public String toString() {
-        return "[Nome: " + this.name + ", telefone: " + this.telefone + "]";
+        return "[Nome: " + this.nome + ", telefone: " + this.telefone + "]";
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public JSONObject toJSONObject() {
         var object = new JSONObject();
-        object.put("fone", this.telefone);
-        object.put("name", this.name);
+        object.put("telefone", this.telefone);
+        object.put("nome", this.nome);
         return object;
     }
 

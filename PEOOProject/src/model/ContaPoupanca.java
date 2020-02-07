@@ -3,7 +3,7 @@ package model;
 /**
  * Classe para conta corrente.
  */
-public class ContaPoupanca extends BankAccount {
+public class ContaPoupanca extends Conta {
 
     private double taxaRendimento;
 
@@ -24,6 +24,6 @@ public class ContaPoupanca extends BankAccount {
      * Faz render o dinheiro que tem na conta.
      */
     public void render(){
-        balance += balance * taxaRendimento;
+        saldo += saldo * taxaRendimento;
     }
 }

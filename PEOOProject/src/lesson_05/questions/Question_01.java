@@ -1,7 +1,7 @@
 package lesson_05.questions;
 
-import model.Bank;
-import model.BankAccount;
+import model.Banco;
+import model.Conta;
 import util.Question;
 
 import java.util.Scanner;
@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class Question_01 extends Question {
 
     // Define um Banco.
-    private static Bank bank = new Bank("BB");
+    private static Banco banco = new Banco("BB");
 
     /**
      * Cria um Loop Infinito para chamar as opções que forem sendo escolhidas.
@@ -66,14 +66,14 @@ public class Question_01 extends Question {
     private static void transferBetweenAccount() {
         // Procura o Devedor.
         System.out.println("Digite o número da Conta Devedora:");
-        BankAccount debtor = bank.findAccount(scanner.nextInt());
+        Conta debtor = banco.buscarConta(scanner.nextInt());
         if (debtor == null) {
             System.out.println("Essa contra não existe!");
             return;
         }
         // Procura o Credor.
         System.out.println("Digite o número da Conta Credota:");
-        BankAccount creditor = bank.findAccount(scanner.nextInt());
+        Conta creditor = banco.buscarConta(scanner.nextInt());
         if (creditor == null) {
             System.out.println("Essa contra não existe!");
             return;
@@ -82,7 +82,7 @@ public class Question_01 extends Question {
         System.out.println("Digite o Valor a ser Transferido:");
         double value = scanner.nextDouble();
 
-        if (bank.transfer(debtor, creditor, value)) {
+        if (banco.transferir(debtor, creditor, value)) {
             System.out.println("Transferência realizada com sucesso!");
         } else {
             System.out.println("Transferência não realizada.");
@@ -95,10 +95,10 @@ public class Question_01 extends Question {
     private static void removeAccount() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
-        BankAccount out = bank.findAccount(num);
+        Conta out = banco.buscarConta(num);
         if (out != null) {
             System.out.println("Encerrando Conta.");
-            bank.removeAccont(num);
+            banco.removerConta(num);
         } else {
             System.out.println("Não existe conta com num " + num + " cadastrada.");
         }
@@ -110,12 +110,12 @@ public class Question_01 extends Question {
     private static void changeAccount() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
-        BankAccount out = bank.findAccount(num);
+        Conta out = banco.buscarConta(num);
         if (out != null) {
             System.out.println("Atualize o titular da conta:");
-            out.setHolder(scanner.next());
+            out.setTitular(scanner.next());
             System.out.println("Atualize o saldo da conta:");
-            out.setBalance(scanner.nextDouble());
+            out.setSaldo(scanner.nextDouble());
             System.out.println(out);
         } else {
             System.out.println("Não existe conta com num " + num + " cadastrada.");
@@ -128,12 +128,12 @@ public class Question_01 extends Question {
     private static void depositInAccount() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
-        BankAccount out = bank.findAccount(num);
+        Conta out = banco.buscarConta(num);
         if (out != null) {
             System.out.println("Digite o Valor do deposito:");
             double value = scanner.nextDouble();
             System.out.println(out);
-            out.deposit(value);
+            out.depositar(value);
         } else {
             System.out.println("Não existe conta com num " + num + " cadastrada.");
         }
@@ -145,12 +145,12 @@ public class Question_01 extends Question {
     private static void withdrawInAccount() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
-        BankAccount out = bank.findAccount(num);
+        Conta out = banco.buscarConta(num);
         if (out != null) {
             System.out.println("Digite o Valor do saque:");
             double value = scanner.nextDouble();
             System.out.println(out);
-            out.withdraw(value);
+            out.sacar(value);
         } else {
             System.out.println("Não existe conta com num " + num + " cadastrada.");
         }
@@ -160,9 +160,9 @@ public class Question_01 extends Question {
      * Listar todas as contras do banco mostrando no Console.
      */
     private static void listAccounts() {
-        if (!bank.getAccounts().isEmpty()) {
-            for (BankAccount bankAccount : bank.getAccounts()) {
-                System.out.println(bankAccount);
+        if (!banco.getContas().isEmpty()) {
+            for (Conta conta : banco.getContas()) {
+                System.out.println(conta);
             }
         } else {
             System.out.println("Nenhuma conta cadastrada.");
@@ -181,8 +181,8 @@ public class Question_01 extends Question {
         String holder = new Scanner(System.in).nextLine();
         System.out.println("Digite o Saldo da Conta:");
         double balance = scanner.nextDouble();
-        BankAccount account = new BankAccount(numAccount, holder, balance);
-        bank.addAccount(account);
+        Conta account = new Conta(numAccount, holder, balance);
+        banco.addConta(account);
     }
 
     /**

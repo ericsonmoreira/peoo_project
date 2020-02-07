@@ -14,8 +14,8 @@ public class ContatoInfancia extends Contato {
         this.idade = idade;
     }
 
-    public ContatoInfancia(String name, String fone, int idade) {
-        super(name, fone);
+    public ContatoInfancia(String nome, String telefone, int idade) {
+        super(nome, telefone); // Chama o construtor da classe mãe.
         setIdade(idade);
     }
 
@@ -28,6 +28,6 @@ public class ContatoInfancia extends Contato {
 
     @Override
     public String toString() {
-        return "[Nome: " + this.name + ", telefone: " + this.telefone + ", idade: " + this.idade +"]";
+        return "[Nome: " + this.nome + ", telefone: " + this.telefone + ", idade: " + this.idade +"]";
     }
 }

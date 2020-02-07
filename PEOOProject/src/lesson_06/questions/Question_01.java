@@ -48,9 +48,9 @@ public class Question_01 extends Question{
 		
 		System.out.println("Remover pessoas");
 		
-		schedule.removeContato("Ericson Rogerio Moreira");
-		schedule.removeContato("Amber D. Bosch");
-		schedule.removeContato("Amber C. Bosch"); // O nome dessa pessoa está errado.
+		schedule.removerContato("Ericson Rogerio Moreira");
+		schedule.removerContato("Amber D. Bosch");
+		schedule.removerContato("Amber C. Bosch"); // O nome dessa pessoa está errado.
 
 		schedule.showContatosPorTipo(TipoContato.TODOS);
 

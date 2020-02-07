@@ -25,7 +25,7 @@ public class ContatoTrabalho extends Contato {
 
     @Override
     public String toString() {
-        return "[Nome: " + this.name + ", telefone: " + this.telefone + ", setor: " + this.setor +"]";
+        return "[Nome: " + this.nome + ", telefone: " + this.telefone + ", setor: " + this.setor +"]";
     }
 
     @Override

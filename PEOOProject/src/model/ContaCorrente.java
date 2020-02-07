@@ -3,7 +3,7 @@ package model;
 /**
  * Classe para Conta Poupanca.
  */
-public class ContaCorrente extends BankAccount {
+public class ContaCorrente extends Conta {
 
     private double limite;
 
@@ -25,7 +25,7 @@ public class ContaCorrente extends BankAccount {
      */
 
     public void debitarAnuidade() {
-        this.balance -= 50;
+        this.saldo -= 50;
     }
 
 }

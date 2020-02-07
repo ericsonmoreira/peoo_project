@@ -5,7 +5,6 @@ import org.json.simple.JSONObject;
 import util.JSONable;
 import util.TipoContato;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +24,7 @@ public class Agenda extends JSONable {
     private ArrayList<ContatoInfancia> contatosInfancia;
 
     // Lista de mensagens.
-    private ArrayList<Message> messages;
+    private ArrayList<Mensagem> mensagens;
 
     // Não acho interessante esse método ser público.
     protected ArrayList<Contato> getContatos() {
@@ -37,13 +36,13 @@ public class Agenda extends JSONable {
         this.contatos = contatos;
     }
 
-    public ArrayList<Message> getMessages() {
-        return messages;
+    public ArrayList<Mensagem> getMensagens() {
+        return mensagens;
     }
 
     // Não acho interessante esse método ser público.
-    private void setMessages(ArrayList<Message> messages) {
-        this.messages = messages;
+    private void setMensagens(ArrayList<Mensagem> mensagens) {
+        this.mensagens = mensagens;
     }
 
     public ArrayList<ContatoTrabalho> getContatosTrabalho() {
@@ -67,7 +66,7 @@ public class Agenda extends JSONable {
      */
     public Agenda() {
         setContatos(new ArrayList<Contato>());
-        setMessages(new ArrayList<Message>());
+        setMensagens(new ArrayList<Mensagem>());
         setContatosTrabalho(new ArrayList<ContatoTrabalho>());
         setContatosInfancia(new ArrayList<ContatoInfancia>());
     }
@@ -129,7 +128,7 @@ public class Agenda extends JSONable {
      */
     public Contato procuraContatoPeloNome(String name) {
         for (Contato contato : contatos) {
-            if (contato.getName() == name) {
+            if (contato.getNome() == name) {
                 return contato;
             }
         }
@@ -142,9 +141,9 @@ public class Agenda extends JSONable {
      * @param name Nome da pessoa.
      * @return {@link Contato} ou <code>null</code>.
      */
-    public Contato procuraContatoPorTelefone(String fone) {
+    public Contato procuraContatoPorTelefone(String telefone) {
         for (Contato contato : contatos) {
-            if (contato.getTelefone() == fone) {
+            if (contato.getTelefone() == telefone) {
                 return contato;
             }
         }
@@ -158,10 +157,10 @@ public class Agenda extends JSONable {
      * @param newFone Novo telefone da pessoa.
      * @return <code>true</code> caso consiga, <code>false</code> caso contrário.
      */
-    public boolean mudaTelefoneDoContato(String name, String newFone) {
-        Contato contato = this.procuraContatoPeloNome(name);
+    public boolean mudaTelefoneDoContato(String nome, String telefoneNovo) {
+        Contato contato = this.procuraContatoPeloNome(nome);
         if (contato != null) {
-            contato.setTelefone(newFone);
+            contato.setTelefone(telefoneNovo);
             return true;
         }
         return false;
@@ -173,8 +172,8 @@ public class Agenda extends JSONable {
      * @param name Nome da pessoa.
      * @return <code>true</code> caso consiga, <code>false</code> caso contrário.
      */
-    public boolean removeContato(String name) {
-        Contato contato = this.procuraContatoPeloNome(name);
+    public boolean removerContato(String nome) {
+        Contato contato = this.procuraContatoPeloNome(nome);
         if (contato != null) {
             this.contatos.remove(contato);
             return true;
@@ -255,8 +254,8 @@ public class Agenda extends JSONable {
     public boolean sendMessage(String foneContact, String textMessage) {
         Contato contact = this.procuraContatoPorTelefone(foneContact);
         if (contact != null) {
-            Message message = new Message(contact, textMessage);
-            this.messages.add(message);
+            Mensagem mensagem = new Mensagem(contact, textMessage);
+            this.mensagens.add(mensagem);
             return true;
         }
         return false;
@@ -266,14 +265,14 @@ public class Agenda extends JSONable {
     @SuppressWarnings("unchecked")
     public JSONObject toJSONObject() {
         JSONObject object = new JSONObject();
-        JSONArray pessoas = new JSONArray();
+        JSONArray contatos = new JSONArray();
         JSONArray messages = new JSONArray();
 
-        this.contatos.forEach(p -> pessoas.add(p.toJSONObject()));
-        this.messages.forEach(m -> messages.add(m.toJSONObject()));
+        this.contatos.forEach(p -> contatos.add(p.toJSONObject()));
+        this.mensagens.forEach(m -> messages.add(m.toJSONObject()));
 
-        object.put("pessoas", pessoas);
-        object.put("pessoas", messages);
+        object.put("contatos", contatos);
+        object.put("messages", messages);
         return object;
     }
 
