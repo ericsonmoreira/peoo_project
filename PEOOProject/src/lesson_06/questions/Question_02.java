@@ -107,14 +107,14 @@ public class Question_02 extends Question{
 		
 		agenda.showContatosPorTipo(TipoContato.TODOS);
 		
-		agenda.sendMessage("(85) 99792-6510", "Olá, tudo bem?");
-		agenda.sendMessage("(85) 99792-6510", "Comigo também.");
-		agenda.sendMessage("(85) 99792-6510", "Como vai a família?");
-		agenda.sendMessage("(11) 2418-6344", "Ainda não consegi aquele cliente.");
-		agenda.sendMessage("(11) 2418-6344", "Ele está muito receioso para contratar o seguro. Mas eu não vou desistir.");
-		agenda.sendMessage("(11) 2418-6344", "Consegui a venda!");
-		agenda.sendMessage("(11) 2418-6344", "Meta batida.");
-		agenda.sendMessage("(11) 2418-6344", "Agora posso entrar de férias.");
+		agenda.enviaMessage("(85) 99792-6510", "Olá, tudo bem?");
+		agenda.enviaMessage("(85) 99792-6510", "Comigo também.");
+		agenda.enviaMessage("(85) 99792-6510", "Como vai a família?");
+		agenda.enviaMessage("(11) 2418-6344", "Ainda não consegi aquele cliente.");
+		agenda.enviaMessage("(11) 2418-6344", "Ele está muito receioso para contratar o seguro. Mas eu não vou desistir.");
+		agenda.enviaMessage("(11) 2418-6344", "Consegui a venda!");
+		agenda.enviaMessage("(11) 2418-6344", "Meta batida.");
+		agenda.enviaMessage("(11) 2418-6344", "Agora posso entrar de férias.");
 		
 	}
 

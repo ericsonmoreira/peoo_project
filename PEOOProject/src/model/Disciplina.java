@@ -122,9 +122,9 @@ public class Disciplina extends JSONable {
      */
     public void listarAlunosPorNome() {
         var alunosCopy = new ArrayList<Aluno>();
-        this.alunos.forEach(aluno -> alunosCopy.add(aluno));// Pega os nomes de todos alunos.
+        this.alunos.forEach(aluno -> alunosCopy.add(aluno)); // Pega os nomes de todos alunos.
         alunosCopy.sort(Comparator.comparing(aluno -> aluno.getNome())); // Ordena pelo nome.
-        alunosCopy.forEach(aluno -> System.out.println("Aluno: " + aluno.getNome() + ", Média: " + aluno.getMedia()));
+        alunosCopy.forEach(aluno -> System.out.println(aluno + " Média: " + aluno.getMedia())); // Imprime o aluno + a média.
     }
 
     /**
@@ -135,7 +135,7 @@ public class Disciplina extends JSONable {
         this.alunos.forEach(aluno -> alunosCopy.add(aluno)); // Pega os nomes de todos alunos.
         alunosCopy.sort(Comparator.comparing(aluno -> aluno.getMedia())); // Ordena mela média.
         Collections.reverse(alunosCopy); // Inverte a ordem.
-        alunosCopy.forEach(aluno -> System.out.println("Aluno: " + aluno.getNome() + ", Média: " + aluno.getMedia()));
+        alunosCopy.forEach(aluno -> System.out.println(aluno + " Média: " + aluno.getMedia())); // Imprime o aluno + a média.
     }
 
     @Override
