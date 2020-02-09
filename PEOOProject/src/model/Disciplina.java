@@ -101,7 +101,7 @@ public class Disciplina extends JSONable {
     public void gerarEstatisticas() {
         Aluno alunoMaiorMedia = alunos.stream().max(Comparator.comparing(Aluno::getMedia)).get(); // Pega o Aluno com a maior média.
         int quantPassaram = (int) alunos.stream().filter(aluno -> aluno.getMedia() >= 7).count(); // Quantidade de alunos que passaram por média.
-        double mediaGeral = alunos.stream().map(Aluno::getMedia).reduce((a, b) -> a + b).get() / getAlunos().size(); // Pegando a média geram dos alunos.
+        double mediaGeral = alunos.stream().map(Aluno::getMedia).reduce((a, b) -> a + b).get() / getAlunos().size(); // Pegando a média geral dos alunos.
         System.out.println("Maior Média: " + alunoMaiorMedia.getMedia() + ", Nome: " + alunoMaiorMedia.getNome());
         System.out.println("Quantidade de alunos que passaram por média: " + quantPassaram);
         System.out.println("Quantidade de alunos que não passaram: " + (getAlunos().size() - quantPassaram));
@@ -113,21 +113,16 @@ public class Disciplina extends JSONable {
      * Imprime lista dos alunos com suas notas e média por ordem alfabética CESCENTE.
      */
     public void listarAlunosPorNome() {
-        var alunosCopy = new ArrayList<Aluno>();
-        this.alunos.forEach(aluno -> alunosCopy.add(aluno)); // Pega os nomes de todos alunos.
-        alunosCopy.sort(Comparator.comparing(aluno -> aluno.getNome())); // Ordena pelo nome.
-        alunosCopy.forEach(aluno -> System.out.println(aluno + " Média: " + aluno.getMedia())); // Imprime o aluno + a média.
+        alunos.stream().sorted(Comparator.comparing(Aluno::getNome)) // pega todos alunos ordenados pelo nome.
+                .forEach(aluno -> System.out.println(aluno + " Média: " + aluno.getMedia())); // imprime junto com a média.
     }
 
     /**
      * Imprime lista dos alunos com suas notas e média por ordem DECRESCENTE de média.
      */
     public void listarAlunosPorMedia() {
-        var alunosCopy = new ArrayList<Aluno>();
-        this.alunos.forEach(aluno -> alunosCopy.add(aluno)); // Pega os nomes de todos alunos.
-        alunosCopy.sort(Comparator.comparing(aluno -> aluno.getMedia())); // Ordena mela média.
-        Collections.reverse(alunosCopy); // Inverte a ordem.
-        alunosCopy.forEach(aluno -> System.out.println(aluno + " Média: " + aluno.getMedia())); // Imprime o aluno + a média.
+        alunos.stream().sorted(Comparator.comparing(Aluno::getMedia, Comparator.reverseOrder())) // pega todos alunos ordenados por média em ordem decrescente.
+                .forEach(aluno -> System.out.println(aluno + " Média: " + aluno.getMedia())); // imprime junto com a média.
     }
 
     @Override
