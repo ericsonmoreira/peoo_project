@@ -1,5 +1,6 @@
 package model;
 
+import lesson_07.questions.Question_03;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import util.JSONable;
@@ -7,6 +8,7 @@ import util.JSONable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Optional;
 
 /**
  * Toda disciplina possui um código, um nome, a quantidade máxima de alunos matriculados e a lista de alunos matriculados.
@@ -97,19 +99,9 @@ public class Disciplina extends JSONable {
      * por média (>=7) e quantos não passaram, a média geral da turma
      */
     public void gerarEstatisticas() {
-        Aluno alunoMaiorMedia = new Aluno();
-        int quantPassaram = 0;
-        double mediaGeral = 0;
-        for (Aluno aluno : alunos) {
-            if (aluno.getMedia() >= alunoMaiorMedia.getMedia()) {
-                alunoMaiorMedia = aluno;
-            }
-            if (aluno.getMedia() >= 7) {
-                quantPassaram++;
-            }
-            mediaGeral += aluno.getMedia();
-        }
-        mediaGeral = mediaGeral / getAlunos().size();
+        Aluno alunoMaiorMedia = alunos.stream().max(Comparator.comparing(Aluno::getMedia)).get(); // Pega o Aluno com a maior média.
+        int quantPassaram = (int) alunos.stream().filter(aluno -> aluno.getMedia() >= 7).count(); // Quantidade de alunos que passaram por média.
+        double mediaGeral = alunos.stream().map(Aluno::getMedia).reduce((a, b) -> a + b).get() / getAlunos().size(); // Pegando a média geram dos alunos.
         System.out.println("Maior Média: " + alunoMaiorMedia.getMedia() + ", Nome: " + alunoMaiorMedia.getNome());
         System.out.println("Quantidade de alunos que passaram por média: " + quantPassaram);
         System.out.println("Quantidade de alunos que não passaram: " + (getAlunos().size() - quantPassaram));
