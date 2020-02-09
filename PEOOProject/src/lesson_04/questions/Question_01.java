@@ -17,29 +17,26 @@ public class Question_01 extends Question {
     public static void main(String[] args) {
 
         System.out.println("Criando as Contas:");
-        Conta account_01 = new Conta(10, "Ericson Moreira");
-        Conta account_02 = new Conta(20, "PEOO");
-
+        Conta conta01 = new Conta(10, "Ericson Moreira");
+        Conta conta02 = new Conta(20, "PEOO");
 
         // Depósitos.
         System.out.println("\n\n\nTestando Depósitos:");
-        account_01.depositar(100);
-        account_02.depositar(1000);
-        account_02.depositar(-100);
+        conta01.depositar(100);
+        conta02.depositar(1000);
+        conta02.depositar(-100);
 
         // Saques.
         System.out.println("\n\n\nTestando Saques:");
-        account_01.sacar(50);
-        account_01.sacar(10);
-        account_01.sacar(50);
-
-        account_02.sacar(500);
-        account_02.sacar(600);
-
+        conta01.sacar(50);
+        conta01.sacar(10);
+        conta01.sacar(50);
+        conta02.sacar(500);
+        conta02.sacar(600);
 
         System.out.println("\n\n\nResiltado Final das Contas:");
-        account_01.showConta();
-        account_02.showConta();
+        conta01.showConta();
+        conta02.showConta();
 
     }
 

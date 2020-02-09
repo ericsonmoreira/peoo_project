@@ -4,6 +4,8 @@ import model.Aluno;
 import model.Disciplina;
 import util.Question;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -42,8 +44,8 @@ public class Question_03 {
 
     public static void main(String[] args) {
 
-        // array de alunos
-        Aluno[] alunos = {
+        // Array list de Alunos.
+        List<Aluno> alunos = Arrays.asList(
                 new Aluno("Antônio Ferreira Rodrigues", 1),
                 new Aluno("Vinicius Ferreira Correia", 2),
                 new Aluno("Tânia Lima Castro", 3),
@@ -55,7 +57,7 @@ public class Question_03 {
                 new Aluno("Tiago Castro Souza", 9),
                 new Aluno("José Rodrigues Cardoso", 10),
                 new Aluno("José Rodrigues Cardoso Segundo", 11) // Nesse aqui vai dar erro.
-        };
+        );
 
         // Criando a Disciplina.
         Disciplina PEOO = new Disciplina("CT874", "PEOO", 10);
@@ -65,11 +67,12 @@ public class Question_03 {
 
         System.out.println("------------------------------------------------------------");
         System.out.println("Matriculando Alunos");
-        for (Aluno aluno : alunos) {
+
+        alunos.forEach(aluno -> {
             aluno.setNp1(gerarNotaRandomica());
             aluno.setNp2(gerarNotaRandomica());
             System.out.println("Matriculando: " + aluno.getNome() + ", resultado: " + (PEOO.matricularAluno(aluno) ? "OK" : "ERRO"));
-        }
+        });
 
         // Imprime as informações da Disciplina depois das Matrículas dos Alunos.
         System.out.println("------------------------------------------------------------");
@@ -91,6 +94,6 @@ public class Question_03 {
         // So por curiosidade. =P
         System.out.println(PEOO.toStringJSON());
         Question.createFileJSON("disciplina_peoo.json", PEOO.toStringJSON());
-
+        
     }
 }

@@ -33,9 +33,6 @@ public class Question_04 extends Question {
         // Valor a do pagamento.
         double paymentAmount = (totalPrice > 0.8 * money) ? totalPrice * 1.1 : totalPrice * 0.95;
 
-        // Classe para formatar o valor em R$ *.***,00.
-
-
         // Forma de pagamento.
         String formOfPayment = (totalPrice > 0.8 * money) ? "A prazo (3x), com juros de 10% sobre o valor total" : "A vista, com 5% de desconto";
         System.out.println("Total a ser pago: " + numberFormat.format(paymentAmount) + ".");

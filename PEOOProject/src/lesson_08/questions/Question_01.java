@@ -3,7 +3,8 @@ package lesson_08.questions;
 import model.ContaCorrente;
 import model.ContaPoupanca;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 1. Alterar a classe Conta para ter seus atributos protegido.
@@ -13,22 +14,7 @@ import java.util.ArrayList;
  */
 public class Question_01 {
 
-    public static ArrayList<String> meses = new ArrayList<>();
-
-    static {
-        meses.add("Janeiro");
-        meses.add("Fevereiro");
-        meses.add("Março");
-        meses.add("Abrio");
-        meses.add("Maio");
-        meses.add("Junho");
-        meses.add("Julho");
-        meses.add("Agosto");
-        meses.add("Setembro");
-        meses.add("Outubro");
-        meses.add("Novembro");
-        meses.add("Dezembro");
-    }
+    public static List<String> meses = Arrays.asList("JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ");
 
     public static void main(String[] args) {
 
@@ -42,19 +28,14 @@ public class Question_01 {
         System.out.println("Conta Corrente: " + contaCorrente);
         System.out.println("Conta Poupança: " + contaPoupanca);
 
-        for (String mes: meses) {
+        meses.forEach(mes -> {
             contaCorrente.debitarAnuidade();
             contaPoupanca.render();
             System.out.println(mes);
             System.out.println("Conta Corrente:" + contaCorrente.toStringJSON());
             System.out.println("Conta Poupança:" + contaPoupanca.toStringJSON());
-        }
-
-        meses.forEach(mes -> {
-            System.out.println(mes);
-            System.out.println(mes
-            );
         });
+
 
     }
 

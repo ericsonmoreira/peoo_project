@@ -65,7 +65,6 @@ public class Banco extends JSONable {
         setContas(new ArrayList<Conta>());
     }
 
-
     /**
      * Construtor que recebeum {@link JSONObject}
      *

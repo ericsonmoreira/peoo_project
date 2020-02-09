@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 /**
  * Classe so para testes rápidos.
@@ -17,7 +16,6 @@ public class Testando {
     // seed = 20
     public static Random random = new Random(20);
     private static Scanner scanner;
-
 
     public static void testeScanner() {
         scanner = new Scanner(System.in);
@@ -45,7 +43,6 @@ public class Testando {
         // o metoso stream() retorna um stream dos elementos da lista
         vetor.stream().filter(v -> v >= 50).forEach(v -> System.out.println("[" + v + "]"));
         vetor.stream().sorted().forEach(integer -> System.out.println(integer));
-
         vetor.stream().map(integer -> integer * 2).filter(integer -> integer > 100).forEach(integer -> System.out.println(integer));
 
     }

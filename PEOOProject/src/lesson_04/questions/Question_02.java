@@ -3,7 +3,6 @@ package lesson_04.questions;
 import util.Comparavel;
 import util.Question;
 
-
 /**
  * Escreva uma classe chamada “Comparavel” que tem como atributo um valor inteiro, um construtor
  * para inicializar o atributo e os métodos “eMaiorOuIgual”, “eMenorOuIgual” e “eDiferenteDe”

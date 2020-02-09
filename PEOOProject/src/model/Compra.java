@@ -39,11 +39,7 @@ public class Compra extends JSONable {
      * @return
      */
     public double calcularTotalCompra() {
-        double total = 0;
-        for (ItemDeCompra item : itensDeCompra) {
-            total += item.calcularTotal();
-        }
-        return total;
+        return itensDeCompra.stream().map(ItemDeCompra::calcularTotal).reduce((a, b) -> a + b).get();
     }
 
     /**
@@ -88,10 +84,7 @@ public class Compra extends JSONable {
         System.out.println("+------------ Relátorio da Compra ------------+");
 
         // Imprimindo o conteudo interno
-        for (ItemDeCompra item : this.itensDeCompra) {
-            double valorUnit = item.getQuant() * item.getPreco();
-            System.out.println("--> " + item.getQuant() + " X " + item.getNome() + " = " + Question.numberFormat.format(valorUnit));
-        }
+        itensDeCompra.forEach(item -> System.out.println(item + Question.numberFormat.format(item.calcularTotal())));
 
         // Gerando o valor com desconto
         valorFinal = calcularTotalFinal(desconto); // Desconto de 10%.

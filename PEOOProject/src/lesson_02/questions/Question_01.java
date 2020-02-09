@@ -34,8 +34,6 @@ public class Question_01 extends Question {
         } else {
             System.out.println("Reprovado.");
         }
-        // Testando o Git.
-        // Alterado do Eclipse.
 
     }
 

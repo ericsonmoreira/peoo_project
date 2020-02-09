@@ -6,7 +6,7 @@ import org.json.simple.parser.ParseException;
 import util.JSONable;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 /**
  * Classe que representa uma Mensagem.
@@ -16,14 +16,11 @@ import java.util.Calendar;
  */
 public class Mensagem extends JSONable {
 
+	private Contato contato; // Contato
 
-	// Contato
-	private Contato contato;
+	private String textoMensagem; // Texto da Mensagem
 
-	// Texto da Mensagem
-	private String textoMensagem;
-
-	private Calendar data;
+	private LocalDate data; // Calendar e Date estão desatualizados.
 
 	public Contato getContato() {
 		return contato;
@@ -41,11 +38,11 @@ public class Mensagem extends JSONable {
 		this.textoMensagem = textoMensagem;
 	}
 
-	public Calendar getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(Calendar data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
@@ -59,7 +56,7 @@ public class Mensagem extends JSONable {
 	public Mensagem(Contato contato, String textoMensagem) {
 		this.setContato(contato);
 		this.setTextoMensagem(textoMensagem);
-		this.setData(Calendar.getInstance()); // passa a data atual.
+		this.setData(LocalDate.now()); // passa a data atual.
 	}
 	
 	/**
@@ -68,10 +65,8 @@ public class Mensagem extends JSONable {
 	 * @param jsonObject 
 	 */
 	public Mensagem(JSONObject jsonObject) {
-		this(
-				(Contato) jsonObject.get("contato"),
-				(String) jsonObject.get("textMessage"));
-		this.setData((Calendar) jsonObject.get("date"));
+		this((Contato) jsonObject.get("contato"), (String) jsonObject.get("textMessage"));
+		this.setData((LocalDate) jsonObject.get("date"));
 	}
 	
 	/**
@@ -85,7 +80,7 @@ public class Mensagem extends JSONable {
 			JSONObject object = (JSONObject) parser.parse(jsonString);
 			this.setContato((Contato) object.get("contato"));
 			this.setTextoMensagem((String) object.get("textoMensagem"));
-			this.setData((Calendar) object.get("data"));
+			this.setData((LocalDate) object.get("data"));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -110,5 +105,5 @@ public class Mensagem extends JSONable {
 		object.put("data", this.data);
 		return object;
 	}
-	
+
 }

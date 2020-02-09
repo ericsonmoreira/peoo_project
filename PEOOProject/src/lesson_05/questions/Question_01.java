@@ -31,25 +31,25 @@ public class Question_01 extends Question {
             int opition = printMenu();
             switch (opition) {
                 case 1: // Criar contra.
-                    createAccount();
+                    criarConta();
                     break;
                 case 2: // Sacar.
-                    withdrawInAccount();
+                    sacarDeUmaConta();
                     break;
                 case 3: // Depositar.
-                    depositInAccount();
+                    depositarEmUmaConta();
                     break;
                 case 4: // Alterar dados.
-                    changeAccount();
+                    alterarConta();
                     break;
                 case 5: // Transferência entre contas.
-                    transferBetweenAccount();
+                    transferirEntreContas();
                     break;
                 case 6: // Listar contas.
-                    listAccounts();
+                    listarContas();
                     break;
                 case 7: // Encerrar conta.
-                    removeAccount();
+                    removerConta();
                     break;
                 case 8: // Fechar programa
                     System.out.println("Saindo do Sistema. Obrigado pela preferência!");
@@ -63,8 +63,9 @@ public class Question_01 extends Question {
     /**
      *
      */
-    private static void transferBetweenAccount() {
+    private static void transferirEntreContas() {
         // Procura o Devedor.
+        // ToDo: Aprender mais sobre "Para de retornar null e comece a usar OPTIONAL"
         System.out.println("Digite o número da Conta Devedora:");
         Conta debtor = banco.buscarConta(scanner.nextInt());
         if (debtor == null) {
@@ -92,7 +93,7 @@ public class Question_01 extends Question {
     /**
      *
      */
-    private static void removeAccount() {
+    private static void removerConta() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
         Conta out = banco.buscarConta(num);
@@ -107,7 +108,7 @@ public class Question_01 extends Question {
     /**
      * Muda uma conta selecionada pelo número da conta.
      */
-    private static void changeAccount() {
+    private static void alterarConta() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
         Conta out = banco.buscarConta(num);
@@ -125,7 +126,7 @@ public class Question_01 extends Question {
     /**
      * Faz um depósito na conta escolhida.
      */
-    private static void depositInAccount() {
+    private static void depositarEmUmaConta() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
         Conta out = banco.buscarConta(num);
@@ -142,7 +143,7 @@ public class Question_01 extends Question {
     /**
      * Sacar fa conta escolhida.
      */
-    private static void withdrawInAccount() {
+    private static void sacarDeUmaConta() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
         Conta out = banco.buscarConta(num);
@@ -159,11 +160,9 @@ public class Question_01 extends Question {
     /**
      * Listar todas as contras do banco mostrando no Console.
      */
-    private static void listAccounts() {
+    private static void listarContas() {
         if (!banco.getContas().isEmpty()) {
-            for (Conta conta : banco.getContas()) {
-                System.out.println(conta);
-            }
+            banco.getContas().forEach(System.out::println);
         } else {
             System.out.println("Nenhuma conta cadastrada.");
         }
@@ -172,7 +171,7 @@ public class Question_01 extends Question {
     /**
      * Criar uma nova conta.
      */
-    private static void createAccount() {
+    private static void criarConta() {
         System.out.println("Digite o Número da Conta:");
         int numAccount = scanner.nextInt();
         System.out.println("Digite o Nome do Titular da Conta:");
