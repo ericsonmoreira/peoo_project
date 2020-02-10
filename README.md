@@ -4,7 +4,7 @@ Projeto em Java feito no Eclipse para conter as questões da cadeira de PEOO.
 A essa disciplina faz parte da grade do curso de Ciência da Computação na UECE - Universidade Estadual do Ceará, semestre 2019.2.
 
 - [x] Adicionar as classes para trabahar com JSON.
-- [x] Atualizar o README.txt.
+- [ ] Atualizar o README.txt.
 
 ### Dependências do projeto:
 
