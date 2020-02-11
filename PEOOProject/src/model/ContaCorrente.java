@@ -18,10 +18,20 @@ public class ContaCorrente extends Conta {
         this.limite = limite;
     }
 
-    public ContaCorrente(int numAccount, String holder, double balance, double limite) {
-        super(numAccount, holder, balance);
+    /**
+     * Construtor Padão.
+     *
+     * @param numConta número da conta.
+     * @param titular nome do titular da conta.
+     * @param saldo saldo inicial da conta.
+     * @param limite limite da conta.
+     */
+    public ContaCorrente(int numConta, String titular, double saldo, double limite) {
+        super(numConta, titular, saldo);
         this.limite = limite;
     }
+
+
 
     /**
      * Debita 50 reais do saldo

@@ -6,7 +6,6 @@ import util.JSONable;
 import util.TipoContato;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 /**
  * Classe para representar uma Agenda.
@@ -209,7 +208,7 @@ public class Agenda extends JSONable {
      * @param setor Setor de Trabalho.
      */
     public void showContatosPorSetorDeTrabalho(String setor){
-        contatosTrabalho.stream().filter(contatoTrabalho -> contatoTrabalho.getSetor().equals(setor)).forEach(System.out::println);
+        contatosTrabalho.stream().filter(ct -> ct.getSetor().equals(setor)).forEach(System.out::println);
     }
 
     /**
@@ -240,14 +239,14 @@ public class Agenda extends JSONable {
      * Enviar uma Mensagem recebendo o número do contato e a mensagem a ser enviada, e realiza o envio.
      * Realizar o envio aqui será adicionar a mensagem na lista de mensagens.
      *
-     * @param foneContact Telefone do Contato.
-     * @param textMessage Texto da Mensagem.
+     * @param telefoneContato Telefone do Contato.
+     * @param textoMensagem Texto da Mensagem.
      * @return <code>true</code> caso consiga mandar a mensagem, <code>false</code> caso contrário.
      */
-    public boolean enviaMessage(String foneContact, String textMessage) {
-        Contato contact = this.procuraContatoPorTelefone(foneContact);
+    public boolean enviaMessage(String telefoneContato, String textoMensagem) {
+        Contato contact = this.procuraContatoPorTelefone(telefoneContato);
         if (contact != null) {
-            Mensagem mensagem = new Mensagem(contact, textMessage);
+            Mensagem mensagem = new Mensagem(contact, textoMensagem);
             this.mensagens.add(mensagem);
             return true;
         }

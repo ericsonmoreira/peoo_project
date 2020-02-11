@@ -18,8 +18,8 @@ public class ContaPoupanca extends Conta {
         this.taxaRendimento = taxaRendimento;
     }
 
-    public ContaPoupanca(int numAccount, String holder, double balance, double taxaRendimento) {
-        super(numAccount, holder, balance);
+    public ContaPoupanca(int numConta, String titular, double balance, double taxaRendimento) {
+        super(numConta, titular, balance);
         this.taxaRendimento = taxaRendimento;
     }
 

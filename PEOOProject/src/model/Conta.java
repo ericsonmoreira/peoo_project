@@ -114,10 +114,6 @@ public class Conta extends JSONable {
         setNumConta(numConta);
         setSaldo(saldo);
         setTitular(titular);
-        System.out.println("------------------- Nova Conta ---------------------------------");
-        this.showConta();
-        System.out.println("Nova Conta adicionada com sucesso.");
-        System.out.println("----------------------------------------------------------------");
     }
 
     /**
