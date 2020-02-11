@@ -98,7 +98,10 @@ public class Disciplina extends JSONable {
     public void gerarEstatisticas() {
         Aluno alunoMaiorMedia = alunos.stream().max(Comparator.comparing(Aluno::getMedia)).get(); // Pega o Aluno com a maior média.
         int quantPassaram = (int) alunos.stream().filter(aluno -> aluno.getMedia() >= 7).count(); // Quantidade de alunos que passaram por média.
-        double mediaGeral = alunos.stream().map(Aluno::getMedia).reduce((a, b) -> a + b).get() / getAlunos().size(); // Pegando a média geral dos alunos.
+        // Pegando a média geral dos alunos.
+        double mediaGeral = alunos.stream().mapToDouble(Aluno::getMedia).sum() / getAlunos().size();
+        // Nota mental: pegar o somatorio de alguma coisa usando stream(), sempre usar o
+        // mad + o tipo primitovo (mapDouble, mapInt, etc) seguido de sum() em vez de usar o método reduce.
         System.out.println("Maior Média: " + alunoMaiorMedia.getMedia() + ", Nome: " + alunoMaiorMedia.getNome());
         System.out.println("Quantidade de alunos que passaram por média: " + quantPassaram);
         System.out.println("Quantidade de alunos que não passaram: " + (getAlunos().size() - quantPassaram));

@@ -60,7 +60,7 @@ public class Question_03 {
         );
 
         // Criando a Disciplina.
-        Disciplina PEOO = new Disciplina("CT874", "PEOO", 10);
+        Disciplina PEOO = new Disciplina("CT874", "PEOO", 11);
 
         // Imprime as informações da Disciplina.
         System.out.println(PEOO);
@@ -91,7 +91,7 @@ public class Question_03 {
         PEOO.gerarEstatisticas();
 
         System.out.println("------------------------------------------------------------");
-        // So por curiosidade. =P
+        // Criando um arquivo JSON só por curiosidade.
         System.out.println(PEOO.toStringJSON());
         Question.createFileJSON("disciplina_peoo.json", PEOO.toStringJSON());
         
