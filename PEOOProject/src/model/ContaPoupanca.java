@@ -33,7 +33,7 @@ public class ContaPoupanca extends Conta {
     @Override
     @SuppressWarnings("unchecked")
     public String toString() {
-        return "Conta{" +
+        return "ContaPoupanca{" +
                 "numConta=" + numConta +
                 ", titular='" + titular + '\'' +
                 ", saldo=" + Question.numberFormat.format(this.saldo) +

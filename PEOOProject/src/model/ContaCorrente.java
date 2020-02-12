@@ -31,8 +31,6 @@ public class ContaCorrente extends Conta {
         this.limite = limite;
     }
 
-
-
     /**
      * Debita 50 reais do saldo
      */
@@ -43,7 +41,7 @@ public class ContaCorrente extends Conta {
     @Override
     @SuppressWarnings("unchecked")
     public String toString() {
-        return "Conta{" +
+        return "ContaCorrente{" +
                 "numConta=" + numConta +
                 ", titular='" + titular + '\'' +
                 ", saldo=" + Question.numberFormat.format(this.saldo) +

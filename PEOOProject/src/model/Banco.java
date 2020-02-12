@@ -4,6 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import util.JSONable;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -109,6 +110,51 @@ public class Banco extends JSONable {
         }
         // Transferência não deu certo.
         return false;
+    }
+
+    /**
+     * Método para mostrar todas as contas.
+     */
+    public void showContas(){
+        contas.forEach(System.out::println);
+    }
+
+    /**
+     * Mostar:
+     *      0. Nome do Banco.
+     *      1. Total de contas-genéricas.
+     *      2. Total de contras-correntes.
+     *      3. Total de contas-poupança.
+     *      4. Total de contas.
+     *      5. Somatório dos saldos de todas as contas-genéricas.
+     *      6. Somatório dos saldos de todas as contas-correntes.
+     *      7. Somatório dos saldos de todas as contas-poupanca.
+     *      8. Somatório dos saldos de todas as contas.
+     *
+     * Obs.: Maior médoto que fiz até agora.
+     */
+    public void relatorioContas(){
+        long totalContas = contas.size(); // sem segredos aqui. Só pega o tamanho o array de contas.
+        long totalContasGenericas = contas.stream().filter(conta -> conta.getClass().getSimpleName().equals("Conta")).count(); // Ficou um pouco compicado, mas só deu certo assim.
+        long totalContasCorrentes = contas.stream().filter(conta -> conta instanceof ContaCorrente).count();
+        long totalContasPoupanca = contas.stream().filter(conta -> conta instanceof ContaPoupanca).count();
+        double totalSaldoContas = contas.stream().mapToDouble(conta -> conta.getSaldo()).sum();
+        double totalSaldoContasGenericas = contas.stream().filter(conta -> conta.getClass().getSimpleName().equals("Conta")).mapToDouble(conta -> conta.getSaldo()).sum();
+        double totalSaldoContasCorrentes = contas.stream().filter(conta -> conta instanceof ContaCorrente).mapToDouble(conta -> conta.getSaldo()).sum();
+        double totalSaldoContasPoupanca = contas.stream().filter(conta -> conta instanceof ContaPoupanca).mapToDouble(conta -> conta.getSaldo()).sum();
+        // Formatador de valoresm em R$ M.CCC,DD.
+        NumberFormat nf = NumberFormat.getCurrencyInstance();
+        System.out.println("----------------------- Relatório Bancário -----------------------");
+        System.out.println("Nome do Banco: " + this.nome);
+        System.out.println("Total de Contas-Genéricas: " + totalContasGenericas);
+        System.out.println("Total de Contras-Correntes:" + totalContasCorrentes);
+        System.out.println("Total de Contas-Poupança: " + totalContasPoupanca);
+        System.out.println("Total de Contas: " + totalContas);
+        System.out.println("Somatório dos saldos de todas as Contas-Genéricas: " + nf.format(totalSaldoContasGenericas));
+        System.out.println("Somatório dos saldos de todas as Contas-Correntes: " + nf.format(totalSaldoContasCorrentes));
+        System.out.println("Somatório dos saldos de todas as Contas-Poupança: " + nf.format(totalSaldoContasPoupanca));
+        System.out.println("Somatório dos saldos de todas as Contas: " + nf.format(totalSaldoContas));
+        System.out.println("------------------------------------------------------------------");
     }
 
     @Override
