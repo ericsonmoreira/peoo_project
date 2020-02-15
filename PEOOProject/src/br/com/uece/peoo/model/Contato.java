@@ -1,9 +1,9 @@
 package br.com.uece.peoo.model;
 
+import br.com.uece.peoo.util.JSONable;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import br.com.uece.peoo.util.JSONable;
 
 /**
  * Obs.: O nome dessa classe está em português porque já existe uma classe com o nome Person nesse pacote.

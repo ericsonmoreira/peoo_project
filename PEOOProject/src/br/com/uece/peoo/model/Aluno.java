@@ -1,7 +1,7 @@
 package br.com.uece.peoo.model;
 
-import org.json.simple.JSONObject;
 import br.com.uece.peoo.util.JSONable;
+import org.json.simple.JSONObject;
 
 /**
  * Aluno contém um nome e uma matrícula.

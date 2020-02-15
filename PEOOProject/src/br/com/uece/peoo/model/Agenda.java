@@ -1,9 +1,9 @@
 package br.com.uece.peoo.model;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import br.com.uece.peoo.util.JSONable;
 import br.com.uece.peoo.util.TipoContato;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 

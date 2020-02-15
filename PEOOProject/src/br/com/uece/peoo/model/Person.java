@@ -1,9 +1,9 @@
 package br.com.uece.peoo.model;
 
+import br.com.uece.peoo.util.JSONable;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import br.com.uece.peoo.util.JSONable;
 
 /**
  * Classe que representa uma pessoa com idade (age) e nome (name).

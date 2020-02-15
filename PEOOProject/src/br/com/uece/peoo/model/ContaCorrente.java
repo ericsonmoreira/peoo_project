@@ -1,7 +1,7 @@
 package br.com.uece.peoo.model;
 
-import org.json.simple.JSONObject;
 import br.com.uece.peoo.util.Question;
+import org.json.simple.JSONObject;
 
 /**
  * Classe para Conta Poupanca.

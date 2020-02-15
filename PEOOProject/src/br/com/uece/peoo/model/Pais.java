@@ -1,9 +1,9 @@
 package br.com.uece.peoo.model;
 
 import br.com.uece.peoo.questions.Question06_01;
+import br.com.uece.peoo.util.JSONable;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import br.com.uece.peoo.util.JSONable;
 
 import java.util.HashMap;
 import java.util.HashSet;
