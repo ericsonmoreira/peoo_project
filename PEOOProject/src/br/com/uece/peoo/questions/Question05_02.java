@@ -32,13 +32,13 @@ public class Question05_02 extends Question{
 			int opition = printMenu();
 			switch (opition) {
 			case 1: // Mostrar todas as mensagens.
-				showAllMessages();
+				showTodasMensagens();
 				break;
 			case 2: // Mostrar todas as mensagens enviadas para um certo contato.
-				showAllMessagesForContact();
+				showTotasMesagensPorContato();
 				break;
 			case 3: // Mostar o total de mensagens.
-				showCountMessages();
+				showTotalDeMensagens();
 				break;
 			case 4: // Fechar programa
 				System.out.println("Saindo do Sistema.");
@@ -49,15 +49,19 @@ public class Question05_02 extends Question{
 		}
 	}
 
-	private static void showAllMessages() {
+	private static void showTodasMensagens() {
 		agenda.getMensagens().forEach(message -> System.out.println(message));
 	}
 
-	private static void showCountMessages() {
+	private static void showTotalDeMensagens() {
 		System.out.println("Total de mensagnes enviadas: " + agenda.getMensagens().size() + ".");
 	}
 
-	private static void showAllMessagesForContact() {
+	private  static void fecharPrograma(){
+		System.exit(0);
+	}
+
+	private static void showTotasMesagensPorContato() {
 		System.out.println("Digite o nome do contato: ");
 		// Não sei pq precisa disso.
 		@SuppressWarnings("resource")
