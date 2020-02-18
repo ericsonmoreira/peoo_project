@@ -41,8 +41,7 @@ public class Question05_02 extends Question{
 				showTotalDeMensagens();
 				break;
 			case 4: // Fechar programa
-				System.out.println("Saindo do Sistema.");
-				System.exit(0);
+				fecharPrograma();
 			default:
 				System.err.println("Opção Invalida!");
 			}
@@ -58,6 +57,7 @@ public class Question05_02 extends Question{
 	}
 
 	private  static void fecharPrograma(){
+		System.out.println("Saindo do Sistema.");
 		System.exit(0);
 	}
 
