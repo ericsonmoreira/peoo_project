@@ -18,29 +18,25 @@ public class Televisao {
     /**
      * Enum que representa os comandos de aumentar e diminuir volume.
      */
-    enum COMANDO_VOL_TV {
-        UP_VOL(1), DOWN_VOL(-1);
+    public enum COMANDO_TV {
+        UP(1), DOWN(-1);
         private int valor;
-        COMANDO_VOL_TV(int valor) {
+        COMANDO_TV(int valor) {
             this.valor = valor;
         }
     }
 
-    enum COMANDO_CH_TV {
-        UP_CH, DOW_CH;
-    }
-
     // Constantes
-    private static final int VOL_MIN = 0; // volume minimo
-    private static final int VOL_MAX = 10; // volumoe maximo
+    protected static final int VOL_MIN = 0; // volume minimo
+    protected static final int VOL_MAX = 10; // volumoe maximo
 
-    private String id;
+    protected String id;
 
-    private int voloume;
+    protected int voloume;
 
-    private Canal canalAtual;
+    protected Canal canalAtual;
 
-    private List<Canal> canais;
+    protected List<Canal> canais;
 
     public String getId() {
         return id;
@@ -106,9 +102,9 @@ public class Televisao {
      * mas não pode ultrapassar o máximo. No segundo caso, decrementa o volume da TV em 1 unidade, mas não pode
      * ultrapassar o mínimo.
      *
-     * @param COMANDOVOLTV {@link COMANDO_VOL_TV} UP_VOL ou DOWN_VOL.
+     * @param COMANDOVOLTV {@link COMANDO_TV} UP_VOL ou DOWN_VOL.
      */
-    public void alterarVolume(COMANDO_VOL_TV COMANDOVOLTV){
+    public void alterarVolume(COMANDO_TV COMANDOVOLTV){
         setVoloume(getVoloume() + COMANDOVOLTV.valor);
     }
 
@@ -154,8 +150,10 @@ public class Televisao {
      * para o primeiro da lista. Já se for o primeiro canal e solicitar o anterior, deve-se setar o canal atual
      * como o último da lista.
      */
-    public void alterarCanal(COMANDO_CH_TV comando){
-
+    public void alterarCanal(COMANDO_TV comando){
+        int index = canais.indexOf(this.canalAtual);
+        index = (index + comando.valor) % canais.size();
+        setCanalAtual(this.canais.get(index));
     }
 
     /**
