@@ -1,5 +1,11 @@
 package br.com.uece.peoo.model;
 
+import java.util.ArrayList;
+
+/**
+ * A SmartTV sobrescreve o método de cadastrar canais inserindo todos os canais disponibilizados,
+ * desde que não estejam já cadastrados.
+ */
 public class SmartTV extends Televisao {
 
     private int polegadas; // polegadas da Smart TV
@@ -23,5 +29,26 @@ public class SmartTV extends Televisao {
     public SmartTV(String id, int voloume, Canal canalAtual, int polegadas) {
         super(id, voloume, canalAtual);
         this.polegadas = polegadas;
+    }
+
+    /**
+     * Inserir todos os canais disponibilizados, desde que não estejam já cadastrados.
+     *
+     * @param canalList Lista de {@link Canal}
+     */
+    @Override
+    public void cadastrarCanais(ArrayList<Canal> canalList) {
+        canalList.stream().filter(canal -> !this.canais.contains(canal)).forEach(this.canais::add);
+    }
+
+    @Override
+    public String toString() {
+        return "SmartTV{" +
+                "polegadas=" + polegadas +
+                ", id='" + id + '\'' +
+                ", voloume=" + voloume +
+                ", canalAtual=" + canalAtual +
+                ", canais=" + canais +
+                "} " + super.toString();
     }
 }
