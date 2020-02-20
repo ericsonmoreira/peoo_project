@@ -176,8 +176,9 @@ public class Televisao {
      * dados de cada canal. Ordenados pelo numero do canal.
      */
     public void mostarGrade() {
+        System.out.println(this.getClass().getSimpleName() + "{id=" + id + ", canalAtual=" + canalAtual + "}");
         // Ordenados pelo numero do canal.
-        canais.stream().sorted(Comparator.comparing(Canal::getNumero)).forEach(System.out::println);
+        this.canais.stream().sorted(Comparator.comparing(Canal::getNumero)).forEach(canal -> System.out.println("\t" + canal));
     }
 
     @Override
