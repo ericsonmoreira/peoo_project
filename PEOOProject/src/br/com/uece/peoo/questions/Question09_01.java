@@ -76,6 +76,9 @@ public class Question09_01 extends Question {
                 case 5: // Canal Anterior.
                     controleRemoto.canalAnterior();
                     break;
+                case 6: // Mostrar Grade.
+                    controleRemoto.mostrarGrade();
+                    break;
                 case 99: // Fechar programa
                 default:
                     System.err.println("Opção Invalida!");
@@ -87,10 +90,11 @@ public class Question09_01 extends Question {
         Scanner scanner = new Scanner(System.in);
         System.out.println("------------------- Menu ---------------------");
         System.out.println("1 --> Informar Dados.");
-        System.out.println("2 --> Aumentar Volume.");
-        System.out.println("3 --> Diminuir Volume.");
-        System.out.println("4 --> Próximo canal.");
-        System.out.println("5 --> Canal anterior.");
+        System.out.println("2 --> + Volume.");
+        System.out.println("3 --> - Volume.");
+        System.out.println("4 --> >> Canal.");
+        System.out.println("5 --> << Canal.");
+        System.out.println("6 --> Mostrar Grade.");
         System.out.println("99 --> Fechar Programa.");
         System.out.println("Digite a opção: ");
         int option = scanner.nextInt();

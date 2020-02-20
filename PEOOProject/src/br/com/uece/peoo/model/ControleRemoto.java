@@ -34,39 +34,67 @@ public class ControleRemoto {
         this.televisores = televisores;
     }
 
+    /**
+     * Adicionando uma {@link Televisao}
+     *
+     * @param televisao
+     */
     public void addTv(Televisao televisao){
         this.televisores.add(televisao);
     }
 
+    /**
+     * Aumentar o volume em uma unidade (maximo 10).
+     */
     public void aumentarVolume() {
         this.televisores.forEach(televisao -> televisao.alterarVolume(Televisao.COMANDO_TV.UP));
     }
 
+    /**
+     * Diminuir o volume em uma unidade (mínimo 0).
+     */
     public void diminuirVolume() {
         this.televisores.forEach(televisao -> televisao.alterarVolume(Televisao.COMANDO_TV.DOWN));
     }
 
+    /**
+     * Sintoniza aquele canal para todas as {@link Televisao} cadastradas.
+     *
+     * @param canal Canal para cadastrar.
+     */
     public void sintonizarCanal(Canal canal) {
-        this.televisores.forEach(televisao -> televisao.setCanalAtual(canal));
+        this.televisores.forEach(televisao -> {
+            if (!televisao.getCanais().contains(canal)) televisao.cadastrarCanal(canal);
+            televisao.setCanalAtual(canal);
+        });
     }
 
+    /**
+     * Simula o botão >>
+     */
     public void proximoCanal() {
         this.televisores.forEach(televisao -> televisao.alterarCanal(Televisao.COMANDO_TV.UP));
     }
 
+    /**
+     * Simula o botão <<
+     */
     public void canalAnterior() {
         this.televisores.forEach(televisao -> televisao.alterarCanal(Televisao.COMANDO_TV.DOWN));
     }
 
+    /**
+     * Imprime os dados de cada TV controlada pelo Controle Remoto.
+     */
     public void informarDados() {
         this.televisores.forEach(System.out::println);
     }
 
+    /**
+     * Imprime a grade de canais de cada TV cadastrada.
+     */
     public void mostrarGrade() {
-//        this.televisores.forEach(televisao -> {
-//            System.out.println(televisao);
-//            televisao.getCanais().forEach();
-//        });
+        this.televisores.forEach(televisao -> televisao.mostarGrade());
     }
 
     @Override

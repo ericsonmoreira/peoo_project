@@ -131,6 +131,15 @@ public class Televisao {
     }
 
     /**
+     * Método simples para add canal nos canais da TV.
+     *
+     * @param canal {@link Canal}
+     */
+    public void cadastrarCanal(Canal canal) {
+        this.canais.add(canal);
+    }
+
+    /**
      * Recebe como parâmetro uma lista com os canais disponíveis, mas só insere na lista de canais
      * disponíveis os canais novos (não pré-cadastrados) e não HDs.
      *
@@ -149,8 +158,9 @@ public class Televisao {
      * como o último da lista.
      */
     public void alterarCanal(COMANDO_TV comando){
-        int index = canais.indexOf(this.canalAtual);
+        int index = canais.indexOf(this.canalAtual); // pega a posicao do canal atual no list de canais.
         index = (index + comando.valor) % canais.size();
+        index = (index < 0)? canais.size() + index: index;
         setCanalAtual(this.canais.get(index));
     }
 
