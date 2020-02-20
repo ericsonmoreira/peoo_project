@@ -18,14 +18,12 @@ public class TVHD extends Televisao {
 
     /**
      * Construtor que inicialize a lista e canais com os canais abertos (8 – Record - F, 10 – Globo -F, 12 – Band – F)
-     *
-     * @param id         nome do fabricante mais o modelo. exemplo: LG345.
-     * @param voloume    volume inicial.
+     *  @param id         nome do fabricante mais o modelo. exemplo: LG345.
      * @param canalAtual Canal atual.
      * @param modelo modele da TV.
      */
-    public TVHD(String id, int voloume, Canal canalAtual, MODELO modelo) {
-        super(id, voloume, canalAtual);
+    public TVHD(String id, int volume, Canal canalAtual, MODELO modelo) {
+        super(id, volume, canalAtual);
         this.modelo = modelo;
     }
 

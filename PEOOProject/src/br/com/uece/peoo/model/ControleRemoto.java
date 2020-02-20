@@ -63,7 +63,16 @@ public class ControleRemoto {
     }
 
     public void mostrarGrade() {
-
+//        this.televisores.forEach(televisao -> {
+//            System.out.println(televisao);
+//            televisao.getCanais().forEach();
+//        });
     }
 
+    @Override
+    public String toString() {
+        return "ControleRemoto{" +
+                "televisores=" + televisores +
+                '}';
+    }
 }

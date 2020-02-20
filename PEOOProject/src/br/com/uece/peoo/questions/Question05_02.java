@@ -40,7 +40,7 @@ public class Question05_02 extends Question{
 			case 3: // Mostar o total de mensagens.
 				showTotalDeMensagens();
 				break;
-			case 4: // Fechar programa
+			case 99: // Fechar programa
 				fecharPrograma();
 			default:
 				System.err.println("Opção Invalida!");
@@ -54,11 +54,6 @@ public class Question05_02 extends Question{
 
 	private static void showTotalDeMensagens() {
 		System.out.println("Total de mensagnes enviadas: " + agenda.getMensagens().size() + ".");
-	}
-
-	private  static void fecharPrograma(){
-		System.out.println("Saindo do Sistema.");
-		System.exit(0);
 	}
 
 	private static void showTotasMesagensPorContato() {
@@ -78,7 +73,7 @@ public class Question05_02 extends Question{
 	 * 1) Todas as mensagens
 	 * 2) Mensagens de para um contato
 	 * 3) Total de mensagens
-	 * 4) Fechar programa.
+	 * 99) Fechar programa.
 	 * 
 	 * @return Valor da opção digitada.
 	 */
@@ -87,11 +82,12 @@ public class Question05_02 extends Question{
 		System.out.println("1 --> Todas as mensagens.");
 		System.out.println("2 --> Mensagens de para um contato.");
 		System.out.println("3 --> Total de mensagens.");
-		System.out.println("4 --> Fechar Programa.");
+		System.out.println("99 --> Fechar Programa.");
 		System.out.println("Digite a opção: ");
 		int option = scanner.nextInt();
 		return option; // Retorna a opção digitada.
 	}
+
 	public static void main(String[] args) {
 		// Iniciando com alguns valores.
 		init();

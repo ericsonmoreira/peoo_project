@@ -39,4 +39,8 @@ public class Question {
         }
     }
 
+    public static void fecharPrograma(){
+        System.exit(0);
+    }
+
 }

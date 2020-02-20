@@ -1,7 +1,6 @@
 package br.com.uece.peoo.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -36,7 +35,7 @@ public class Televisao {
 
     protected Canal canalAtual;
 
-    protected List<Canal> canais;
+    protected ArrayList<Canal> canais;
 
     public String getId() {
         return id;
@@ -75,7 +74,7 @@ public class Televisao {
         return canais;
     }
 
-    public void setCanais(List<Canal> canais) {
+    public void setCanais(ArrayList<Canal> canais) {
         this.canais = canais;
     }
 
@@ -86,15 +85,14 @@ public class Televisao {
      * @param voloume volume inicial.
      * @param canalAtual Canal atual.
      */
-    public Televisao(String id, int voloume, Canal canalAtual) {
+    public Televisao(String id, int volume, Canal canalAtual) {
         setId(id);
-        setVoloume(voloume);
+        setVoloume(volume);
+        this.canais = new ArrayList<Canal>();
+        this.canais.add(new Canal(8, "Record", false));
+        this.canais.add(new Canal(10, "Globo", false));
+        this.canais.add(new Canal(12, "Band", false));
         setCanalAtual(canalAtual);
-        this.canais = Arrays.asList(
-                new Canal(8, "Record", false),
-                new Canal(10, "Globo", false),
-                new Canal(12, "Band", false)
-        ); // Inicializando os canais padrao
     }
 
     /**
