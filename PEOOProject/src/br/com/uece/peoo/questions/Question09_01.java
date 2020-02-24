@@ -4,9 +4,7 @@ import br.com.uece.peoo.model.*;
 import br.com.uece.peoo.util.Menu;
 import br.com.uece.peoo.util.Question;
 
-import java.nio.file.OpenOption;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -24,7 +22,7 @@ public class Question09_01 extends Question {
 
     public static ControleRemoto controleRemoto;
 
-    public static Menu MENU = new Menu();
+    public static Menu menu;
 
     public static void main(String[] args) {
 
@@ -33,9 +31,10 @@ public class Question09_01 extends Question {
         Scanner scanner = new Scanner(System.in);
 
         while (true) { // Loop infinito.
-            MENU.printMenu();
+            menu.printMenu();
+            System.out.println("Digite uma opição:");
             int opition = scanner.nextInt();
-            Optional<Runnable> runnable = Optional.ofNullable(MENU.getRunnable(opition));
+            Optional<Runnable> runnable = Optional.ofNullable(menu.getRunnable(opition));
             runnable.ifPresentOrElse(Runnable::run, () -> System.err.println("Opção Invalida!"));
         }
     }
@@ -71,13 +70,14 @@ public class Question09_01 extends Question {
         tvs.forEach(tv -> tv.cadastrarCanais(canais));
 
         // Inicializando o Menu
-        MENU.addOption(1, "Informar Dados.", () -> controleRemoto.informarDados());
-        MENU.addOption(2, "+ Volume.", () -> controleRemoto.aumentarVolume());
-        MENU.addOption(3, "- Volume.", () -> controleRemoto.diminuirVolume());
-        MENU.addOption(4, ">> Canal.", () -> controleRemoto.proximoCanal());
-        MENU.addOption(5, "<< Canal.",() -> controleRemoto.canalAnterior());
-        MENU.addOption(6, "Mostrar Grade.", () -> controleRemoto.mostrarGrade());
-        MENU.addOption(99, "Fechar Programa.", () -> fecharPrograma());
+        menu = new Menu();
+        menu.addOption(1, "Informar Dados.", () -> controleRemoto.informarDados());
+        menu.addOption(2, "+ Volume.", () -> controleRemoto.aumentarVolume());
+        menu.addOption(3, "- Volume.", () -> controleRemoto.diminuirVolume());
+        menu.addOption(4, ">> Canal.", () -> controleRemoto.proximoCanal());
+        menu.addOption(5, "<< Canal.",() -> controleRemoto.canalAnterior());
+        menu.addOption(6, "Mostrar Grade.", () -> controleRemoto.mostrarGrade());
+        menu.addOption(99, "Fechar Programa.", () -> fecharPrograma());
     }
 
 }

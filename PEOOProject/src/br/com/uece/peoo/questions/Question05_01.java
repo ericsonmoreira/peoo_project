@@ -17,42 +17,42 @@ import br.com.uece.peoo.util.TipoContato;
 public class Question05_01 extends Question{
 
 	public static void main(String[] args) {
-		Agenda schedule = new Agenda();
+		Agenda agenda = new Agenda();
 
 		System.out.println("Adicionando pessoas");
 		
-		schedule.addContato("Ericson Rogerio Moreira", "(85) 99792-6510");
-		schedule.addContato("Christina J. Pelkey", "(11) 2418-6344");
-		schedule.addContato("Donna J. Tapia", "(75) 2000-2662");
-		schedule.addContato("Edna J. Jones", "(16) 6094-6352");
-		schedule.addContato("James C. Childress", "(11) 6208-9848");
-		schedule.addContato("Amber D. Bosch", "(11) 6888-2177");
+		agenda.addContato("Ericson Rogerio Moreira", "(85) 99792-6510");
+		agenda.addContato("Christina J. Pelkey", "(11) 2418-6344");
+		agenda.addContato("Donna J. Tapia", "(75) 2000-2662");
+		agenda.addContato("Edna J. Jones", "(16) 6094-6352");
+		agenda.addContato("James C. Childress", "(11) 6208-9848");
+		agenda.addContato("Amber D. Bosch", "(11) 6888-2177");
 
 		// Mostranto todas as pessoas
-		schedule.showContatosPorTipo(TipoContato.TODOS);
+		agenda.showContatosPorTipo(TipoContato.TODOS);
 
 		System.out.println("Procurando pessoas pelo Fone");
 
-		System.out.println(schedule.procuraContatoPorTelefone("(85) 99792-6510"));
-		System.out.println(schedule.procuraContatoPorTelefone("(16) 6094-6352"));
-		System.out.println(schedule.procuraContatoPorTelefone("(88) 99792-6510"));
+		System.out.println(agenda.procuraContatoPorTelefone("(85) 99792-6510"));
+		System.out.println(agenda.procuraContatoPorTelefone("(16) 6094-6352"));
+		System.out.println(agenda.procuraContatoPorTelefone("(88) 99792-6510"));
 
 		System.out.println("Auterar as o telefone das pessoas");	
 
-		schedule.mudaTelefoneDoContato("Donna J. Tapia", "(75) 2000-0000");
-		schedule.mudaTelefoneDoContato("Edna J. Jones", "(16) 6094-0000");
-		schedule.mudaTelefoneDoContato("James C. Childress", "(11) 6208-0000");
-		schedule.mudaTelefoneDoContato("Amber C. Bosch", "(11) 6888-2177"); // O nome dessa pessoa está errado.
+		agenda.mudaTelefoneDoContato("Donna J. Tapia", "(75) 2000-0000");
+		agenda.mudaTelefoneDoContato("Edna J. Jones", "(16) 6094-0000");
+		agenda.mudaTelefoneDoContato("James C. Childress", "(11) 6208-0000");
+		agenda.mudaTelefoneDoContato("Amber C. Bosch", "(11) 6888-2177"); // O nome dessa pessoa está errado.
 
-		schedule.showContatosPorTipo(TipoContato.TODOS);
+		agenda.showContatosPorTipo(TipoContato.TODOS);
 		
 		System.out.println("Remover pessoas");
 		
-		schedule.removerContato("Ericson Rogerio Moreira");
-		schedule.removerContato("Amber D. Bosch");
-		schedule.removerContato("Amber C. Bosch"); // O nome dessa pessoa está errado.
+		agenda.removerContato("Ericson Rogerio Moreira");
+		agenda.removerContato("Amber D. Bosch");
+		agenda.removerContato("Amber C. Bosch"); // O nome dessa pessoa está errado.
 
-		schedule.showContatosPorTipo(TipoContato.TODOS);
+		agenda.showContatosPorTipo(TipoContato.TODOS);
 
 	}
 

@@ -2,8 +2,10 @@ package br.com.uece.peoo.questions;
 
 import br.com.uece.peoo.model.Banco;
 import br.com.uece.peoo.model.Conta;
+import br.com.uece.peoo.util.Menu;
 import br.com.uece.peoo.util.Question;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 /**
@@ -22,47 +24,8 @@ public class Question04_01 extends Question {
     // Define um Banco.
     private static Banco banco = new Banco("BB");
 
-    /**
-     * Cria um Loop Infinito para chamar as opções que forem sendo escolhidas.
-     */
-    private static void menu() {
-        // Loop infinito.
-        while (true) {
-            int opition = printMenu();
-            switch (opition) {
-                case 1: // Criar contra.
-                    criarConta();
-                    break;
-                case 2: // Sacar.
-                    sacarDeUmaConta();
-                    break;
-                case 3: // Depositar.
-                    depositarEmUmaConta();
-                    break;
-                case 4: // Alterar dados.
-                    alterarConta();
-                    break;
-                case 5: // Transferência entre contas.
-                    transferirEntreContas();
-                    break;
-                case 6: // Listar contas.
-                    listarContas();
-                    break;
-                case 7: // Encerrar conta.
-                    removerConta();
-                    break;
-                case 8: // Fechar programa
-                    System.out.println("Saindo do Sistema. Obrigado pela preferência!");
-                    System.exit(0);
-                default:
-                    System.err.println("Opção Invalida!");
-            }
-        }
-    }
+    private static Menu menu;
 
-    /**
-     *
-     */
     private static void transferirEntreContas() {
         // Procura o Devedor.
         // ToDo: Aprender mais sobre "Para de retornar null e comece a usar OPTIONAL"
@@ -90,9 +53,6 @@ public class Question04_01 extends Question {
         }
     }
 
-    /**
-     *
-     */
     private static void removerConta() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
@@ -105,9 +65,6 @@ public class Question04_01 extends Question {
         }
     }
 
-    /**
-     * Muda uma conta selecionada pelo número da conta.
-     */
     private static void alterarConta() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
@@ -123,9 +80,6 @@ public class Question04_01 extends Question {
         }
     }
 
-    /**
-     * Faz um depósito na conta escolhida.
-     */
     private static void depositarEmUmaConta() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
@@ -140,9 +94,6 @@ public class Question04_01 extends Question {
         }
     }
 
-    /**
-     * Sacar fa conta escolhida.
-     */
     private static void sacarDeUmaConta() {
         System.out.println("Digite o número da Conta:");
         int num = scanner.nextInt();
@@ -157,9 +108,6 @@ public class Question04_01 extends Question {
         }
     }
 
-    /**
-     * Listar todas as contras do banco mostrando no Console.
-     */
     private static void listarContas() {
         if (!banco.getContas().isEmpty()) {
             banco.getContas().forEach(System.out::println);
@@ -168,9 +116,6 @@ public class Question04_01 extends Question {
         }
     }
 
-    /**
-     * Criar uma nova conta.
-     */
     private static void criarConta() {
         System.out.println("Digite o Número da Conta:");
         int numAccount = scanner.nextInt();
@@ -184,40 +129,29 @@ public class Question04_01 extends Question {
         banco.addConta(account);
     }
 
-    /**
-     * Imprime as opições para o Usuário.
-     * <p>
-     * Imprime as opções.
-     * 1) Criar conta.
-     * 2) Sacar
-     * 3) Depositar
-     * 4) Alterar dados
-     * 5) Transferência entre contas.
-     * 6) Listar contas.
-     * 7) Encerrar conta.
-     * 8) Fechar programa.
-     *
-     * @return Valor da opção digitada.
-     */
-    private static int printMenu() {
-        System.out.println("------------------- Menu ---------------------");
-        System.out.println("1 --> Criar uma Conta.");
-        System.out.println("2 --> Sacar.");
-        System.out.println("3 --> Depositar.");
-        System.out.println("4 --> Alterar dados.");
-        System.out.println("5 --> Transferência entre contas.");
-        System.out.println("6 --> Listar contas.");
-        System.out.println("7 --> Encerrar conta.");
-        System.out.println("8 --> Fechar Programa.");
-        System.out.println("Digite a opção: ");
-        return scanner.nextInt(); // Retorna a opção digitada.
-    }
-
     public static void main(String[] args) {
+        init(); // INICIALIZANDO
 
-        // Iniciação do Menu de opições.
-        menu();
+        Scanner scanner = new Scanner(System.in);
 
+        while (true) { // Loop infinito.
+            menu.printMenu();
+            System.out.println("Digite uma opição:");
+            int opition = scanner.nextInt();
+            Optional<Runnable> runnable = Optional.ofNullable(menu.getRunnable(opition));
+            runnable.ifPresentOrElse(Runnable::run, () -> System.err.println("Opção Invalida!"));
+        }
     }
 
+    public static void init(){
+        menu = new Menu();
+        menu.addOption(1, "Criar uma Conta.", () -> criarConta());
+        menu.addOption(2, "Sacar.", () -> sacarDeUmaConta());
+        menu.addOption(3, "Depositar.", () -> depositarEmUmaConta());
+        menu.addOption(4, "Alterar dados.", () -> alterarConta());
+        menu.addOption(5, "Transferência entre contas.", () -> transferirEntreContas());
+        menu.addOption(6, "Listar contas.", () -> listarContas());
+        menu.addOption(7, "Encerrar conta.", () -> removerConta());
+        menu.addOption(99, "Fechar Programa.", () -> fecharPrograma());
+    }
 }

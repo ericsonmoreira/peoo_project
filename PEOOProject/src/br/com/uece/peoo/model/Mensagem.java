@@ -92,7 +92,7 @@ public class Mensagem extends JSONable {
 		return "Mensagem{" +
 				"contato=" + contato +
 				", textoMensagem='" + textoMensagem + '\'' +
-				", data=" + dateFormat.format(this.data) +
+				", data=" + this.data +
 				"}";
 	}
 	

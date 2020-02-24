@@ -1,9 +1,11 @@
 package br.com.uece.peoo.questions;
 
 import br.com.uece.peoo.model.Agenda;
+import br.com.uece.peoo.util.Menu;
 import br.com.uece.peoo.util.Question;
 import br.com.uece.peoo.util.TipoContato;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 /**
@@ -23,30 +25,8 @@ import java.util.Scanner;
 public class Question05_02 extends Question{
 
 	public static Agenda agenda;
-	/**
-	 * Cria um Loop Infinito para chamar as opções que forem sendo escolhidas.
-	 */
-	private static void menu() {
-		// Loop infinito.
-		while (true) {
-			int opition = printMenu();
-			switch (opition) {
-			case 1: // Mostrar todas as mensagens.
-				showTodasMensagens();
-				break;
-			case 2: // Mostrar todas as mensagens enviadas para um certo contato.
-				showTotasMesagensPorContato();
-				break;
-			case 3: // Mostar o total de mensagens.
-				showTotalDeMensagens();
-				break;
-			case 99: // Fechar programa
-				fecharPrograma();
-			default:
-				System.err.println("Opção Invalida!");
-			}
-		}
-	}
+
+	private static Menu menu;
 
 	private static void showTodasMensagens() {
 		agenda.getMensagens().forEach(message -> System.out.println(message));
@@ -66,34 +46,19 @@ public class Question05_02 extends Question{
 				message.getContato().getNome().equals(contactName) ? message + "\n": ""));
 	}
 
-	/**
-	 * Imprime as opições para o Usuário. 
-	 * 
-	 * Imprime as opções.
-	 * 1) Todas as mensagens
-	 * 2) Mensagens de para um contato
-	 * 3) Total de mensagens
-	 * 99) Fechar programa.
-	 * 
-	 * @return Valor da opção digitada.
-	 */
-	private static int printMenu() {
-		System.out.println("------------------- Menu ---------------------");
-		System.out.println("1 --> Todas as mensagens.");
-		System.out.println("2 --> Mensagens de para um contato.");
-		System.out.println("3 --> Total de mensagens.");
-		System.out.println("99 --> Fechar Programa.");
-		System.out.println("Digite a opção: ");
-		int option = scanner.nextInt();
-		return option; // Retorna a opção digitada.
-	}
 
 	public static void main(String[] args) {
-		// Iniciando com alguns valores.
-		init();
-		
-		// Chamando o menu.
-		menu();
+		init(); // INICIALIZANDO
+
+		Scanner scanner = new Scanner(System.in);
+
+		while (true) { // Loop infinito.
+			menu.printMenu();
+			System.out.println("Digite uma opição:");
+			int opition = scanner.nextInt();
+			Optional<Runnable> runnable = Optional.ofNullable(menu.getRunnable(opition));
+			runnable.ifPresentOrElse(Runnable::run, () -> System.err.println("Opção Invalida!"));
+		}
 	}
 
 	private static void init() {
@@ -104,9 +69,9 @@ public class Question05_02 extends Question{
 		agenda.addContato("Edna J. Jones", "(16) 6094-6352");
 		agenda.addContato("James C. Childress", "(11) 6208-9848");
 		agenda.addContato("Amber D. Bosch", "(11) 6888-2177");
-		
+
 		agenda.showContatosPorTipo(TipoContato.TODOS);
-		
+
 		agenda.enviaMessage("(85) 99792-6510", "Olá, tudo bem?");
 		agenda.enviaMessage("(85) 99792-6510", "Comigo também.");
 		agenda.enviaMessage("(85) 99792-6510", "Como vai a família?");
@@ -115,7 +80,12 @@ public class Question05_02 extends Question{
 		agenda.enviaMessage("(11) 2418-6344", "Consegui a venda!");
 		agenda.enviaMessage("(11) 2418-6344", "Meta batida.");
 		agenda.enviaMessage("(11) 2418-6344", "Agora posso entrar de férias.");
-		
-	}
 
+		// Iniciando Menu.
+		menu = new Menu();
+		menu.addOption(1, "Todas as mensagens.", () -> showTodasMensagens());
+		menu.addOption(2, "Mensagens de para um contato.", () -> showTotasMesagensPorContato());
+		menu.addOption(3, "Total de mensagens.", () -> showTotalDeMensagens());
+		menu.addOption(99, "Fechar Programa.", () -> fecharPrograma());
+	}
 }
