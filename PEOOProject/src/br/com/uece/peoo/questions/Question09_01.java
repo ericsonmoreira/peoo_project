@@ -1,9 +1,13 @@
 package br.com.uece.peoo.questions;
 
 import br.com.uece.peoo.model.*;
+import br.com.uece.peoo.util.Menu;
 import br.com.uece.peoo.util.Question;
 
+import java.nio.file.OpenOption;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Optional;
 import java.util.Scanner;
 
 /**
@@ -20,9 +24,20 @@ public class Question09_01 extends Question {
 
     public static ControleRemoto controleRemoto;
 
+    public static Menu MENU = new Menu();
+
     public static void main(String[] args) {
-        init();
-        menu();
+
+        init(); // INICIALIZANDO
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) { // Loop infinito.
+            MENU.printMenu();
+            int opition = scanner.nextInt();
+            Optional<Runnable> runnable = Optional.ofNullable(MENU.getRunnable(opition));
+            runnable.ifPresentOrElse(Runnable::run, () -> System.err.println("Opção Invalida!"));
+        }
     }
 
     /**
@@ -54,51 +69,15 @@ public class Question09_01 extends Question {
 
         // Tentando cadastrar todos os canais nas TVs.
         tvs.forEach(tv -> tv.cadastrarCanais(canais));
-    }
 
-    private static void menu() {
-        // Loop infinito.
-        while (true) {
-            int opition = printMenu();
-            switch (opition) {
-                case 1: // Informar os Dados
-                    controleRemoto.informarDados();
-                    break;
-                case 2: // Aumentar Volume
-                    controleRemoto.aumentarVolume();
-                    break;
-                case 3: // Diminuir Volume.
-                    controleRemoto.diminuirVolume();
-                    break;
-                case 4: // Proximo Canal.
-                    controleRemoto.proximoCanal();
-                    break;
-                case 5: // Canal Anterior.
-                    controleRemoto.canalAnterior();
-                    break;
-                case 6: // Mostrar Grade.
-                    controleRemoto.mostrarGrade();
-                    break;
-                case 99: // Fechar programa
-                default:
-                    System.err.println("Opção Invalida!");
-            }
-        }
-    }
-
-    private static int printMenu() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("------------------- Menu ---------------------");
-        System.out.println("1 --> Informar Dados.");
-        System.out.println("2 --> + Volume.");
-        System.out.println("3 --> - Volume.");
-        System.out.println("4 --> >> Canal.");
-        System.out.println("5 --> << Canal.");
-        System.out.println("6 --> Mostrar Grade.");
-        System.out.println("99 --> Fechar Programa.");
-        System.out.println("Digite a opção: ");
-        int option = scanner.nextInt();
-        return option; // Retorna a opção digitada.
+        // Inicializando o Menu
+        MENU.addOption(1, "Informar Dados.", () -> controleRemoto.informarDados());
+        MENU.addOption(2, "+ Volume.", () -> controleRemoto.aumentarVolume());
+        MENU.addOption(3, "- Volume.", () -> controleRemoto.diminuirVolume());
+        MENU.addOption(4, ">> Canal.", () -> controleRemoto.proximoCanal());
+        MENU.addOption(5, "<< Canal.",() -> controleRemoto.canalAnterior());
+        MENU.addOption(6, "Mostrar Grade.", () -> controleRemoto.mostrarGrade());
+        MENU.addOption(99, "Fechar Programa.", () -> fecharPrograma());
     }
 
 }
