@@ -24,14 +24,6 @@ public class Question07_02 {
 
         System.out.println("Adicionando Contatos");
 
-        // Contatos Gerais
-        agenda.addContato("Ericson Rogerio Moreira", "(85) 99792-6510");
-        agenda.addContato("Christina J. Pelkey", "(11) 2418-6344");
-        agenda.addContato("Donna J. Tapia", "(75) 2000-2662");
-        agenda.addContato("Edna J. Jones", "(16) 6094-6352");
-        agenda.addContato("James C. Childress", "(11) 6208-9848");
-        agenda.addContato("Amber D. Bosch", "(11) 6888-2177");
-
         // Contatos de Trabalho
         agenda.addContatoTrabalho("Ericson Rogerio Moreira", "(85) 99792-6510", "TI");
         agenda.addContatoTrabalho("Christina J. Pelkey", "(11) 2418-6344", "TI");
@@ -49,7 +41,7 @@ public class Question07_02 {
         agenda.addContatoInfancia("Amber D. Bosch", "(11) 6888-2177",21);
 
         // Mostranto todas as pessoas
-        agenda.showTodosContatosGeral();
+        agenda.showTodosContatos();
 
         System.out.println("Procurando pessoas pelo Fone");
 
@@ -64,7 +56,7 @@ public class Question07_02 {
         agenda.mudaTelefoneDoContato("James C. Childress", "(11) 6208-0000");
         agenda.mudaTelefoneDoContato("Amber C. Bosch", "(11) 6888-2177"); // O nome dessa pessoa está errado.
 
-        agenda.showTodosContatosGeral();
+        agenda.showTodosContatos();
 
         System.out.println("Remover pessoas");
 
@@ -72,7 +64,7 @@ public class Question07_02 {
         agenda.removerContato("Amber D. Bosch");
         agenda.removerContato("Amber C. Bosch"); // O nome dessa pessoa está errado.
 
-        agenda.showTodosContatosGeral();
+        agenda.showTodosContatos();
 
         System.out.println("Todos contatos de trabalho do setor de TI");
         agenda.showContatosPorSetorDeTrabalho("TI");

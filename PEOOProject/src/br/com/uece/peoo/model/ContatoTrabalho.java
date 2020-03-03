@@ -26,11 +26,11 @@ public class ContatoTrabalho extends Contato {
 
     @Override
     public String toString() {
-        return "Contato{" +
-                "nome='" + nome + '\'' +
+        return "ContatoTrabalho{" +
+                "setor='" + setor + '\'' +
+                ", nome='" + nome + '\'' +
                 ", telefone='" + telefone + '\'' +
-                ", setor='" + setor + '\'' +
-                "}";
+                '}';
     }
 
     @Override

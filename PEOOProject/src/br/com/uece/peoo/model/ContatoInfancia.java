@@ -22,16 +22,13 @@ public class ContatoInfancia extends Contato {
         setIdade(idade);
     }
 
-    /**
-     * @return Uma {@link String} representando um Contato de Infância.
-     */
     @Override
     public String toString() {
-        return "Contato{" +
-                "nome='" + nome + '\'' +
+        return "ContatoInfancia{" +
+                "idade=" + idade +
+                ", nome='" + nome + '\'' +
                 ", telefone='" + telefone + '\'' +
-                ", idade='" + idade + '\'' +
-                "}";
+                '}';
     }
 
     /**

@@ -29,7 +29,7 @@ public class Question05_02 extends Question{
 	private static Menu menu;
 
 	private static void showTodasMensagens() {
-		agenda.getMensagens().forEach(message -> System.out.println(message));
+		agenda.getMensagens().forEach(System.out::println);
 	}
 
 	private static void showTotalDeMensagens() {
@@ -63,12 +63,23 @@ public class Question05_02 extends Question{
 
 	private static void init() {
 		agenda = new Agenda();
-		agenda.addContato("Ericson Rogerio Moreira", "(85) 99792-6510");
-		agenda.addContato("Christina J. Pelkey", "(11) 2418-6344");
-		agenda.addContato("Donna J. Tapia", "(75) 2000-2662");
-		agenda.addContato("Edna J. Jones", "(16) 6094-6352");
-		agenda.addContato("James C. Childress", "(11) 6208-9848");
-		agenda.addContato("Amber D. Bosch", "(11) 6888-2177");
+
+
+		// Contatos de Trabalho
+		agenda.addContatoTrabalho("Ericson Rogerio Moreira", "(85) 99792-6510", "TI");
+		agenda.addContatoTrabalho("Christina J. Pelkey", "(11) 2418-6344", "TI");
+		agenda.addContatoTrabalho("Donna J. Tapia", "(75) 2000-2662", "RH");
+		agenda.addContatoTrabalho("Edna J. Jones", "(16) 6094-6352", "RH");
+		agenda.addContatoTrabalho("James C. Childress", "(11) 6208-9848", "RH");
+		agenda.addContatoTrabalho("Amber D. Bosch", "(11) 6888-2177", "ADM");
+
+		// Contatos de Infância
+		agenda.addContatoInfancia("Ericson Rogerio Moreira", "(85) 99792-6510", 32);
+		agenda.addContatoInfancia("Christina J. Pelkey", "(11) 2418-6344", 20);
+		agenda.addContatoInfancia("Donna J. Tapia", "(75) 2000-2662", 29);
+		agenda.addContatoInfancia("Edna J. Jones", "(16) 6094-6352", 34);
+		agenda.addContatoInfancia("James C. Childress", "(11) 6208-9848", 56);
+		agenda.addContatoInfancia("Amber D. Bosch", "(11) 6888-2177",21);
 
 		agenda.showContatosPorTipo(TipoContato.TODOS);
 

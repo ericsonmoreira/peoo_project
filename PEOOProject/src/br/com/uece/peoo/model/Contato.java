@@ -10,7 +10,7 @@ import org.json.simple.parser.ParseException;
  *
  * @author Ericson R. Moreira {@link ericson.moreira@aluno.uece.br }
  */
-public class Contato extends JSONable {
+public abstract class Contato extends JSONable {
 
     protected String nome;
 

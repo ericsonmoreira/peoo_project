@@ -1,6 +1,8 @@
 package br.com.uece.peoo.questions;
 
 import br.com.uece.peoo.model.Agenda;
+import br.com.uece.peoo.model.ContatoInfancia;
+import br.com.uece.peoo.model.ContatoTrabalho;
 import br.com.uece.peoo.util.Question;
 import br.com.uece.peoo.util.TipoContato;
 
@@ -20,13 +22,13 @@ public class Question05_01 extends Question{
 		Agenda agenda = new Agenda();
 
 		System.out.println("Adicionando pessoas");
-		
-		agenda.addContato("Ericson Rogerio Moreira", "(85) 99792-6510");
-		agenda.addContato("Christina J. Pelkey", "(11) 2418-6344");
-		agenda.addContato("Donna J. Tapia", "(75) 2000-2662");
-		agenda.addContato("Edna J. Jones", "(16) 6094-6352");
-		agenda.addContato("James C. Childress", "(11) 6208-9848");
-		agenda.addContato("Amber D. Bosch", "(11) 6888-2177");
+		// nao existem mais contatos genericos
+		agenda.addContato(new ContatoInfancia("Ericson Rogerio Moreira", "(85) 99792-6510", 32));
+		agenda.addContato(new ContatoInfancia("Christina J. Pelkey", "(11) 2418-6344", 25));
+		agenda.addContato(new ContatoInfancia("Donna J. Tapia", "(75) 2000-2662", 20));
+		agenda.addContato(new ContatoInfancia("Edna J. Jones", "(16) 6094-6352", 40));
+		agenda.addContato(new ContatoTrabalho("James C. Childress", "(11) 6208-9848", "TI"));
+		agenda.addContato(new ContatoTrabalho("Amber D. Bosch", "(11) 6888-2177", "TI"));
 
 		// Mostranto todas as pessoas
 		agenda.showContatosPorTipo(TipoContato.TODOS);

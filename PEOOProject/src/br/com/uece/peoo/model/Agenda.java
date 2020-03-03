@@ -6,6 +6,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Classe para representar uma Agenda.
@@ -16,12 +18,6 @@ public class Agenda extends JSONable {
 
     // Lista de pessoas (Contatos)
     private ArrayList<Contato> contatos;
-
-    // Lista de pessoas (Contatos)
-    private ArrayList<ContatoTrabalho> contatosTrabalho;
-
-    // Lista de pessoas (Contatos)
-    private ArrayList<ContatoInfancia> contatosInfancia;
 
     // Lista de mensagens.
     private ArrayList<Mensagem> mensagens;
@@ -45,47 +41,12 @@ public class Agenda extends JSONable {
         this.mensagens = mensagens;
     }
 
-    public ArrayList<ContatoTrabalho> getContatosTrabalho() {
-        return contatosTrabalho;
-    }
-
-    public void setContatosTrabalho(ArrayList<ContatoTrabalho> contatosTrabalho) {
-        this.contatosTrabalho = contatosTrabalho;
-    }
-
-    public ArrayList<ContatoInfancia> getContatosInfancia() {
-        return contatosInfancia;
-    }
-
-    public void setContatosInfancia(ArrayList<ContatoInfancia> contatosInfancia) {
-        this.contatosInfancia = contatosInfancia;
-    }
-
     /**
      * Construtor padão.
      */
     public Agenda() {
         setContatos(new ArrayList<Contato>());
         setMensagens(new ArrayList<Mensagem>());
-        setContatosTrabalho(new ArrayList<ContatoTrabalho>());
-        setContatosInfancia(new ArrayList<ContatoInfancia>());
-    }
-
-    /**
-     * Adiciona uma {@link Contato} na lista de Pessoas.
-     *
-     * @param contato
-     */
-    public void addContato(Contato contato) {
-        this.contatos.add(contato);
-    }
-
-    public  void addContatoTrabalho(ContatoTrabalho contatoTrabalho){
-        this.contatosTrabalho.add(contatoTrabalho);
-    }
-
-    public  void addContatoInfancia(ContatoInfancia contatoInfancia){
-        this.contatosInfancia.add(contatoInfancia);
     }
 
     /**
@@ -94,8 +55,8 @@ public class Agenda extends JSONable {
      * @param name Nome da pessoa.
      * @param fone Telefone da pessoa.
      */
-    public void addContato(String name, String fone) {
-        this.addContato(new Contato(name, fone));
+    public void addContato(Contato contato) {
+        this.contatos.add(contato);
     }
 
     /**
@@ -106,7 +67,7 @@ public class Agenda extends JSONable {
      * @param setor Setor do contato.
      */
     public void addContatoTrabalho(String name, String fone, String setor) {
-        this.addContatoTrabalho(new ContatoTrabalho(name, fone, setor));
+        this.addContato(new ContatoTrabalho(name, fone, setor));
     }
 
     /**
@@ -118,6 +79,24 @@ public class Agenda extends JSONable {
      */
     public void addContatoInfancia(String name, String fone, int idade) {
         this.addContato(new ContatoInfancia(name, fone, idade));
+    }
+
+    /**
+     * Get dos contatos que sao contatos de trabalho.
+     *
+     * @return
+     */
+    public List<Contato> getContatosTrabalho(){
+        return contatos.stream().filter(contato -> contato instanceof ContatoTrabalho).collect(Collectors.toList());
+    }
+
+    /**
+     * Get dos contatos que sao contatos de infancia.
+     *
+     * @return
+     */
+    public List<Contato> getContatosInfancia(){
+        return contatos.stream().filter(contato -> contato instanceof ContatoInfancia).collect(Collectors.toList());
     }
 
     /**
@@ -182,24 +161,24 @@ public class Agenda extends JSONable {
     }
 
     /**
-     * Método para mostrar todas {@link Contato}.
+     * Método para mostrar todas {@link ContatoTrabalho}.
      */
-    public void showTodosContatosGeral() {
-        contatos.forEach(System.out::println);
+    public void showTodosContatos() {
+        this.contatos.forEach(System.out::println);
     }
 
     /**
      * Método para mostrar todas {@link ContatoTrabalho}.
      */
     public void showTodosContatosTrabalho() {
-        contatosTrabalho.forEach(System.out::println);
+        this.contatos.stream().filter(contato -> contato instanceof ContatoTrabalho).forEach(System.out::println);
     }
 
     /**
      * Método para mostrar todas {@link ContatoInfancia}.
      */
     public void showTodosContatosInfancia() {
-        contatosInfancia.forEach(System.out::println);
+        this.contatos.stream().filter(contato -> contato instanceof ContatoInfancia).forEach(System.out::println);
     }
 
     /**
@@ -208,7 +187,8 @@ public class Agenda extends JSONable {
      * @param setor Setor de Trabalho.
      */
     public void showContatosPorSetorDeTrabalho(String setor){
-        contatosTrabalho.stream().filter(ct -> ct.getSetor().equals(setor)).forEach(System.out::println);
+        this.getContatosTrabalho().stream().
+                filter(ct -> ((ContatoTrabalho) ct).getSetor().equals(setor)).forEach(System.out::println);
     }
 
     /**
@@ -216,9 +196,6 @@ public class Agenda extends JSONable {
      */
     public void showContatosPorTipo(TipoContato tipoContato) {
         switch (tipoContato){
-            case GERAL:
-                showTodosContatosGeral();
-                break;
             case INFANCIA:
                 showTodosContatosInfancia();
                 break;
@@ -226,7 +203,6 @@ public class Agenda extends JSONable {
                 showTodosContatosTrabalho();
                 break;
             case TODOS:
-                showTodosContatosGeral();
                 showTodosContatosTrabalho();
                 showTodosContatosInfancia();
                 break;
@@ -257,8 +233,8 @@ public class Agenda extends JSONable {
     public String toString() {
         return "Agenda{" +
                 "contatos=" + contatos +
-                ", contatosTrabalho=" + contatosTrabalho +
-                ", contatosInfancia=" + contatosInfancia +
+                ", contatosTrabalho=" + getContatosTrabalho() +
+                ", contatosInfancia=" + getContatosInfancia() +
                 ", mensagens=" + mensagens +
                 "}";
     }
