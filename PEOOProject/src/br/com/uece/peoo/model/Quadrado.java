@@ -3,7 +3,7 @@ package br.com.uece.peoo.model;
 /**
  * Classe para representar um gradrado
  */
-public class Quadrado extends Figura{
+public class Quadrado extends Figura implements FiguraGeometrica{
 
     private double lado;
 

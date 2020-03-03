@@ -1,9 +1,6 @@
 package br.com.uece.peoo.questions;
 
-import br.com.uece.peoo.model.Circulo;
-import br.com.uece.peoo.model.Figura;
-import br.com.uece.peoo.model.Quadrado;
-import br.com.uece.peoo.model.Triangulo;
+import br.com.uece.peoo.model.*;
 
 import java.util.ArrayList;
 
@@ -19,6 +16,7 @@ public class Question10_01 {
     public static void main(String[] args) {
 
         ArrayList<Figura> figuras = new ArrayList<>();
+
         figuras.add(new Circulo(2));
         figuras.add(new Circulo(3));
         figuras.add(new Circulo(4));
@@ -39,6 +37,23 @@ public class Question10_01 {
         figuras.add(new Triangulo(2, 2, 2));
 
         figuras.forEach(figura -> System.out.println(figura + " | " + figura.getDados()));
+
+        ArrayList<FiguraGeometrica> figurasGeometricas = new ArrayList<>();
+        figurasGeometricas.add(new Quadrado(1));
+        figurasGeometricas.add(new Quadrado(2));
+        figurasGeometricas.add(new Quadrado(3));
+        figurasGeometricas.add(new Quadrado(4));
+        figurasGeometricas.add(new Quadrado(5));
+        figurasGeometricas.add(new Quadrado(6));
+
+        figurasGeometricas.add(new Retangulo(10, 20));
+        figurasGeometricas.add(new Retangulo(100, 20));
+        figurasGeometricas.add(new Retangulo(1, 20));
+        figurasGeometricas.add(new Retangulo(150, 2));
+        figurasGeometricas.add(new Retangulo(160, 2000));
+
+
+        figurasGeometricas.forEach(figura -> System.out.println(figura + " | area=" + figura.calcularArea()));
 
     }
 }
