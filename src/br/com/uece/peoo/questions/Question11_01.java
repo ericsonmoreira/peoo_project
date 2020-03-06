@@ -6,7 +6,7 @@ import br.com.uece.peoo.util.Menu;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Queston11_01 {
+public class Question11_01 {
     public static Calculadora calculadora;
 
     public static Menu menu;

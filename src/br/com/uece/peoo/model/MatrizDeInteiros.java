@@ -21,6 +21,10 @@ public class MatrizDeInteiros {
 
     private int[][] matriz;
 
+    public int[][] getMatriz() {
+        return matriz;
+    }
+
     public MatrizDeInteiros(int n) {
         matriz = new int[n][n];
     }
@@ -54,7 +58,9 @@ public class MatrizDeInteiros {
 
     /**
      * Verifica se a matriz é quatrática. Uma Matriz eh quantrática quando o nummero de linhas é igual ao
-     * numero de colunas.
+     * numero de colunas. Infelizmente, esse método é redundante, pois se uma {@link MatrizDeInteiros }
+     * sempre será N x N, então ela será sempre quadrática. Acho que o professor não percebeu isso ou deve
+     * estar pensando numa atualzação da questão para porterior.
      *
      * @return true se for quadrática, false caso contrário.
      *
@@ -87,15 +93,5 @@ public class MatrizDeInteiros {
             }
         }
         return -1;
-    }
-
-    public static void main(String[] args) {
-        MatrizDeInteiros matrizDeInteiros = new MatrizDeInteiros(10);
-        System.out.println(matrizDeInteiros);
-        matrizDeInteiros.setElem(1, 1, 10);
-        matrizDeInteiros.setElem(1, 2, 10);
-        matrizDeInteiros.showMatriz();
-
-        System.out.println(matrizDeInteiros.somaTodos());
     }
 }
