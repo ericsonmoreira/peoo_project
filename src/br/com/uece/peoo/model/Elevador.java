@@ -80,18 +80,29 @@ public class Elevador {
     }
 
     /**
-     * b. entra: para acrescentar uma pessoa no elevador (só deve acrescentar se ainda houver
-     * espaço).
+     * b. entra: para acrescentar uma pessoa no elevador (só deve acrescentar se ainda houver espaço).
+     *
+     * @return true se uma pessoa entrou com sucesso, false, caso contrário.
      */
-    public void entra() {
-        if (podeEntrar()) pessoasPresentes++;
+    public boolean entra() {
+        if (podeEntrar()) {
+            pessoasPresentes++;
+            return true;
+        }
+        return false;
     }
 
     /**
      * c. sobe: para subir um andar (não deve subir se já estiver no último andar);
+     *
+     * @return true se o elevador subiu com sucesso, false, caso contrário.
      */
-    public void sobe() {
-        if (andarAtual < totalAndares) andarAtual++;
+    public boolean sobe() {
+        if (andarAtual < totalAndares) {
+            andarAtual++;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -104,17 +115,34 @@ public class Elevador {
         if (andar >= 0 && andar <= totalAndares) {
             setAndarAtual(andar);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
-    public void sai() {
-        if (pessoasPresentes > 0) pessoasPresentes--;
+    /**
+     * Uma pessoa tentando sair do elevador.
+     *
+     * @return true, caso alguém saia com sucesso, false, caso contrário.
+     */
+    public boolean sai() {
+        if (pessoasPresentes > 0) {
+            pessoasPresentes--;
+            return true;
+        }
+        return false;
     }
 
-    public void desce() {
-        if (andarAtual > 0) andarAtual--;
+    /**
+     * Elevandor tentando descer.
+     *
+     * @return true, caso o elevador consiga descer, false, caso contrário.
+     */
+    public boolean desce() {
+        if (andarAtual > 0) {
+            andarAtual--;
+            return true;
+        }
+        return false;
     }
 
     /**

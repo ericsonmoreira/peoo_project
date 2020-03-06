@@ -22,20 +22,37 @@ public class Question11_03 {
         elevador = new Elevador(6, 10);
         menu = new Menu();
 
-        menu.addOption(1, "Entrar", () -> elevador.entra());
+        // Adicionando aqui as opções para o menu interativo.
+        menu.addOption(1, "Entrar", () -> {
+            if (!elevador.entra()) {
+                System.err.println("Erro ao tentar Entrar");
+            }
+        });
 
-        menu.addOption(2, "Sair", () -> elevador.sai());
+        menu.addOption(2, "Sair", () -> {
+            if (!elevador.sai()) {
+                System.err.println("Erro ao tentar Sair");
+            }
+        });
 
-        menu.addOption(3, "Subir", () -> elevador.sobe());
+        menu.addOption(3, "Subir", () -> {
+            if (!elevador.sobe()) {
+                System.err.println("Erro ao tentar Subir");
+            }
+        });
 
-        menu.addOption(4, "Descer", () -> elevador.desce());
+        menu.addOption(4, "Descer", () -> {
+            if (!elevador.entra()) {
+                System.err.println("Erro ao tentar Descer");
+            }
+        });
 
         menu.addOption(5, "Ir para um Andar", () -> {
             try {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Digite o andar desejado");
                 int andar = scanner.nextInt();
-                if (elevador.irAndar(andar)) {
+                if (!elevador.irAndar(andar)) {
                     System.err.println("Andar: " + andar + " inválido.");
                 }
             } catch (Exception e) {
